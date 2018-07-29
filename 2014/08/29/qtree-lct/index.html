@@ -1,0 +1,1782 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="早就想把QTREE序列搞完的，一直拖到现在才搞。 使用LCT把QTREE序列都搞了一遍。先贴个题目链接：QTREE1 QTREE2 QTREE3 QTREE4 QTREE5 QTREE6 QTREE7   QTREE6和QTREE7是岛娘的经典之作，简直不能更经典。 QTREE1，QTRE2，QTREE3都是比较水的了，搞路径的都比较简单，QTREE4和QTREE5是子树的比较赞。     QTR">
+<meta name="keywords" content="ACM,数据结构,LCT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="QTREE系列1~7 的 LCT解法">
+<meta property="og:url" content="http://yoursite.com/2014/08/29/qtree-lct/index.html">
+<meta property="og:site_name" content="kuangbin的博客">
+<meta property="og:description" content="早就想把QTREE序列搞完的，一直拖到现在才搞。 使用LCT把QTREE序列都搞了一遍。先贴个题目链接：QTREE1 QTREE2 QTREE3 QTREE4 QTREE5 QTREE6 QTREE7   QTREE6和QTREE7是岛娘的经典之作，简直不能更经典。 QTREE1，QTRE2，QTREE3都是比较水的了，搞路径的都比较简单，QTREE4和QTREE5是子树的比较赞。     QTR">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-07-29T05:43:28.997Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="QTREE系列1~7 的 LCT解法">
+<meta name="twitter:description" content="早就想把QTREE序列搞完的，一直拖到现在才搞。 使用LCT把QTREE序列都搞了一遍。先贴个题目链接：QTREE1 QTREE2 QTREE3 QTREE4 QTREE5 QTREE6 QTREE7   QTREE6和QTREE7是岛娘的经典之作，简直不能更经典。 QTREE1，QTRE2，QTREE3都是比较水的了，搞路径的都比较简单，QTREE4和QTREE5是子树的比较赞。     QTR">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="kuangbin的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2014/08/29/qtree-lct/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>QTREE系列1~7 的 LCT解法 | kuangbin的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/kuangbin"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kuangbin的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-catalogue">
+    <a href="/catalogue/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />目录</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2014/08/29/qtree-lct/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kuangbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blogLogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kuangbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">QTREE系列1~7 的 LCT解法
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-08-29 10:26:35" itemprop="dateCreated datePublished" datetime="2014-08-29T10:26:35+08:00">2014-08-29</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-29 13:43:28" itemprop="dateModified" datetime="2018-07-29T13:43:28+08:00">2018-07-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LCT/" itemprop="url" rel="index"><span itemprop="name">LCT</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LCT/数据结构/" itemprop="url" rel="index"><span itemprop="name">数据结构</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/LCT/数据结构/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h2 id="早就想把QTREE序列搞完的，一直拖到现在才搞。-使用LCT把QTREE序列都搞了一遍。"><a href="#早就想把QTREE序列搞完的，一直拖到现在才搞。-使用LCT把QTREE序列都搞了一遍。" class="headerlink" title="早就想把QTREE序列搞完的，一直拖到现在才搞。 使用LCT把QTREE序列都搞了一遍。"></a>早就想把QTREE序列搞完的，一直拖到现在才搞。 使用LCT把QTREE序列都搞了一遍。</h2><h3 id="先贴个题目链接："><a href="#先贴个题目链接：" class="headerlink" title="先贴个题目链接："></a>先贴个题目链接：</h3><p><a href="http://www.spoj.com/problems/QTREE/" target="_blank" rel="noopener">QTREE1</a> <a href="http://www.spoj.com/problems/QTREE2/" target="_blank" rel="noopener">QTREE2</a> <a href="http://www.spoj.com/problems/QTREE3/" target="_blank" rel="noopener">QTREE3</a> <a href="http://www.spoj.com/problems/QTREE4/" target="_blank" rel="noopener">QTREE4</a> <a href="http://www.spoj.com/problems/QTREE5/" target="_blank" rel="noopener">QTREE5</a> <a href="http://www.spoj.com/problems/QTREE6/" target="_blank" rel="noopener">QTREE6</a> <a href="http://www.spoj.com/problems/QTREE7/" target="_blank" rel="noopener">QTREE7</a>   QTREE6和QTREE7是岛娘的经典之作，简直不能更经典。 QTREE1，QTRE2，QTREE3都是比较水的了，搞路径的都比较简单，QTREE4和QTREE5是子树的比较赞。    </p>
+<h2 id="QTREE1"><a href="#QTREE1" class="headerlink" title="QTREE1"></a><a href="http://www.spoj.com/problems/QTREE/" target="_blank" rel="noopener">QTREE1</a></h2><p>题意： 给定一棵n个结点的树，树的边上有权。有两种操作： 1.修改一条边上的权值。 2.查询两个结点x和y之间的最短路径中经过的最大的边的权值。 其中\(n&lt;=10^4\)   很水了，LCT直接搞就是了，维护最大值。 有点卡常数，SPOJ太慢了！SPOJ太慢了！SPOJ太慢了！SPOJ太慢了！ 反正代码没怎么优化，有的时候还加了输入挂，各种优化加上去就难看了。</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/26 17:58:27<br>File Name     :E:\2014ACM\专题学习\数据结构\LCT\QTREE\SPOJQTREE.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>// <a href="http://www.spoj.com/problems/QTREE/" target="_blank" rel="noopener">http://www.spoj.com/problems/QTREE/</a><br>const int MAXN = 10010;<br>struct Node <em>null;<br>struct Node{<br>    Node \</em>fa,*ch[2];<br>    int Max,key;<br>    inline void push_up(){<br>        if(this == null)return;<br>        Max = max(key,max(ch[0]-&gt;Max,ch[1]-&gt;Max));<br>    }<br>    inline void setc(Node <em>p,int d){<br>        ch[d] = p;<br>        p-&gt;fa = this;<br>    }<br>    inline bool d(){<br>        return  fa-&gt;ch[1] == this;<br>    }<br>    inline bool isroot() {<br>        return fa == null || fa-&gt;ch[0] != this &amp;&amp; fa-&gt;ch[1] != this;<br>    }<br>    inline void rot(){<br>        Node \</em>f = fa,*ff = fa-&gt;fa;<br>        int c = d(), cc = fa-&gt;d();<br>        f-&gt;setc(ch[!c],c);<br>        this-&gt;setc(f,!c);<br>        if(ff-&gt;ch[cc] == f)ff-&gt;setc(this,cc);<br>        else this-&gt;fa = ff;<br>        f-&gt;push_up();<br>    }<br>    inline Node<em> splay(){<br>        while(!isroot()){<br>            if(!fa-&gt;isroot())<br>                d()==fa-&gt;d() ? fa-&gt;rot() : rot();<br>            rot();<br>        }<br>        push_up();<br>        return this;<br>    }<br>    inline Node</em> access(){<br>        for(Node *p = this,*q = null; p != null; q = p, p = p-&gt;fa){<br>            p-&gt;splay()-&gt;setc(q,1);<br>            p-&gt;push_up();<br>        }<br>        return splay();<br>    }<br>};<br>Node pool[MAXN],<em>tail;<br>Node </em>node[MAXN];<br>void init(int n){<br>    tail = pool;<br>    null = tail++;<br>    null-&gt;fa = null-&gt;ch[0] = null-&gt;ch[1] = null;<br>    null-&gt;Max = null-&gt;key = 0;<br>    for(int i = 1;i &lt;= n;i++){<br>        node[i] = tail++;<br>        node[i]-&gt;fa = node[i]-&gt;ch[0] = node[i]-&gt;ch[1] = null;<br>        node[i]-&gt;Max = node[i]-&gt;key = 0;<br>    }<br>}<br>struct Edge{<br>    int to,next;<br>    int w,id;<br>}edge[MAXN<em>2];<br>int head[MAXN],tot;<br>inline int addedge(int u,int v,int w,int id){<br>    edge[tot].to = v;<br>    edge[tot].w = w;<br>    edge[tot].id = id;<br>    edge[tot].next = head[u];<br>    head[u] = tot++;<br>}<br>Node </em>ee[MAXN];<br>bool vis[MAXN];<br>void bfs(int n){<br>    for(int i = 1;i &lt;= n;i++)vis[i] = false;<br>    queue<int>q;<br>    q.push(1);<br>    vis[1] = true;<br>    while(!q.empty()){<br>        int u = q.front();<br>        q.pop();<br>        for(int i = head[u];i != -1;i = edge[i].next){<br>            int v = edge[i].to;<br>            if(vis[v])continue;<br>            vis[v] = true;<br>            q.push(v);<br>            ee[edge[i].id] = node[v];<br>            node[v]-&gt;key = edge[i].w;<br>            node[v]-&gt;push_up();<br>            node[v]-&gt;fa = node[u];<br>        }<br>    }<br>}<br>inline int ask(Node *x,Node *y){<br>    x-&gt;access();<br>    for(x = null; y != null; x = y, y = y-&gt;fa){<br>        y-&gt;splay();<br>        if(y-&gt;fa == null)return max(y-&gt;ch[1]-&gt;Max,x-&gt;Max);<br>        y-&gt;setc(x,1);<br>        y-&gt;push_up();<br>    }<br>}<br>int main()<br>{<br>    int T;<br>    scanf(“%d”,&amp;T);<br>    int n;<br>    while(T–){<br>        scanf(“%d”,&amp;n);<br>        for(int i = 1;i &lt;= n;i++)head[i] = -1;<br>        tot = 0;<br>        init(n);<br>        int u,v,w;<br>        for(int i = 1;i &lt; n;i++){<br>            scanf(“%d%d%d”,&amp;u,&amp;v,&amp;w);<br>            addedge(u,v,w,i);<br>            addedge(v,u,w,i);<br>        }<br>        bfs(n);<br>        char op[20];<br>        int x,y;<br>        while(scanf(“%s”,op) == 1){<br>            if(strcmp(op,”DONE”) == 0)break;<br>            scanf(“%d%d”,&amp;x,&amp;y);<br>            if(op[0] == ‘Q’){<br>                printf(“%d\n”,ask(node[x],node[y]));<br>            }<br>            else {<br>                ee[x]-&gt;splay()-&gt;key = y;<br>                ee[x]-&gt;push_up();<br>            }<br>        }<br>    }<br>    return 0;<br>}</int></p>
+<h2 id="QTREE2"><a href="#QTREE2" class="headerlink" title="QTREE2"></a><a href="http://www.spoj.com/problems/QTREE2/" target="_blank" rel="noopener">QTREE2</a></h2><p>题意： 给定一棵n个结点的树，树的边上有权。有两种操作： 1.查询两个结点x和y之间的最短路径长度。 2.查询从x到y的最短路径的第K条边的长度。 其中 \(n&lt;=10^4\)   连修改操作都没有，简直随便搞！</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/26 21:42:19<br>File Name     :E:\2014ACM\专题学习\数据结构\LCT\QTREE\SPOJQTREE2.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>// <a href="http://www.spoj.com/problems/QTREE2/" target="_blank" rel="noopener">http://www.spoj.com/problems/QTREE2/</a><br>const int MAXN = 10010;<br>struct Node <em>null;<br>struct Node{<br>    Node \</em>fa,*ch[2];<br>    int sum,val;<br>    int size;<br>    int id;<br>    void clear(){<br>        fa = ch[0] = ch[1] = null;<br>        sum = val = 0;<br>        size = 1;<br>    }<br>    inline void push_up(){<br>        if(this == null)return;<br>        sum = val + ch[0]-&gt;sum + ch[1]-&gt;sum;<br>        size = ch[0]-&gt;size + ch[1]-&gt;size + 1;<br>    }<br>    inline void setc(Node <em>p,int d){<br>        ch[d] = p;<br>        p-&gt;fa = this;<br>    }<br>    inline bool d(){<br>        return fa-&gt;ch[1] == this;<br>    }<br>    inline bool isroot(){<br>        return fa == null || fa-&gt;ch[0] != this &amp;&amp; fa-&gt;ch[1] != this;<br>    }<br>    inline void rot(){<br>        Node \</em>f = fa, *ff = fa-&gt;fa;<br>        int c = d(), cc = fa-&gt;d();<br>        f-&gt;setc(ch[!c],c);<br>        this-&gt;setc(f,!c);<br>        if(ff-&gt;ch[cc] == f)ff-&gt;setc(this,cc);<br>        else this-&gt;fa = ff;<br>        f-&gt;push_up();<br>    }<br>    inline Node<em> splay(){<br>        while(!isroot()){<br>            if(!fa-&gt;isroot())<br>                d()==fa-&gt;d() ? fa-&gt;rot() : rot();<br>            rot();<br>        }<br>        push_up();<br>        return this;<br>    }<br>    inline Node</em> access(){<br>        for(Node *p = this,*q = null; p != null; q = p, p = p-&gt;fa){<br>            p-&gt;splay()-&gt;setc(q,1);<br>            p-&gt;push_up();<br>        }<br>        return splay();<br>    }<br>};<br>Node pool[MAXN],<em>tail;<br>Node </em>node[MAXN];<br>void init(int n){<br>    tail = pool;<br>    null = tail++;<br>    null-&gt;fa = null-&gt;ch[0] = null-&gt;ch[1] = null;<br>    null-&gt;size = null-&gt;sum = null-&gt;val = 0;<br>    for(int i = 1;i &lt;= n;i++){<br>        node[i] = tail++;<br>        node[i]-&gt;id = i;<br>        node[i]-&gt;clear();<br>    }<br>}<br>struct Edge{<br>    int to,next;<br>    int w;<br>}edge[MAXN<em>2];<br>int head[MAXN],tot;<br>inline void addedge(int u,int v,int w){<br>    edge[tot].to = v;<br>    edge[tot].w = w;<br>    edge[tot].next = head[u];<br>    head[u] = tot++;<br>}<br>void dfs(int u,int pre){<br>    for(int i = head[u];i != -1;i = edge[i].next){<br>        int v = edge[i].to;<br>        if(v == pre)continue;<br>        dfs(v,u);<br>        node[v]-&gt;val = edge[i].w;<br>        node[v]-&gt;push_up();<br>        node[v]-&gt;fa = node[u];<br>    }<br>}<br>//查询x-&gt;y的距离<br>inline int query_sum(Node \</em>x,Node *y){<br>    x-&gt;access();<br>    for(x = null; y != null; x = y, y = y-&gt;fa){<br>        y-&gt;splay();<br>        if(y-&gt;fa == null)<br>            return y-&gt;ch[1]-&gt;sum + x-&gt;sum;<br>        y-&gt;setc(x,1);<br>        y-&gt;push_up();<br>    }<br>}<br>//在splay中得到第k个点<br>Node<em> get_kth(Node</em> r,int k){<br>    Node <em>x = r;<br>    while(x-&gt;ch[0]-&gt;size+1 != k){<br>        if(k &lt; x-&gt;ch[0]-&gt;size+1)x = x-&gt;ch[0];<br>        else {<br>            k -= x-&gt;ch[0]-&gt;size+1;<br>            x = x-&gt;ch[1];<br>        }<br>    }<br>    return x;<br>}<br>//查询x-&gt;y路径上的第k个点<br>inline int query_kth(Node \</em>x,Node *y,int k){<br>    x-&gt;access();<br>    for(x = null; y != null; x = y, y = y-&gt;fa){<br>        y-&gt;splay();<br>        if(y-&gt;fa == null){<br>            if(y-&gt;ch[1]-&gt;size+1 == k)return y-&gt;id;<br>            else if(y-&gt;ch[1]-&gt;size+1 &gt; k)<br>                return get_kth(y-&gt;ch[1],y-&gt;ch[1]-&gt;size+1-k)-&gt;id;<br>            else return get_kth(x,k-(y-&gt;ch[1]-&gt;size+1))-&gt;id;<br>        }<br>        y-&gt;setc(x,1);<br>        y-&gt;push_up();<br>    }<br>}<br>int main()<br>{<br>    int T,n;<br>    scanf(“%d”,&amp;T);<br>    while(T–){<br>        scanf(“%d”,&amp;n);<br>        for(int i = 1;i &lt;= n;i++)head[i] = -1;<br>        tot = 0;<br>        init(n);<br>        int u,v,w;<br>        for(int i = 1;i &lt; n;i++){<br>            scanf(“%d%d%d”,&amp;u,&amp;v,&amp;w);<br>            addedge(u,v,w);<br>            addedge(v,u,w);<br>        }<br>        dfs(1,1);<br>        char op[20];<br>        while(scanf(“%s”,op) == 1){<br>            if(strcmp(op,”DONE”) == 0)break;<br>            if(op[0] == ‘D’){<br>                scanf(“%d%d”,&amp;u,&amp;v);<br>                printf(“%d\n”,query_sum(node[u],node[v]));<br>            }<br>            else {<br>                int k; scanf(“%d%d%d”,&amp;u,&amp;v,&amp;k);<br>                printf(“%d\n”,query_kth(node[u],node[v],k));<br>            }<br>        }<br>    }<br>    return 0;<br>}</p>
+<h2 id="QTREE3"><a href="#QTREE3" class="headerlink" title="QTREE3"></a><a href="http://www.spoj.com/problems/QTREE3/" target="_blank" rel="noopener">QTREE3</a></h2><p>题意： 给定一棵n个结点的树，树的每个结点有黑白两色，初始时都是白的。两种操作： 1.对一个结点执行反色操作（白变黑，黑变白） 2.查询从1号结点到i号结点的路径上的第一个黑色结点编号。 其中\(n&lt;=10^5\). 查询数目不超过\(10^5\).   LCT维护路径上的白点和黑点数目，然后就可以解决了。 水题！</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/27 17:34:19<br>File Name     :E:\2014ACM\专题学习\数据结构\LCT\QTREE\SPOJQTREE3.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>//<a href="http://www.spoj.com/problems/QTREE3/" target="_blank" rel="noopener">http://www.spoj.com/problems/QTREE3/</a><br>const int MAXN = 100010;<br>struct Node <em>null;<br>struct Node{<br>    Node \</em>fa,*ch[2];<br>    int val,sum;<br>    int id;<br>    void clear(){<br>        fa = ch[0] = ch[1] = null;<br>        val = sum = 0;<br>    }<br>    inline void push_up(){<br>        if(this == null)return;<br>        sum = val + ch[0]-&gt;sum + ch[1]-&gt;sum;<br>    }<br>    inline void setc(Node <em>p,int d){<br>        ch[d] = p;<br>        p-&gt;fa = this;<br>    }<br>    inline bool d(){<br>        return fa-&gt;ch[1] == this;<br>    }<br>    inline bool isroot(){<br>        return fa == null || fa-&gt;ch[0] != this &amp;&amp; fa-&gt;ch[1] != this;<br>    }<br>    inline void rot(){<br>        Node \</em>f = fa, *ff = fa-&gt;fa;<br>        int c = d(), cc = fa-&gt;d();<br>        f-&gt;setc(ch[!c],c);<br>        this-&gt;setc(f,!c);<br>        if(ff-&gt;ch[cc] == f)ff-&gt;setc(this,cc);<br>        else this-&gt;fa = ff;<br>        f-&gt;push_up();<br>    }<br>    inline Node<em> splay(){<br>        while(!isroot()){<br>            if(!fa-&gt;isroot())<br>                d()==fa-&gt;d() ? fa-&gt;rot() : rot();<br>            rot();<br>        }<br>        push_up();<br>        return this;<br>    }<br>    inline Node</em> access(){<br>        for(Node *p = this ,*q = null; p != null; q = p, p = p-&gt;fa){<br>            p-&gt;splay()-&gt;setc(q,1);<br>            p-&gt;push_up();<br>        }<br>        return splay();<br>    }<br>};<br>Node pool[MAXN],<em>tail;<br>Node </em>node[MAXN];<br>void init(int n){<br>    tail = pool;<br>    null = tail++;<br>    null-&gt;fa = null-&gt;ch[0] = null-&gt;ch[1] = null;<br>    null-&gt;val = null-&gt;sum = 0;<br>    for(int i = 1;i &lt;= n;i++){<br>        node[i] = tail++;<br>        node[i]-&gt;clear();<br>        node[i]-&gt;id = i;<br>    }<br>}<br>struct Edge{<br>    int to,next;<br>}edge[MAXN<em>2];<br>int head[MAXN],tot;<br>inline void addedge(int u,int v){<br>    edge[tot].to = v;<br>    edge[tot].next = head[u];<br>    head[u] = tot++;<br>}<br>void dfs(int u,int pre){<br>    for(int i = head[u];i != -1;i = edge[i].next){<br>        int v = edge[i].to;<br>        if(v == pre)continue;<br>        dfs(v,u);<br>        node[v]-&gt;fa = node[u];<br>    }<br>}<br>void change(int u){<br>    node[u]-&gt;splay()-&gt;val ^= 1;<br>    node[u]-&gt;push_up();<br>}<br>int ask(int v){<br>    node[v]-&gt;access();<br>    node[v]-&gt;splay();<br>    if(node[v]-&gt;sum == 0)return -1;<br>    Node </em>x = node[v];<br>    while(x != null){<br>        if(x-&gt;ch[0]-&gt;sum == 0 &amp;&amp; x-&gt;val == 1)return x-&gt;id;<br>        if(x-&gt;ch[0]-&gt;sum)x = x-&gt;ch[0];<br>        else x = x-&gt;ch[1];<br>    }<br>}</p>
+<p>int main()<br>{<br>    int n,m;<br>    while(scanf(“%d%d”,&amp;n,&amp;m) == 2){<br>        for(int i = 1;i &lt;= n;i++)head[i] = -1;<br>        tot = 0;<br>        init(n);<br>        int u,v;<br>        for(int i = 1;i &lt; n;i++){<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            addedge(u,v);<br>            addedge(v,u);<br>        }<br>        dfs(1,1);<br>        while(m–){<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            if(u == 0)change(v);<br>            else printf(“%d\n”,ask(v));<br>        }<br>    }<br>    return 0;<br>}</p>
+<h2 id="QTREE4"><a href="#QTREE4" class="headerlink" title="QTREE4"></a><a href="http://www.spoj.com/problems/QTREE4/" target="_blank" rel="noopener">QTREE4</a></h2><p>题意： 给定一棵n个结点的树，树的边上有权，每个结点有黑白两色，初始时所有的结点都是白的。有两种操作： 1.对一个结点执行反色操作（白变黑，黑变白） 2.查询树中距离最远的两个白点的距离。 其中\(n&lt;=10^5\)，查询数目不超过\(10^5\).   做法比较多，有树链剖分，树分治等。 LCT搞起来代码比较短。 经典的要子树的操作，每个点要加set,维护虚边的信息。 关键是写push_up()操作。   也是会卡常数。要谨慎。</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/27 23:29:59<br>File Name     :E:\2014ACM\专题学习\数据结构\LCT\QTREE\SPOJQTREE4.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>//<a href="http://www.spoj.com/problems/QTREE4/" target="_blank" rel="noopener">http://www.spoj.com/problems/QTREE4/</a><br>const int MAXN = 100010;<br>const int INF = 0x3f3f3f3f;<br>struct Node <em>null;<br>struct Node{<br>    Node \</em>fa,*ch[2];<br>    multiset<int>st0,st1;//st0是链，st1是路径<br>    int dd,d0;//d0是该点对应边的长度，dd是重链长度<br>    int w0;//白点值为0，黑点值为-INF<br>    int ls,rs,ms;<br>    inline void clear(){<br>        fa = ch[0] = ch[1] = null;<br>        st0.clear(); st1.clear();<br>        st0.insert(-INF);<br>        st0.insert(-INF);<br>        st1.insert(-INF);<br>        w0 = 0; dd = d0 = 0;<br>        ls = rs = ms = -INF;<br>    }<br>    inline void push_up(){<br>        if(this == null)return;<br>        dd = d0 + ch[0]-&gt;dd + ch[1]-&gt;dd;<br>        int m0 = max(w0,<em>st0.rbegin()), ml = max(m0,ch[0]-&gt;rs+d0), mr = max(m0,ch[1]-&gt;ls);<br>        ls = max(ch[0]-&gt;ls,ch[0]-&gt;dd + d0 + mr);<br>        rs = max(ch[1]-&gt;rs,ch[1]-&gt;dd + ml);<br>        multiset<int>::reverse_iterator it = st0.rbegin();<br>        ++it;<br>        int t0 = max((\</int></em>st0.rbegin()) + (*it) , <em>st1.rbegin());<br>        if(w0 == 0)<br>            t0 = max(t0,max(0,</em>st0.rbegin()));<br>        ms = max(max(max(ml+ch[1]-&gt;ls,mr+d0+ch[0]-&gt;rs),max(ch[0]-&gt;ms,ch[1]-&gt;ms)),t0);<br>    }<br>    inline void setc(Node <em>p,int d){<br>        ch[d] = p;<br>        p-&gt;fa = this;<br>    }<br>    inline bool d(){<br>        return fa-&gt;ch[1] == this;<br>    }<br>    inline bool isroot(){<br>        return fa == null || fa-&gt;ch[0] != this &amp;&amp; fa-&gt;ch[1] != this;<br>    }<br>    inline void rot(){<br>        Node \</em>f = fa, *ff = fa-&gt;fa;<br>        int c = d(), cc = fa-&gt;d();<br>        f-&gt;setc(ch[!c],c);<br>        this-&gt;setc(f,!c);<br>        if(ff-&gt;ch[cc] == f)ff-&gt;setc(this,cc);<br>        else this-&gt;fa = ff;<br>        f-&gt;push_up();<br>    }<br>    inline Node<em> splay(){<br>        while(!isroot()){<br>            if(!fa-&gt;isroot())<br>                d()==fa-&gt;d() ? fa-&gt;rot() : rot();<br>            rot();<br>        }<br>        push_up();<br>        return this;<br>    }<br>    inline Node</em> access(){<br>        for(Node *p = this,*q = null; p != null; q = p, p = p-&gt;fa){<br>            p-&gt;splay();<br>            if(p-&gt;ch[1] != null){<br>                p-&gt;st0.insert(p-&gt;ch[1]-&gt;ls);<br>                p-&gt;st1.insert(p-&gt;ch[1]-&gt;ms);<br>            }<br>            if(q != null){<br>                p-&gt;st0.erase(p-&gt;st0.find(q-&gt;ls));<br>                p-&gt;st1.erase(p-&gt;st1.find(q-&gt;ms));<br>            }<br>            p-&gt;setc(q,1);<br>            p-&gt;push_up();<br>        }<br>        return splay();<br>    }<br>};<br>Node pool[MAXN],<em>tail;<br>Node </em>node[MAXN];<br>inline void init(int n){<br>    tail = pool;<br>    null = tail++;<br>    null-&gt;fa = null-&gt;ch[0] = null-&gt;ch[1] = null;<br>    null-&gt;st0.clear(); null-&gt;st1.clear();<br>    null-&gt;ls = null-&gt;rs = null-&gt;ms = -INF;<br>    null-&gt;w0 = -INF;<br>    null-&gt;d0 = null-&gt;dd = 0;<br>    for(int i = 1;i &lt;= n;i++){<br>        node[i] = tail++;<br>        node[i]-&gt;clear();<br>    }<br>}<br>struct Edge{<br>    int to,next,w;<br>}edge[MAXN<em>2];<br>int head[MAXN],tot;<br>inline void addedge(int u,int v,int w){<br>    edge[tot].to = v;<br>    edge[tot].w = w;<br>    edge[tot].next = head[u];<br>    head[u] = tot++;<br>}<br>inline void dfs(int u,int pre){<br>    for(int i = head[u];i != -1;i = edge[i].next){<br>        int v = edge[i].to;<br>        if(v == pre)continue;<br>        node[v]-&gt;fa = node[u];<br>        node[v]-&gt;d0 = edge[i].w;<br>        dfs(v,u);<br>        node[u]-&gt;st0.insert(node[v]-&gt;ls);<br>        node[u]-&gt;st1.insert(node[v]-&gt;ms);<br>    }<br>    node[u]-&gt;push_up();<br>}<br>//适用于正负整数<br>template <class t=""><br>inline bool scan_d(T &amp;ret) {<br>   char c; int sgn;<br>   if(c=getchar(),c==EOF) return 0; //EOF<br>   while(c!=’-‘&amp;&amp;(c&lt;’0’||c&gt;’9’)) c=getchar();<br>   sgn=(c==’-‘)?-1:1;<br>   ret=(c==’-‘)?0:(c-‘0’);<br>   while(c=getchar(),c&gt;=’0’&amp;&amp;c&lt;=’9’) ret=ret</class></em>10+(c-‘0’);<br>   ret*=sgn;<br>   return 1;<br>}<br>int main()<br>{<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        for(int i = 1;i &lt;= n;i++)head[i] = -1;<br>        tot = 0;<br>        init(n);<br>        int u,v,w;<br>        for(int i = 1;i &lt; n;i++){<br>            scan_d(u); scan_d(v);scan_d(w);<br>            addedge(u,v,w);<br>            addedge(v,u,w);<br>        }<br>        dfs(1,1);<br>        int ans = node[1]-&gt;ms;<br>        int Q;<br>        char op[10];<br>        scanf(“%d”,&amp;Q);<br>        while(Q–){<br>            scanf(“%s”,op);<br>            if(op[0] == ‘C’){<br>                scan_d(u);<br>                node[u]-&gt;access();<br>                node[u]-&gt;splay();<br>                if(node[u]-&gt;w0 == 0)node[u]-&gt;w0 = -INF;<br>                else node[u]-&gt;w0 = 0;<br>                node[u]-&gt;push_up();<br>                ans = node[u]-&gt;ms;<br>            }<br>            else{<br>                if(ans &lt; 0)puts(“They have disappeared.”);<br>                else printf(“%d\n”,ans);<br>            }<br>        }<br>    }<br>    return 0;<br>}</int></p>
+<h2 id="QTREE5"><a href="#QTREE5" class="headerlink" title="QTREE5"></a><a href="http://www.spoj.com/problems/QTREE5/" target="_blank" rel="noopener">QTREE5</a></h2><p>题意： 给定一棵n个结点的树，边权均为1。每个结点有黑白两色，初始时所有结点都是黑的。两种查询操作： 1.对一个结点执行反色操作（白变黑，黑变白） 2.查询距离某个特定结点i最远的白点的距离。 其中\(&lt;=10^5\)，查询数目不超过\(10^5\).   比QTREE4简单，会QTREE4了这题简直很水。</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/28 20:57:35<br>File Name     :E:\2014ACM\专题学习\数据结构\LCT\QTREE\SPOJQTREE5.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>//<a href="http://www.spoj.com/problems/QTREE5/" target="_blank" rel="noopener">http://www.spoj.com/problems/QTREE5/</a><br>const int MAXN = 100010;<br>const int INF = 0x3f3f3f3f;<br>struct Node <em>null;<br>struct Node{<br>    Node \</em>fa,*ch[2];<br>    multiset<int>st;<br>    int dd,d0;<br>    int w0;<br>    int ls,rs;<br>    inline void clear(){<br>        fa = ch[0] = ch[1] = null;<br>        st.clear();<br>        st.insert(INF);<br>        w0 = INF; dd = d0 = 0;<br>        ls = rs = INF;<br>    }<br>    inline void push_up(){<br>        if(this == null)return;<br>        dd = d0 + ch[0]-&gt;dd + ch[1]-&gt;dd;<br>        int m0 = min(w0,<em>st.begin()), ml = min(m0,ch[0]-&gt;rs+d0), mr = min(m0,ch[1]-&gt;ls);<br>        ls = min(ch[0]-&gt;ls,ch[0]-&gt;dd + d0 + mr);<br>        rs = min(ch[1]-&gt;rs,ch[1]-&gt;dd + ml);<br>    }<br>    inline void setc(Node </em>p,int d){<br>        ch[d] = p;<br>        p-&gt;fa = this;<br>    }<br>    inline bool d(){<br>        return fa-&gt;ch[1] == this;<br>    }<br>    inline bool isroot(){<br>        return fa == null || fa-&gt;ch[0] != this &amp;&amp; fa-&gt;ch[1] != this;<br>    }<br>    inline void rot(){<br>        Node *f = fa, *ff = fa-&gt;fa;<br>        int c = d(), cc = fa-&gt;d();<br>        f-&gt;setc(ch[!c],c);<br>        this-&gt;setc(f,!c);<br>        if(ff-&gt;ch[cc] == f)ff-&gt;setc(this,cc);<br>        else this-&gt;fa = ff;<br>        f-&gt;push_up();<br>    }<br>    inline Node<em> splay(){<br>        while(!isroot()){<br>            if(!fa-&gt;isroot())<br>                d()==fa-&gt;d() ? fa-&gt;rot() : rot();<br>            rot();<br>        }<br>        push_up();<br>        return this;<br>    }<br>    inline Node</em> access(){<br>        for(Node *p = this,*q = null; p != null; q = p, p = p-&gt;fa){<br>            p-&gt;splay();<br>            if(p-&gt;ch[1] != null){<br>                p-&gt;st.insert(p-&gt;ch[1]-&gt;ls);<br>            }<br>            if(q != null){<br>                p-&gt;st.erase(p-&gt;st.find(q-&gt;ls));<br>            }<br>            p-&gt;setc(q,1);<br>            p-&gt;push_up();<br>        }<br>        return splay();<br>    }<br>};<br>Node pool[MAXN],<em>tail;<br>Node </em>node[MAXN];<br>inline void init(int n){<br>    tail = pool;<br>    null = tail++;<br>    null-&gt;fa = null-&gt;ch[0] = null-&gt;ch[1] = null;<br>    null-&gt;st.clear();<br>    null-&gt;ls = null-&gt;rs = INF;<br>    null-&gt;w0 = INF;<br>    null-&gt;dd = null-&gt;d0 = 0;<br>    for(int i = 1;i &lt;= n;i++){<br>        node[i] = tail++;<br>        node[i]-&gt;clear();<br>    }<br>}<br>struct Edge{<br>    int to,next;<br>}edge[MAXN*2];<br>int head[MAXN],tot;<br>inline void addedge(int u,int v){<br>    edge[tot].to = v;<br>    edge[tot].next = head[u];<br>    head[u] = tot++;<br>}<br>inline void dfs(int u,int pre){<br>    for(int i = head[u];i != -1;i = edge[i].next){<br>        int v = edge[i].to;<br>        if(v == pre)continue;<br>        node[v]-&gt;fa = node[u];<br>        node[v]-&gt;d0 = 1;<br>        dfs(v,u);<br>        node[u]-&gt;st.insert(node[v]-&gt;ls);<br>    }<br>    node[u]-&gt;push_up();<br>}<br>int main()<br>{<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        init(n);<br>        for(int i = 1;i &lt;= n;i++)head[i] = -1;<br>        tot = 0;<br>        int u,v;<br>        for(int i = 1;i &lt; n;i++){<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            addedge(u,v);<br>            addedge(v,u);<br>        }<br>        dfs(1,1);<br>        int Q;<br>        scanf(“%d”,&amp;Q);<br>        int op;<br>        while(Q–){<br>            scanf(“%d%d”,&amp;op,&amp;v);<br>            if(op == 0){<br>                node[v]-&gt;access();<br>                node[v]-&gt;splay();<br>                if(node[v]-&gt;w0 == 0)node[v]-&gt;w0 = INF;<br>                else node[v]-&gt;w0 = 0;<br>                node[v]-&gt;push_up();<br>            }<br>            else {<br>                node[v]-&gt;access();<br>                node[v]-&gt;splay();<br>                if(node[v]-&gt;rs &lt; INF)printf(“%d\n”,node[v]-&gt;rs);<br>                else printf(“-1\n”);<br>            }<br>        }<br>    }<br>    return 0;<br>}</int></p>
+<h2 id="QTREE6"><a href="#QTREE6" class="headerlink" title="QTREE6"></a><a href="http://www.spoj.com/problems/QTREE6/" target="_blank" rel="noopener">QTREE6</a></h2><p>题意： 给定一棵n个结点的树，每个结点有黑白两色，初始时所有结点都是黑的。你被要求支持： 1.对一个结点执行反色操作（白变黑，黑变白） 2.询问有多少个点与u相连。两个结点u,v相连当且仅当u,v路径上所有点的颜色相同。 其中\(n&lt;=10^5\)，查询数目不超过\(10^5\).   维护和左右端点相连的点的个数ls,rs。 还有左右端点的颜色，自己的颜色，子树的两种颜色的总个数。  对于虚边维护两种颜色的总和就可以了。</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/28 21:44:01<br>File Name     :E:\2014ACM\专题学习\数据结构\LCT\QTREE\SPOJQTREE6.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>//<a href="http://www.spoj.com/problems/QTREE6/" target="_blank" rel="noopener">http://www.spoj.com/problems/QTREE6/</a><br>const int MAXN = 100010;<br>struct Node <em>null;<br>struct Node{<br>    Node \</em>fa,*ch[2];<br>    int co;//0 is black, 1 is white<br>    int lco,rco;<br>    int ls,rs;<br>    int s[2];<br>    int sum[2];//the sum of black and white<br>    inline void clear(){<br>        fa = ch[0] = ch[1] = null;<br>        co = lco = rco = 0;<br>        ls = rs = 1;<br>        s[0] = s[1] = 0;<br>        sum[0] = 1;  sum[1] = 0;<br>    }<br>    inline void push_up(){<br>        if(this == null)return;<br>        if(ch[0] != null)lco = ch[0]-&gt;lco;<br>        else lco = co;<br>        if(ch[1] != null)rco = ch[1]-&gt;rco;<br>        else rco = co;<br>        sum[0] = ch[0]-&gt;sum[0] + ch[1]-&gt;sum[0] + (co == 0);<br>        sum[1] = ch[0]-&gt;sum[1] + ch[1]-&gt;sum[1] + (co == 1);<br>        int ml = 1 + s[co] + (co==ch[0]-&gt;rco?ch[0]-&gt;rs:0);<br>        int mr = 1 + s[co] + (co==ch[1]-&gt;lco?ch[1]-&gt;ls:0);<br>        ls = ch[0]-&gt;ls;<br>        if(lco == co &amp;&amp; ch[0]-&gt;sum[!co] == 0)ls += mr;<br>        rs = ch[1]-&gt;rs;<br>        if(rco == co &amp;&amp; ch[1]-&gt;sum[!co] == 0)rs += ml;<br>    }<br>    inline void setc(Node <em>p,int d){<br>        ch[d] = p;<br>        p-&gt;fa = this;<br>    }<br>    inline bool d(){<br>        return fa-&gt;ch[1] == this;<br>    }<br>    inline bool isroot(){<br>        return fa == null || fa-&gt;ch[0] != this &amp;&amp; fa-&gt;ch[1] != this;<br>    }<br>    inline void rot(){<br>        Node \</em>f = fa, *ff = fa-&gt;fa;<br>        int c = d(), cc = fa-&gt;d();<br>        f-&gt;setc(ch[!c],c);<br>        this-&gt;setc(f,!c);<br>        if(ff-&gt;ch[cc] == f)ff-&gt;setc(this,cc);<br>        else this-&gt;fa = ff;<br>        f-&gt;push_up();<br>    }<br>    inline Node<em> splay(){<br>        while(!isroot()){<br>            if(!fa-&gt;isroot())<br>                d()==fa-&gt;d() ? fa-&gt;rot() : rot();<br>            rot();<br>        }<br>        push_up();<br>        return this;<br>    }<br>    inline Node</em> access(){<br>        for(Node *p = this,*q = null; p != null; q = p, p = p-&gt;fa){<br>            p-&gt;splay();<br>            if(p-&gt;ch[1] != null)<br>                p-&gt;s[p-&gt;ch[1]-&gt;lco] += p-&gt;ch[1]-&gt;ls;<br>            if(q != null)<br>                p-&gt;s[q-&gt;lco] -= q-&gt;ls;<br>            p-&gt;setc(q,1);<br>            p-&gt;push_up();<br>        }<br>        return splay();<br>    }<br>};<br>Node pool[MAXN],<em>tail;<br>Node </em>node[MAXN];<br>void init(int n){<br>    tail = pool;<br>    null = tail++;<br>    null-&gt;fa = null-&gt;ch[0] = null-&gt;ch[1] = null;<br>    null-&gt;s[0] = null-&gt;s[1] = 0;<br>    null-&gt;ls = null-&gt;rs = 0;<br>    null-&gt;sum[0] = null-&gt;sum[1] = 0;<br>    null-&gt;co = null-&gt;lco = null-&gt;rco = 0;<br>    for(int i = 1;i &lt;= n;i++){<br>        node[i] = tail++;<br>        node[i]-&gt;clear();<br>    }<br>}<br>struct Edge{<br>    int to,next;<br>}edge[MAXN*2];<br>int head[MAXN],tot;<br>inline void addedge(int u,int v){<br>    edge[tot].to = v; edge[tot].next = head[u]; head[u] = tot++;<br>}<br>void dfs(int u,int pre){<br>    for(int i = head[u];i != -1;i = edge[i].next){<br>        int v = edge[i].to;<br>        if(v == pre)continue;<br>        node[v]-&gt;fa = node[u];<br>        dfs(v,u);<br>        node[u]-&gt;s[node[v]-&gt;lco] += node[v]-&gt;ls;<br>    }<br>    node[u]-&gt;push_up();<br>}<br>int main()<br>{<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        init(n);<br>        for(int i = 1;i &lt;= n;i++)head[i] = -1;<br>        tot = 0;<br>        int u,v;<br>        for(int i = 1;i &lt; n;i++){<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            addedge(u,v);<br>            addedge(v,u);<br>        }<br>        dfs(1,1);<br>        int Q;<br>        int op;<br>        scanf(“%d”,&amp;Q);<br>        while(Q–){<br>            scanf(“%d%d”,&amp;op,&amp;u);<br>            if(op == 0){<br>                node[u]-&gt;access();<br>                node[u]-&gt;splay();<br>                printf(“%d\n”,node[u]-&gt;rs);<br>            }<br>            else{<br>                node[u]-&gt;access();<br>                node[u]-&gt;splay();<br>                node[u]-&gt;co ^= 1;<br>                node[u]-&gt;push_up();<br>            }<br>        }<br>        return 0;<br>    }<br>    return 0;<br>}</p>
+<h2 id="QTREE7"><a href="#QTREE7" class="headerlink" title="QTREE7"></a><a href="http://www.spoj.com/problems/QTREE7/" target="_blank" rel="noopener">QTREE7</a></h2><p>题意： 给定一棵n个结点的树，每个结点有黑白两色和权值。三种操作： 1.对一个结点执行反色操作（白变黑，黑变白） 2.询问与u相连的点中点权的最大值。两个结点u,v相连当且仅当u,v路径上所有点的颜色相同。 3.改变一个点的点权。 其中\(n&lt;=10^5\)，查询数目不超过\(10^5\).   会了QTREE6，这题就简单了，增加set维护虚边。</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/29 9:09:44<br>File Name     :E:\2014ACM\专题学习\数据结构\LCT\QTREE\SPOJQTREE7.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>//<a href="http://www.spoj.com/problems/QTREE7/" target="_blank" rel="noopener">http://www.spoj.com/problems/QTREE7/</a><br>const int MAXN = 100010;<br>const int INF = 0x3f3f3f3f;<br>struct Node <em>null;<br>struct Node{<br>    Node \</em>fa,*ch[2];<br>    int co;<br>    int lco,rco;<br>    int ls,rs;<br>    int w0;<br>    multiset<int>st[2];<br>    int sum[2];<br>    inline void clear(int _co = 0, int _w0 = 0){<br>        fa = ch[0] = ch[1] = null;<br>        co = lco = rco = _co;<br>        w0 = _w0;<br>        ls = rs = _w0;<br>        st[0].clear(); st[1].clear();<br>        st[0].insert(-INF); st[1].insert(-INF);<br>        sum[0] = sum[1] = 0; sum[_co]++;<br>    }<br>    inline void push_up(){<br>        if(this == null)return;<br>        if(ch[0] != null)lco = ch[0]-&gt;lco;<br>        else lco = co;<br>        if(ch[1] != null)rco = ch[1]-&gt;rco;<br>        else rco = co;<br>        sum[0] = ch[0]-&gt;sum[0] + ch[1]-&gt;sum[0] + (co == 0);<br>        sum[1] = ch[0]-&gt;sum[1] + ch[1]-&gt;sum[1] + (co == 1);<br>        int ml = max(w0,max(<em>st[co].rbegin(),co==ch[0]-&gt;rco?ch[0]-&gt;rs:-INF));<br>        int mr = max(w0,max(</em>st[co].rbegin(),co==ch[1]-&gt;lco?ch[1]-&gt;ls:-INF));<br>        ls = ch[0]-&gt;ls;<br>        if(lco == co &amp;&amp; ch[0]-&gt;sum[!co] == 0)ls = max(ls,mr);<br>        rs = ch[1]-&gt;rs;<br>        if(rco == co &amp;&amp; ch[1]-&gt;sum[!co] == 0)rs = max(rs,ml);<br>    }<br>    inline void setc(Node <em>p,int d){<br>        ch[d] = p;<br>        p-&gt;fa = this;<br>    }<br>    inline bool d(){<br>        return fa-&gt;ch[1] == this;<br>    }<br>    inline bool isroot(){<br>        return fa == null || fa-&gt;ch[0] != this &amp;&amp; fa-&gt;ch[1] != this;<br>    }<br>    inline void rot(){<br>        Node \</em>f = fa, *ff = fa-&gt;fa;<br>        int c = d(), cc = fa-&gt;d();<br>        f-&gt;setc(ch[!c],c);<br>        this-&gt;setc(f,!c);<br>        if(ff-&gt;ch[cc] == f)ff-&gt;setc(this,cc);<br>        else this-&gt;fa = ff;<br>        f-&gt;push_up();<br>    }<br>    inline Node<em> splay(){<br>        while(!isroot()){<br>            if(!fa-&gt;isroot())<br>                d()==fa-&gt;d() ? fa-&gt;rot() : rot();<br>            rot();<br>        }<br>        push_up();<br>        return this;<br>    }<br>    inline Node</em> access(){<br>        for(Node *p = this,*q = null; p != null; q = p, p = p-&gt;fa){<br>            p-&gt;splay();<br>            if(p-&gt;ch[1] != null)<br>                p-&gt;st[p-&gt;ch[1]-&gt;lco].insert(p-&gt;ch[1]-&gt;ls);<br>            if(q != null)<br>                p-&gt;st[q-&gt;lco].erase(p-&gt;st[q-&gt;lco].find(q-&gt;ls));<br>            p-&gt;setc(q,1);<br>            p-&gt;push_up();<br>        }<br>        return splay();<br>    }<br>};<br>Node pool[MAXN],<em>tail;<br>Node </em>node[MAXN];<br>int color[MAXN],val[MAXN];<br>void init(int n){<br>    tail = pool;<br>    null = tail++;<br>    null-&gt;fa = null-&gt;ch[0] = null-&gt;ch[1] = null;<br>    null-&gt;st[0].clear(); null-&gt;st[1].clear();<br>    null-&gt;ls = null-&gt;rs = -INF;<br>    null-&gt;sum[0] = null-&gt;sum[1] = 0;<br>    null-&gt;co = null-&gt;lco = null-&gt;rco = 0;<br>    for(int i = 1;i &lt;= n;i++){<br>        node[i] = tail++;<br>        node[i]-&gt;clear(color[i],val[i]);<br>    }<br>}<br>struct Edge{<br>    int to,next;<br>}edge[MAXN*2];<br>int head[MAXN],tot;<br>inline void addedge(int u,int v){<br>    edge[tot].to = v; edge[tot].next = head[u]; head[u] = tot++;<br>}<br>void dfs(int u,int pre){<br>    for(int i = head[u];i != -1;i = edge[i].next){<br>        int v = edge[i].to;<br>        if(v == pre)continue;<br>        node[v]-&gt;fa = node[u];<br>        dfs(v,u);<br>        node[u]-&gt;st[node[v]-&gt;lco].insert(node[v]-&gt;ls);<br>    }<br>    node[u]-&gt;push_up();<br>}<br>int main()<br>{<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        for(int i = 1;i &lt;= n;i++)head[i] = -1;<br>        tot = 0;<br>        int u,v;<br>        for(int i = 1;i &lt; n;i++){<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            addedge(u,v);<br>            addedge(v,u);<br>        }<br>        for(int i = 1;i &lt;= n;i++)scanf(“%d”,&amp;color[i]);<br>        for(int i = 1;i &lt;= n;i++)scanf(“%d”,&amp;val[i]);<br>        init(n);<br>        dfs(1,1);<br>        int Q;<br>        int w,op;<br>        scanf(“%d”,&amp;Q);<br>        while(Q–){<br>            scanf(“%d”,&amp;op);<br>            if(op == 0){<br>                scanf(“%d”,&amp;u);<br>                node[u]-&gt;access(); node[u]-&gt;splay();<br>                printf(“%d\n”,node[u]-&gt;rs);<br>            }<br>            else if(op == 1){<br>                scanf(“%d”,&amp;u);<br>                node[u]-&gt;access(); node[u]-&gt;splay();<br>                node[u]-&gt;co ^= 1;<br>                node[u]-&gt;push_up();<br>            }<br>            else {<br>                scanf(“%d%d”,&amp;u,&amp;w);<br>                node[u]-&gt;access(); node[u]-&gt;splay();<br>                node[u]-&gt;w0 = w;<br>                node[u]-&gt;push_up();<br>            }<br>        }<br>    }<br>    return 0;<br>}</int></p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+	<div>
+      
+        
+      
+	</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kuangbin</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="363.html" title="QTREE系列1~7 的 LCT解法">363.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/" rel="tag"><i class="fa fa-tag"></i>  ACM</a>
+          
+            <a href="/tags/数据结构/" rel="tag"><i class="fa fa-tag"></i>  数据结构</a>
+          
+            <a href="/tags/LCT/" rel="tag"><i class="fa fa-tag"></i>  LCT</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2014/08/25/zoj3803/" rel="next" title="ZOJ 3803 Function （DP）">
+                <i class="fa fa-chevron-left"></i> ZOJ 3803 Function （DP）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2014/09/04/hdu4742-cdq/" rel="prev" title="HDU 4742 Pinball Game 3D （cdq分治）">
+                HDU 4742 Pinball Game 3D （cdq分治） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blogLogo.jpg"
+                alt="kuangbin" />
+            
+              <p class="site-author-name" itemprop="name">kuangbin</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">150</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/kuangbin" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kuangbin2009@126.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/kuang-bin-95" target="_blank" title="zhihu"><i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.cnblogs.com/kuangbin/" target="_blank" title="cnblogs"><i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1691626124&site=qq&menu=yes" target="_blank" title="QQ"><i class="fa fa-fw fa-globe"></i>QQ</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-友情链接"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/kuangbin/" title="我的博客园" target="_blank">我的博客园</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhiyi.live/" title="MoonChasing" target="_blank">MoonChasing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taowusheng.cn/" title="YIFEI" target="_blank">YIFEI</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#早就想把QTREE序列搞完的，一直拖到现在才搞。-使用LCT把QTREE序列都搞了一遍。"><span class="nav-number">1.</span> <span class="nav-text">早就想把QTREE序列搞完的，一直拖到现在才搞。 使用LCT把QTREE序列都搞了一遍。</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#先贴个题目链接："><span class="nav-number">1.1.</span> <span class="nav-text">先贴个题目链接：</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTREE1"><span class="nav-number">2.</span> <span class="nav-text">QTREE1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTREE2"><span class="nav-number">3.</span> <span class="nav-text">QTREE2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTREE3"><span class="nav-number">4.</span> <span class="nav-text">QTREE3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTREE4"><span class="nav-number">5.</span> <span class="nav-text">QTREE4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTREE5"><span class="nav-number">6.</span> <span class="nav-text">QTREE5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTREE6"><span class="nav-number">7.</span> <span class="nav-text">QTREE6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#QTREE7"><span class="nav-number">8.</span> <span class="nav-text">QTREE7</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kuangbin</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

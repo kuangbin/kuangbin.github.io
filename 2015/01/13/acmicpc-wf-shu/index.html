@@ -1,0 +1,1669 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="本文和文题无关，请慎入！  近日，黄金雄教授在博客上发布了2014年ACM/ICPC亚洲区域赛的晋级名单，也就是晋级2015年在摩洛哥的ACM/ICPC World Final名额。 博文链接 期盼许久，总算得到了确认，上海大学以在鞍山WF出线排名第一拿到了2015 world final的入场券。   近段时间一直在关注着黄金雄教授的博客，一直在等待着他发布Final名额的消息。虽然我校应该是早">
+<meta name="keywords" content="ACM">
+<meta property="og:type" content="article">
+<meta property="og:title" content="弱校离final有多远？">
+<meta property="og:url" content="http://yoursite.com/2015/01/13/acmicpc-wf-shu/index.html">
+<meta property="og:site_name" content="kuangbin的博客">
+<meta property="og:description" content="本文和文题无关，请慎入！  近日，黄金雄教授在博客上发布了2014年ACM/ICPC亚洲区域赛的晋级名单，也就是晋级2015年在摩洛哥的ACM/ICPC World Final名额。 博文链接 期盼许久，总算得到了确认，上海大学以在鞍山WF出线排名第一拿到了2015 world final的入场券。   近段时间一直在关注着黄金雄教授的博客，一直在等待着他发布Final名额的消息。虽然我校应该是早">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/01/2015chinawf.jpg">
+<meta property="og:updated_time" content="2018-07-29T12:44:00.537Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="弱校离final有多远？">
+<meta name="twitter:description" content="本文和文题无关，请慎入！  近日，黄金雄教授在博客上发布了2014年ACM/ICPC亚洲区域赛的晋级名单，也就是晋级2015年在摩洛哥的ACM/ICPC World Final名额。 博文链接 期盼许久，总算得到了确认，上海大学以在鞍山WF出线排名第一拿到了2015 world final的入场券。   近段时间一直在关注着黄金雄教授的博客，一直在等待着他发布Final名额的消息。虽然我校应该是早">
+<meta name="twitter:image" content="http://www.kuangbin.top/wp-content/uploads/2015/01/2015chinawf.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="kuangbin的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2015/01/13/acmicpc-wf-shu/"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>弱校离final有多远？ | kuangbin的博客</title>
+  
+
+
+
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+	<a href="https://github.com/kuangbin"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_right_green_007200.png" alt="Fork me on GitHub"></a>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kuangbin的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-catalogue">
+    <a href="/catalogue/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />目录</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2015/01/13/acmicpc-wf-shu/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kuangbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blogLogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kuangbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">弱校离final有多远？
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2015-01-13 23:02:59" itemprop="dateCreated datePublished" datetime="2015-01-13T23:02:59+08:00">2015-01-13</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-29 20:44:00" itemprop="dateModified" datetime="2018-07-29T20:44:00+08:00">2018-07-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/小结/" itemprop="url" rel="index"><span itemprop="name">小结</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/其他/" itemprop="url" rel="index"><span itemprop="name">其他</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/杂言/" itemprop="url" rel="index"><span itemprop="name">杂言</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>本文和文题无关，请慎入！</em> </p>
+<p>近日，黄金雄教授在博客上发布了2014年ACM/ICPC亚洲区域赛的晋级名单，也就是晋级2015年在摩洛哥的ACM/ICPC World Final名额。 <a href="http://blog.sina.com.cn/s/blog_b946da100102vg6n.html" target="_blank" rel="noopener">博文链接</a> 期盼许久，总算得到了确认，上海大学以在鞍山WF出线排名第一拿到了2015 world final的入场券。 <a href="http://www.kuangbin.top/wp-content/uploads/2015/01/2015chinawf.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/01/2015chinawf.jpg" alt="2015chinawf"></a> </p>
+<p>近段时间一直在关注着黄金雄教授的博客，一直在等待着他发布Final名额的消息。虽然我校应该是早就没有悬念可以出线的了，但是总是希望看到官方的确认。 今天晚上群里突然发消息说WF名额公布了，然后便是各种祝贺之声。 看到上海大学出线的消息，欣喜之情久久不能平息，或者你们并不能体会我的这种心情，因为我等待这一天等待了好久了。 或许今年比赛前，根本没人看好我们会出线，但是上海大学今年真的出线了，而且是在鞍山以亚军，WF排名第一出线了。 我在最后一场区域赛里面第一次拿到了金牌，第一次进入final！ 同时祝贺出线的学校，为没有出线的学校感到惋惜，你们都还年轻，还有机会，加油！ 此外，我也想到了xiaodao看到这个消息的失望，xiaodao的经历是普通人无法想象的，但是xiaodao明年还有机会，加油！   进入world final，是多少ACMer一直的追求。进入final的难度，我们都非常之清楚。尤其是对于弱校，大学前毫无基础，想要夺金都是一件非常困难的事情，final更加是难上加难。   转眼间，我已经参加了四年的区域赛了。在我参赛的这几年中，经历了太多的事情。学校里面集训队里的队员换了一批又一批，我仍然还在参赛， 当同一届的参加acm的退役了，我还在不断刷题，甚至当下一届的都退役了，我还在努力着。 </p>
+<p>上海大学和ACM有很深远的历史，1996年上海大学在中国大陆首次承办了ACM/ICPC，ACM/ICPC首次进入了中国大陆，然后上海大学连续举办了6年区域赛，当时参赛学校比较少，上海大学也作为东道主队连续四年参加了世界总决赛。 此后随着参赛学校的增加，上海大学就再也没能进入world final。 </p>
+<p>2014年，上海大学首次拿到了区域赛金牌，首次捧杯，进入了2015年的world final！  </p>
+<p> 2011年5月，那个时候什么都不懂的我，开始接触acm, 在刷着很简单的题目，然后申请加入了ACM集训队。我从一个弱菜，一点点学新的东西，很多东西都在改变，但是我始终在坚持着，遇到过很大的困难，但是我一直相信可以慢慢努力，为学校赢得荣誉，取得更好的成绩。 参加的四年区域赛，我在不断进步着，从铁到金，也算是都拿了一遍了。 </p>
+<p>2011年区域赛：那个时候我是刚刚接触ACM一个暑假，作为一个菜鸟水了两场区域赛，一铜一铁。  那年我校有ACM大牛李新民（那几年我校一个非常厉害的ACMer，是我下一届的，我刚入门是他带着训练的，后来13年是我队友，目前在上海欢乐互娱高就），我校区域赛成绩是一银二铜。</p>
+<p>2012年区域赛：经过一年，我学到很多算法，很多题我都可以迅速秒了，但是思维仍然不足，对算法不能灵活应用，更多只会套模板，然后参加了当年惨烈的长春赛区，只能拿到一铜，另外一场去了泰国的赛区。 那年我校区域赛的成绩一样是一银二铜，银牌仍然是神牛李新民带领下获得。 </p>
+<p>2013年区域赛：那个时候自以为我的实力已经大增，那年参赛的目标就是想夺金。和李新民、吴旻烨组队，一改前几年每个赛区随意组合阵容的做法，组了相对固定队伍。迫于一些客观原因，第一次机会去参加了日本的区域赛，然后第二次机会去了最后一个赛区——长春，结果拿了银牌第一。 2013年区域赛便这样遗憾结束了。 这一年我校正处新老交替时期，虽然每个赛区都可以轻松通过网络赛拿到名额，但是都打铁了，这年我校区域赛成绩是一银六铁。 </p>
+<p>2014年区域赛：2014年上海大学成为了主办方，我也再一次参加了2014年的区域赛，剑指final。随着李新民的毕业退役，上年队伍也就没有了，而且突然感觉学校里搞ACM的人和我刚接触ACM几年已经完全换了，我呆的时间是最长的了，成了不能更老的老队员。新的一年和张健豪、梅俊组队了，破坏了他们原有的队伍，始终让我于心不忍。 认真训练以后，感觉自己这一年还是提升很快的，然后去了前两个赛区。第一场牡丹江直接被虐成狗，银牌收场。第二场鞍山在退役赛上几乎毫无退路了，背水一战，最终亚军出线，收获我的唯一一个区域赛金牌，也是上海大学第一个区域赛金牌！ 这一年我校ACM实力也是有了较大的提升，区域赛成绩是一金二银三铜四铁。   在大家的共同努力之下，我校的ACM水平这几年来还是有所提升的。 作为ACM里面的弱校，我们今年出线了！可能很多人看来我们是靠运气出线了，但是其中的艰辛可能只有像我这样一步一步经历过来才能体会吧！ </p>
+<p>Final并非是几个年轻人一时兴起，高喊努力刷题进final的口号就可以进的。You are too young!   弱校如何才能在强校的层层包围中，突围进Final？ 很多人来问我“大学才开始接触编程，如何才能把ACM搞好？”，说实话我也不知道，或许没有捷径，只有脚踏实地，一步一步努力，坚持不懈才能实现自己的目标。   从开始接触ACM以来的三年半，自己已经不记得是如何坚持下来的了，但是经历的每一件事情仍然历历在目。</p>
+<p> 2011年5月，知道有ACM这个比赛，那个时候连C++都不会，连A+B都不会水。 然后决心要好好参加这个比赛，之后去申请加入了集训队，开始了漫长的AC之旅。 这个过程自己从本科生变成了研究生，很多一起AC的人纷纷退役，也很多新人过来，认识了很多非常好的朋友，也收获了很多东西。 很多人好奇作为一个非计算机专业的我为何会一年又一年地参赛，其实ACM的获奖对于我这个专业是没啥用处的，甚至当年直研时候，ACM获奖是没起任何作用的。本科时候曾经拿过各类竞赛的证书，ACM是身边最无人知晓的，甚至没人知道这个是什么比赛，也不知道我啥时候参赛的。到了研究生时候，事情更加多了，ACM对于研究生更加没有作用了。 但是我还是一年一年坚持着，因为我一直期盼着可以拿得金牌进final。 当看到学校的ACM连网络赛拿到名额都困难的时候，我在坚持着改变这种现状。。。。。。 当在各类比赛中被虐的时候，我在不断努力着，然后还是被虐，T_T……. 当年做网络赛，同校的ACMer听了我的思路后不屑地说“你就扯吧！”，我然后默默地把那个题AC了！ </p>
+<p>当有人取笑我“原来kuangbin也是可以final的”，我后来真的final了，sorry。。 当同学给我建议说不要去参加这个比赛了，其他学校都是高中开始搞的，比不过他们的，建议我把这个时间花在学习英语，做些更加有用的事情， 我没有迟疑过，仍然在敲着代码！ ……. ……. 看到知乎上有人提问“ACM比赛和绩点可以兼得吗？”，我回答可以……     认识的一大批神牛，他们都好厉害，都从他们那学到了很多东西。 非常厉害的微软爷适牛，当年遗憾未能进入final，但是早就是人生赢家了。  ACMer的人气偶像xiaodao，坎坷的经历以及他对ACM的热爱，激励着无数人。shenshanlaoyao队的队长、一年拿三金的吴鑫wuyiqi，更是让众多学妹崇拜告白。 还有无比牛逼的谷歌微软詹姐，夺得季军，可能仍无缘final。………. <strong> ICPC都欠你们一个final！</strong>  他们都是无比厉害的人啊，但是我每天都和他们谈笑风生，多么之荣幸啊！   离我人生唯一一次的Final只有四个月了，接下来的时候我要好好准备Final了，Final机会难得，必要好好珍惜，况且不能让别人轻视了，不能让大家小看了上海大学。。。   </p>
+<p>接下来一段时间的计划： 首要任务当然是要好好准备Final了。然后认真总结一份最详细有用的模板，带领着群里的巨巨刷题，制定一份ACM从入门到精通的专题。     写着写着，发现自己不知所言，最后发现和文题无关，请原谅我着急的语文水平， 请慎入。！！ 有人想让我多写点方法论、入门、进阶等，很遗憾，你来错地方了，本文是纯吐槽贴。。。这些等待我Final结束后的退役贴吧～～～</p>
+
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+	<div>
+      
+        
+      
+	</div>
+
+    
+
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者： </strong>kuangbin</li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="542.html" title="弱校离final有多远？">542.html</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明出处！</li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/ACM/" rel="tag"><i class="fa fa-tag"></i>  ACM</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2015/01/11/sgu193/" rel="next" title="SGU 193. Chinese Girls' Amusement">
+                <i class="fa fa-chevron-left"></i> SGU 193. Chinese Girls' Amusement
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/01/22/sgu192/" rel="prev" title="SGU 192. RGB （计算几何）">
+                SGU 192. RGB （计算几何） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+  </div>
+
+
+          </div>
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blogLogo.jpg"
+                alt="kuangbin" />
+            
+              <p class="site-author-name" itemprop="name">kuangbin</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">150</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">53</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/kuangbin" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kuangbin2009@126.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/kuang-bin-95" target="_blank" title="zhihu"><i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.cnblogs.com/kuangbin/" target="_blank" title="cnblogs"><i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1691626124&site=qq&menu=yes" target="_blank" title="QQ"><i class="fa fa-fw fa-globe"></i>QQ</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-友情链接"></i>
+                Links
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/kuangbin/" title="我的博客园" target="_blank">我的博客园</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhiyi.live/" title="MoonChasing" target="_blank">MoonChasing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taowusheng.cn/" title="YIFEI" target="_blank">YIFEI</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kuangbin</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
