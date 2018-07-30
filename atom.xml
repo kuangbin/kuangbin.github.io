@@ -5,9 +5,9 @@
   
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://kuangbin.github.io/"/>
   <updated>2018-07-28T07:20:45.015Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://kuangbin.github.io/</id>
   
   <author>
     <name>kuangbin</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>test_my_site</title>
-    <link href="http://yoursite.com/2018/07/28/test-my-site/"/>
-    <id>http://yoursite.com/2018/07/28/test-my-site/</id>
+    <link href="http://kuangbin.github.io/2018/07/28/test-my-site/"/>
+    <id>http://kuangbin.github.io/2018/07/28/test-my-site/</id>
     <published>2018-07-28T07:20:44.000Z</published>
     <updated>2018-07-28T07:20:45.015Z</updated>
     
@@ -32,8 +32,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2018/07/28/hello-world/"/>
-    <id>http://yoursite.com/2018/07/28/hello-world/</id>
+    <link href="http://kuangbin.github.io/2018/07/28/hello-world/"/>
+    <id>http://kuangbin.github.io/2018/07/28/hello-world/</id>
     <published>2018-07-28T07:18:07.442Z</published>
     <updated>2017-10-28T00:39:58.000Z</updated>
     
@@ -51,8 +51,8 @@
   
   <entry>
     <title>I&#39;m back！</title>
-    <link href="http://yoursite.com/2016/08/13/20160724/"/>
-    <id>http://yoursite.com/2016/08/13/20160724/</id>
+    <link href="http://kuangbin.github.io/2016/08/13/20160724/"/>
+    <id>http://kuangbin.github.io/2016/08/13/20160724/</id>
     <published>2016-08-13T03:08:52.000Z</published>
     <updated>2018-07-29T12:32:47.542Z</updated>
     
@@ -65,17 +65,17 @@
     
     </summary>
     
-      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="http://kuangbin.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
-      <category term="杂言" scheme="http://yoursite.com/categories/%E6%9D%82%E8%A8%80/"/>
+      <category term="杂言" scheme="http://kuangbin.github.io/categories/%E6%9D%82%E8%A8%80/"/>
     
     
   </entry>
   
   <entry>
     <title>FOJ有奖月赛-2015年10月 题解</title>
-    <link href="http://yoursite.com/2015/10/06/foj-2015-10/"/>
-    <id>http://yoursite.com/2015/10/06/foj-2015-10/</id>
+    <link href="http://kuangbin.github.io/2015/10/06/foj-2015-10/"/>
+    <id>http://kuangbin.github.io/2015/10/06/foj-2015-10/</id>
     <published>2015-10-06T12:35:55.000Z</published>
     <updated>2018-07-29T12:52:33.798Z</updated>
     
@@ -88,29 +88,29 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="DP" scheme="http://yoursite.com/categories/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
-      <category term="水题" scheme="http://yoursite.com/categories/%E6%B0%B4%E9%A2%98/"/>
+      <category term="水题" scheme="http://kuangbin.github.io/categories/%E6%B0%B4%E9%A2%98/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/tags/DP/"/>
     
-      <category term="暴力" scheme="http://yoursite.com/tags/%E6%9A%B4%E5%8A%9B/"/>
+      <category term="暴力" scheme="http://kuangbin.github.io/tags/%E6%9A%B4%E5%8A%9B/"/>
     
-      <category term="水题" scheme="http://yoursite.com/tags/%E6%B0%B4%E9%A2%98/"/>
+      <category term="水题" scheme="http://kuangbin.github.io/tags/%E6%B0%B4%E9%A2%98/"/>
     
   </entry>
   
   <entry>
     <title>HDU 5486 Difference of Clustering</title>
-    <link href="http://yoursite.com/2015/10/01/hdu5486/"/>
-    <id>http://yoursite.com/2015/10/01/hdu5486/</id>
+    <link href="http://kuangbin.github.io/2015/10/01/hdu5486/"/>
+    <id>http://kuangbin.github.io/2015/10/01/hdu5486/</id>
     <published>2015-10-01T01:46:06.000Z</published>
     <updated>2018-07-29T05:43:29.000Z</updated>
     
@@ -124,25 +124,25 @@
     
     </summary>
     
-      <category term="HDU" scheme="http://yoursite.com/categories/HDU/"/>
+      <category term="HDU" scheme="http://kuangbin.github.io/categories/HDU/"/>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/HDU/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/HDU/Online-Judge/"/>
     
-      <category term="图论" scheme="http://yoursite.com/categories/HDU/Online-Judge/%E5%9B%BE%E8%AE%BA/"/>
+      <category term="图论" scheme="http://kuangbin.github.io/categories/HDU/Online-Judge/%E5%9B%BE%E8%AE%BA/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/HDU/Online-Judge/%E5%9B%BE%E8%AE%BA/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/HDU/Online-Judge/%E5%9B%BE%E8%AE%BA/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://yoursite.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://kuangbin.github.io/tags/HDU/"/>
     
   </entry>
   
   <entry>
     <title>HDU 5487 Difference of Languages</title>
-    <link href="http://yoursite.com/2015/10/01/hdu5487/"/>
-    <id>http://yoursite.com/2015/10/01/hdu5487/</id>
+    <link href="http://kuangbin.github.io/2015/10/01/hdu5487/"/>
+    <id>http://kuangbin.github.io/2015/10/01/hdu5487/</id>
     <published>2015-10-01T01:40:01.000Z</published>
     <updated>2018-07-29T05:43:29.000Z</updated>
     
@@ -155,27 +155,27 @@
     
     </summary>
     
-      <category term="DP" scheme="http://yoursite.com/categories/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
-      <category term="HDU" scheme="http://yoursite.com/categories/DP/HDU/"/>
+      <category term="HDU" scheme="http://kuangbin.github.io/categories/DP/HDU/"/>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/DP/HDU/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/DP/HDU/Online-Judge/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/DP/HDU/Online-Judge/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/DP/HDU/Online-Judge/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="HDU" scheme="http://yoursite.com/tags/HDU/"/>
+      <category term="HDU" scheme="http://kuangbin.github.io/tags/HDU/"/>
     
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/tags/DP/"/>
     
   </entry>
   
   <entry>
     <title>Machine Learning</title>
-    <link href="http://yoursite.com/2015/08/13/machine-learning/"/>
-    <id>http://yoursite.com/2015/08/13/machine-learning/</id>
+    <link href="http://kuangbin.github.io/2015/08/13/machine-learning/"/>
+    <id>http://kuangbin.github.io/2015/08/13/machine-learning/</id>
     <published>2015-08-13T02:01:38.000Z</published>
     <updated>2018-07-29T05:43:29.000Z</updated>
     
@@ -188,15 +188,15 @@
     
     </summary>
     
-      <category term="Uncategorized" scheme="http://yoursite.com/categories/Uncategorized/"/>
+      <category term="Uncategorized" scheme="http://kuangbin.github.io/categories/Uncategorized/"/>
     
     
   </entry>
   
   <entry>
     <title>2015 ACM/ICPC world finals 总结</title>
-    <link href="http://yoursite.com/2015/07/19/2015-acmicpc-world-finals/"/>
-    <id>http://yoursite.com/2015/07/19/2015-acmicpc-world-finals/</id>
+    <link href="http://kuangbin.github.io/2015/07/19/2015-acmicpc-world-finals/"/>
+    <id>http://kuangbin.github.io/2015/07/19/2015-acmicpc-world-finals/</id>
     <published>2015-07-19T05:48:41.000Z</published>
     <updated>2018-07-29T12:30:04.342Z</updated>
     
@@ -209,19 +209,19 @@
     
     </summary>
     
-      <category term="小结" scheme="http://yoursite.com/categories/%E5%B0%8F%E7%BB%93/"/>
+      <category term="小结" scheme="http://kuangbin.github.io/categories/%E5%B0%8F%E7%BB%93/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="杂记" scheme="http://yoursite.com/tags/%E6%9D%82%E8%AE%B0/"/>
+      <category term="杂记" scheme="http://kuangbin.github.io/tags/%E6%9D%82%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>机器学习和深度学习资料</title>
-    <link href="http://yoursite.com/2015/06/10/ml-dl-links/"/>
-    <id>http://yoursite.com/2015/06/10/ml-dl-links/</id>
+    <link href="http://kuangbin.github.io/2015/06/10/ml-dl-links/"/>
+    <id>http://kuangbin.github.io/2015/06/10/ml-dl-links/</id>
     <published>2015-06-10T08:17:36.000Z</published>
     <updated>2018-07-29T05:43:29.000Z</updated>
     
@@ -234,17 +234,17 @@
     
     </summary>
     
-      <category term="机器学习" scheme="http://yoursite.com/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://kuangbin.github.io/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
     
-      <category term="机器学习" scheme="http://yoursite.com/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
+      <category term="机器学习" scheme="http://kuangbin.github.io/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/"/>
     
   </entry>
   
   <entry>
     <title>最后一场ICPC比赛</title>
-    <link href="http://yoursite.com/2015/05/20/lasticpc/"/>
-    <id>http://yoursite.com/2015/05/20/lasticpc/</id>
+    <link href="http://kuangbin.github.io/2015/05/20/lasticpc/"/>
+    <id>http://kuangbin.github.io/2015/05/20/lasticpc/</id>
     <published>2015-05-19T21:53:52.000Z</published>
     <updated>2018-07-29T05:43:28.999Z</updated>
     
@@ -257,21 +257,21 @@
     
     </summary>
     
-      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="http://kuangbin.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
-      <category term="杂言" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/%E6%9D%82%E8%A8%80/"/>
+      <category term="杂言" scheme="http://kuangbin.github.io/categories/%E5%85%B6%E4%BB%96/%E6%9D%82%E8%A8%80/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="杂记" scheme="http://yoursite.com/tags/%E6%9D%82%E8%AE%B0/"/>
+      <category term="杂记" scheme="http://kuangbin.github.io/tags/%E6%9D%82%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>UVALive 6773 - Game Strategy</title>
-    <link href="http://yoursite.com/2015/05/11/uvalive6773/"/>
-    <id>http://yoursite.com/2015/05/11/uvalive6773/</id>
+    <link href="http://kuangbin.github.io/2015/05/11/uvalive6773/"/>
+    <id>http://kuangbin.github.io/2015/05/11/uvalive6773/</id>
     <published>2015-05-11T07:07:58.000Z</published>
     <updated>2018-07-29T05:43:28.999Z</updated>
     
@@ -284,29 +284,29 @@
     
     </summary>
     
-      <category term="DP" scheme="http://yoursite.com/categories/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/DP/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/"/>
     
-      <category term="UVALive" scheme="http://yoursite.com/categories/DP/Online-Judge/UVALive/"/>
+      <category term="UVALive" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/UVALive/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/DP/Online-Judge/UVALive/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/UVALive/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="DP" scheme="http://yoursite.com/tags/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/tags/DP/"/>
     
-      <category term="博弈" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%BC%88/"/>
+      <category term="博弈" scheme="http://kuangbin.github.io/tags/%E5%8D%9A%E5%BC%88/"/>
     
   </entry>
   
   <entry>
     <title>2015编程之美复赛题解</title>
-    <link href="http://yoursite.com/2015/05/10/2015bop/"/>
-    <id>http://yoursite.com/2015/05/10/2015bop/</id>
+    <link href="http://kuangbin.github.io/2015/05/10/2015bop/"/>
+    <id>http://kuangbin.github.io/2015/05/10/2015bop/</id>
     <published>2015-05-10T01:54:54.000Z</published>
     <updated>2018-07-29T12:31:58.025Z</updated>
     
@@ -319,21 +319,21 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>UVALive 6772 - Crane Balancing</title>
-    <link href="http://yoursite.com/2015/05/07/uvalive6772/"/>
-    <id>http://yoursite.com/2015/05/07/uvalive6772/</id>
+    <link href="http://kuangbin.github.io/2015/05/07/uvalive6772/"/>
+    <id>http://kuangbin.github.io/2015/05/07/uvalive6772/</id>
     <published>2015-05-07T14:37:44.000Z</published>
     <updated>2018-07-29T05:43:28.999Z</updated>
     
@@ -346,23 +346,23 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="UVALive" scheme="http://yoursite.com/categories/Online-Judge/UVALive/"/>
+      <category term="UVALive" scheme="http://kuangbin.github.io/categories/Online-Judge/UVALive/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/Online-Judge/UVALive/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/Online-Judge/UVALive/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
   </entry>
   
   <entry>
     <title>UVALive 6771 - Buffed Buffet （斜率优化）</title>
-    <link href="http://yoursite.com/2015/05/07/uvalive6771/"/>
-    <id>http://yoursite.com/2015/05/07/uvalive6771/</id>
+    <link href="http://kuangbin.github.io/2015/05/07/uvalive6771/"/>
+    <id>http://kuangbin.github.io/2015/05/07/uvalive6771/</id>
     <published>2015-05-07T11:12:02.000Z</published>
     <updated>2018-07-29T05:43:28.999Z</updated>
     
@@ -375,27 +375,27 @@
     
     </summary>
     
-      <category term="DP" scheme="http://yoursite.com/categories/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/DP/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/"/>
     
-      <category term="UVALive" scheme="http://yoursite.com/categories/DP/Online-Judge/UVALive/"/>
+      <category term="UVALive" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/UVALive/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/DP/Online-Judge/UVALive/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/UVALive/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="斜率优化" scheme="http://yoursite.com/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/"/>
+      <category term="斜率优化" scheme="http://kuangbin.github.io/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>BZOJ 1911: [Apio2010]特别行动队 （斜率优化DP）</title>
-    <link href="http://yoursite.com/2015/05/05/bzoj1911/"/>
-    <id>http://yoursite.com/2015/05/05/bzoj1911/</id>
+    <link href="http://kuangbin.github.io/2015/05/05/bzoj1911/"/>
+    <id>http://kuangbin.github.io/2015/05/05/bzoj1911/</id>
     <published>2015-05-05T13:55:29.000Z</published>
     <updated>2018-07-29T12:47:27.648Z</updated>
     
@@ -409,25 +409,25 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="DP" scheme="http://yoursite.com/categories/DP/"/>
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="算法" scheme="http://yoursite.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
     
-      <category term="斜率优化" scheme="http://yoursite.com/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/"/>
+      <category term="斜率优化" scheme="http://kuangbin.github.io/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/"/>
     
   </entry>
   
   <entry>
     <title>world finals</title>
-    <link href="http://yoursite.com/2015/05/04/world-finals/"/>
-    <id>http://yoursite.com/2015/05/04/world-finals/</id>
+    <link href="http://kuangbin.github.io/2015/05/04/world-finals/"/>
+    <id>http://kuangbin.github.io/2015/05/04/world-finals/</id>
     <published>2015-05-04T15:43:59.000Z</published>
     <updated>2018-07-29T05:43:28.999Z</updated>
     
@@ -442,17 +442,17 @@
     
     </summary>
     
-      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
+      <category term="其他" scheme="http://kuangbin.github.io/categories/%E5%85%B6%E4%BB%96/"/>
     
-      <category term="杂言" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/%E6%9D%82%E8%A8%80/"/>
+      <category term="杂言" scheme="http://kuangbin.github.io/categories/%E5%85%B6%E4%BB%96/%E6%9D%82%E8%A8%80/"/>
     
     
   </entry>
   
   <entry>
     <title>UVALive 6770 - Baggage （构造）</title>
-    <link href="http://yoursite.com/2015/04/21/uvalive6770/"/>
-    <id>http://yoursite.com/2015/04/21/uvalive6770/</id>
+    <link href="http://kuangbin.github.io/2015/04/21/uvalive6770/"/>
+    <id>http://kuangbin.github.io/2015/04/21/uvalive6770/</id>
     <published>2015-04-21T10:28:43.000Z</published>
     <updated>2018-07-29T05:43:28.998Z</updated>
     
@@ -465,23 +465,23 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="UVALive" scheme="http://yoursite.com/categories/Online-Judge/UVALive/"/>
+      <category term="UVALive" scheme="http://kuangbin.github.io/categories/Online-Judge/UVALive/"/>
     
-      <category term="构造" scheme="http://yoursite.com/categories/Online-Judge/UVALive/%E6%9E%84%E9%80%A0/"/>
+      <category term="构造" scheme="http://kuangbin.github.io/categories/Online-Judge/UVALive/%E6%9E%84%E9%80%A0/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="构造" scheme="http://yoursite.com/tags/%E6%9E%84%E9%80%A0/"/>
+      <category term="构造" scheme="http://kuangbin.github.io/tags/%E6%9E%84%E9%80%A0/"/>
     
   </entry>
   
   <entry>
     <title>The 15th Zhejiang University Programming Contest 部分题解</title>
-    <link href="http://yoursite.com/2015/04/12/15th-zju/"/>
-    <id>http://yoursite.com/2015/04/12/15th-zju/</id>
+    <link href="http://kuangbin.github.io/2015/04/12/15th-zju/"/>
+    <id>http://kuangbin.github.io/2015/04/12/15th-zju/</id>
     <published>2015-04-12T14:48:57.000Z</published>
     <updated>2018-07-29T11:19:22.738Z</updated>
     
@@ -494,25 +494,25 @@
     
     </summary>
     
-      <category term="Contest" scheme="http://yoursite.com/categories/Contest/"/>
+      <category term="Contest" scheme="http://kuangbin.github.io/categories/Contest/"/>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="套题" scheme="http://yoursite.com/categories/%E5%A5%97%E9%A2%98/"/>
+      <category term="ZJU" scheme="http://kuangbin.github.io/categories/ZJU/"/>
     
-      <category term="ZJU" scheme="http://yoursite.com/categories/ZJU/"/>
+      <category term="套题" scheme="http://kuangbin.github.io/categories/%E5%A5%97%E9%A2%98/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
-      <category term="ZOJ" scheme="http://yoursite.com/tags/ZOJ/"/>
+      <category term="ZOJ" scheme="http://kuangbin.github.io/tags/ZOJ/"/>
     
   </entry>
   
   <entry>
     <title>BestCoder Round #36  （HDU5198  HDU5199  HDU5200 HDU5201）</title>
-    <link href="http://yoursite.com/2015/04/06/bc36/"/>
-    <id>http://yoursite.com/2015/04/06/bc36/</id>
+    <link href="http://kuangbin.github.io/2015/04/06/bc36/"/>
+    <id>http://kuangbin.github.io/2015/04/06/bc36/</id>
     <published>2015-04-06T08:44:37.000Z</published>
     <updated>2018-07-29T12:46:28.872Z</updated>
     
@@ -525,17 +525,17 @@
     
     </summary>
     
-      <category term="Online Judge" scheme="http://yoursite.com/categories/Online-Judge/"/>
+      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="HDU" scheme="http://yoursite.com/categories/HDU/"/>
+      <category term="HDU" scheme="http://kuangbin.github.io/categories/HDU/"/>
     
     
   </entry>
   
   <entry>
     <title>2002-2003 ACM-ICPC Northeastern European Regional Contest (NEERC 02)</title>
-    <link href="http://yoursite.com/2015/02/28/2002neerc/"/>
-    <id>http://yoursite.com/2015/02/28/2002neerc/</id>
+    <link href="http://kuangbin.github.io/2015/02/28/2002neerc/"/>
+    <id>http://kuangbin.github.io/2015/02/28/2002neerc/</id>
     <published>2015-02-28T05:13:41.000Z</published>
     <updated>2018-07-29T11:28:07.033Z</updated>
     
@@ -548,14 +548,14 @@
     
     </summary>
     
-      <category term="Contest" scheme="http://yoursite.com/categories/Contest/"/>
+      <category term="Contest" scheme="http://kuangbin.github.io/categories/Contest/"/>
     
-      <category term="套题" scheme="http://yoursite.com/categories/%E5%A5%97%E9%A2%98/"/>
+      <category term="套题" scheme="http://kuangbin.github.io/categories/%E5%A5%97%E9%A2%98/"/>
     
-      <category term="算法" scheme="http://yoursite.com/categories/%E7%AE%97%E6%B3%95/"/>
+      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
-      <category term="ACM" scheme="http://yoursite.com/tags/ACM/"/>
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
   </entry>
   
