@@ -355,6 +355,239 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kuangbin.github.io/2014/11/28/sgu195/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kuangbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blogLogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kuangbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/11/28/sgu195/" itemprop="url">
+                  SGU 195. New Year Bonus Grant （贪心）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-11-28 19:52:44" itemprop="dateCreated datePublished" datetime="2014-11-28T19:52:44+08:00">2014-11-28</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-29 13:43:28" itemprop="dateModified" datetime="2018-07-29T13:43:28+08:00">2018-07-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Online-Judge/" itemprop="url" rel="index"><span itemprop="name">Online Judge</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Online-Judge/SGU/" itemprop="url" rel="index"><span itemprop="name">SGU</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Online-Judge/SGU/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Online-Judge/SGU/算法/贪心/" itemprop="url" rel="index"><span itemprop="name">贪心</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=195" target="_blank" rel="noopener">SGU195</a> 题意比较难懂。 大致意思就是在一颗树形的关系里面。</p>
+<p>•Mocrosoft software这个公司有N个员工。除了老板（BillHates）以外，其他每个人都有一个自己的上司。现在过年了，老板打算给员工们发奖金。为了让支出最少，现在有三个规则：</p>
+<p>·Eachprogrammer may either assign a grant to one of his subordinates or have a grantassigned to him by his chief or none of the above. <strong>一、**</strong>每个员工可以安排自己的下属拿奖金，可以等待拿自己上司给自己的奖金。也可以什么都不做。（就是说<strong> </strong>    他给下属安排奖金后，他就不能有奖金了）<strong> ·Noprogrammer can simultaneously receive a grant and assign a grant to one of hissubordinates. </strong>二、没有哪一个<a href="http://www.xuebuyuan.com/" title="程序" target="_blank" rel="noopener">程序</a>猿可以同时接收上司给的奖金，还给自己下属安排奖金。<strong> </strong>  （就是说他给下属安排奖金后，他就不能由奖金了！）<strong> ·Noprogrammer can assign a grant to more than one of his subordinates </strong>三、每个程序猿最多只能给自己的一个下属（要是他有下属的话）安排奖金。**       注意1是不能选的。   贪心从底下一层开始选择。  </p>
+<h4 id="195-New-Year-Bonus-Grant"><a href="#195-New-Year-Bonus-Grant" class="headerlink" title="195. New Year Bonus Grant"></a>195. New Year Bonus Grant</h4><p>time limit per test: 0.75 sec. memory limit per test: 65536 KB</p>
+<p>input: standard output: standard</p>
+<p>All programmers of <em>Mocrosoft</em> software company are organized in a strict subordination hierarchy. Every programmer has exactly one chief, except Bill Hates who is also the head of the company and has no chief. Due to the celebration of the new 2003 year, chief accountant of <em>Mocrosoft</em> decided to pay a New Year Bonus Grant of 1000 dollars to some programmers. However being extremely concerned of the company wealth she would like to designate the least possible amount of money for these grants. On the other hand she didn’t want to be accused of being too greedy or of giving preferences to some programmers. To do this, she developed the following scheme of grants appointment:</p>
+<ul>
+<li>Each programmer may either assign a grant to one of his subordinates or have a grant assigned to him by his chief or none of the above.</li>
+<li>No programmer can simultaneously receive a grant and assign a grant to one of his subordinates.</li>
+<li>No programmer can assign a grant to more than one of his subordinates</li>
+</ul>
+<p>The scheme seemed to be designed perfectly — nobody would like to assign a grant to anybody since in this case he himself would not receive money. But programmers somehow discovered the plan of chief accountant and decided to make a trick to get the most money possible and share them fairly afterwards. The idea was to make such grant assignments that the total amount of grant money received is maximum possible. You were selected to write the program which will find the optimal grants appointment.</p>
+<p><strong>Input</strong></p>
+<p>The first line of the input file contains integer N — the number of programmers in <em>Mocrosoft</em> company (2 ≤ N ≤ 500 000). Each programmer is assigned his unique identifier — integer number ranging from 1 to N. Bill Hates has number 1 and each programmer has the number greater then the number of his chief. The second line of the input file contains N-1 integers, i-th of which being the number of the chief of the worker whose number is (i + 1).</p>
+<p><strong>Output</strong></p>
+<p>On the first line of the output file print the maximum possible amount of money workers can get. On the second line output the numbers of programmers that will receive grant in ascending order.</p>
+<p><strong>Sample test(s)</strong></p>
+<p>Input</p>
+<p>4 1 1 2</p>
+<p>Output</p>
+<p>2000 3 4</p>
+<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/11/28 18:42:49<br>File Name     :E:\2014ACM\SGU\SGU195.cpp<br>************************************************ */</p>
+<p>#include &lt;stdio.h&gt;</p>
+<p>#include &lt;string.h&gt;</p>
+<p>#include <iostream></iostream></p>
+<p>#include <algorithm></algorithm></p>
+<p>#include <vector></vector></p>
+<p>#include <queue></queue></p>
+<p>#include <set></set></p>
+<p>#include <map></map></p>
+<p>#include <string></string></p>
+<p>#include &lt;math.h&gt;</p>
+<p>#include &lt;stdlib.h&gt;</p>
+<p>#include &lt;time.h&gt;<br>using namespace std;<br>const int MAXN = 500010;<br>int fa[MAXN];<br>bool vis[MAXN];</p>
+<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        fa[1] = 1;<br>        for(int i = 2;i &lt;= n;i++){<br>            scanf(“%d”,&amp;fa[i]);<br>        }<br>        vector<int>ans;<br>        memset(vis,false,sizeof(vis));<br>        for(int i = n;i &gt; 1;i–){<br>            int u = i;<br>            if(vis[u] || vis[fa[u]])continue;<br>            ans.push_back(u);<br>            vis[u] = true;<br>            vis[fa[u]] = true;<br>        }<br>        sort(ans.begin(),ans.end());<br>        int sz = ans.size();<br>        printf(“%d\n”,sz*1000);<br>        for(int i = 0;i &lt; sz;i++){<br>            printf(“%d”,ans[i]);<br>            if(i &lt; sz-1)printf(“ “);<br>            else printf(“\n”);<br>        }<br>    }<br>    return 0;<br>}</int></p>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+	<div>
+		
+	</div>
+ 
+	<div>
+      
+	</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://kuangbin.github.io/2014/11/22/vim-acmicpc/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2391,234 +2624,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://kuangbin.github.io/2014/10/22/hdu5074/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kuangbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blogLogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kuangbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/10/22/hdu5074/" itemprop="url">
-                  HDU 5074 Hatsune Miku （2014鞍山赛区E题，DP）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-10-22 23:13:25" itemprop="dateCreated datePublished" datetime="2014-10-22T23:13:25+08:00">2014-10-22</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-29 13:43:28" itemprop="dateModified" datetime="2018-07-29T13:43:28+08:00">2018-07-29</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DP/" itemprop="url" rel="index"><span itemprop="name">DP</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DP/HDU/" itemprop="url" rel="index"><span itemprop="name">HDU</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DP/HDU/Online-Judge/" itemprop="url" rel="index"><span itemprop="name">Online Judge</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/DP/HDU/Online-Judge/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5074" target="_blank" rel="noopener">HDU5074</a>   直接暴力DP。    </p>
-<h1 id="Hatsune-Miku"><a href="#Hatsune-Miku" class="headerlink" title="Hatsune Miku"></a>Hatsune Miku</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 91    Accepted Submission(s): 69</strong></p>
-<p>Problem Description</p>
-<p>Hatsune Miku is a popular virtual singer. It is very popular in both Japan and China. Basically it is a computer software that allows you to compose a song on your own using the vocal package. Today you want to compose a song, which is just a sequence of notes. There are only m different notes provided in the package. And you want to make a song with n notes.</p>
-<p><img src="http://acm.hdu.edu.cn/data/images/C549-1005-1.jpg" alt=""></p>
-<p>Also, you know that there is a system to evaluate the beautifulness of a song. For each two consecutive notes a and b, if b comes after a, then the beautifulness for these two notes is evaluated as score(a, b). So the total beautifulness for a song consisting of notes a1, a2, . . . , an, is simply the sum of score(ai, ai+1) for 1 ≤ i ≤ n - 1. Now, you find that at some positions, the notes have to be some specific ones, but at other positions you can decide what notes to use. You want to maximize your song’s beautifulness. What is the maximum beautifulness you can achieve?</p>
-<p>Input</p>
-<p>The first line contains an integer T (T ≤ 10), denoting the number of the test cases. For each test case, the first line contains two integers n(1 ≤ n ≤ 100) and m(1 ≤ m ≤ 50) as mentioned above. Then m lines follow, each of them consisting of m space-separated integers, the j-th integer in the i-th line for score(i, j)( 0 ≤ score(i, j) ≤ 100). The next line contains n integers, a1, a2, . . . , an (-1 ≤ ai ≤ m, ai ≠ 0), where positive integers stand for the notes you cannot change, while negative integers are what you can replace with arbitrary notes. The notes are named from 1 to m.</p>
-<p>Output</p>
-<p>For each test case, output the answer in one line.</p>
-<p>Sample Input</p>
-<p>2 5 3 83 86 77 15 93 35 86 92 49 3 3 3 1 2 10 5 36 11 68 67 29 82 30 62 23 67 35 29 2 22 58 69 67 93 56 11 42 29 73 21 19 -1 -1 5 -1 4 -1 -1 -1 4 -1</p>
-<p>Sample Output</p>
-<p>270 625</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014+Asia+AnShan+Regional+Contest&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Asia AnShan Regional Contest</a></p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/10/22 23:08:11<br>File Name     :E:\2014ACM\2014现场赛\鞍山\E.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>int a[100][100];<br>int dp[110][55];<br>int b[110];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    int n,m;<br>    scanf(“%d”,&amp;T);<br>    while(T–){<br>        scanf(“%d%d”,&amp;n,&amp;m);<br>        for(int i = 1;i &lt;= m;i++)<br>            for(int j = 1;j &lt;= m;j++)<br>                scanf(“%d”,&amp;a[i][j]);<br>        memset(dp,-1,sizeof(dp));<br>        for(int i = 1;i &lt;= n;i++)scanf(“%d”,&amp;b[i]);<br>        for(int i = 1;i &lt;= m;i++)<br>            dp[1][i] = 0;<br>        int ans = -1;<br>        for(int i = 1;i &lt;= n;i++){<br>            for(int j = 1;j &lt;= m;j++){<br>                if(b[i] &gt; 0 &amp;&amp; j != b[i])<br>                    dp[i][j] = -1;<br>                if(dp[i][j] == -1)continue;<br>                if(i == n){<br>                    ans = max(ans,dp[i][j]);<br>                    continue;<br>                }<br>                for(int k = 1;k &lt;= m;k++)<br>                    dp[i+1][k] = max(dp[i+1][k],dp[i][j]+a[j][k]);<br>            }<br>        }<br>        printf(“%d\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-	
-	<div>
-		
-	</div>
- 
-	<div>
-      
-	</div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2670,7 +2675,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>

@@ -355,6 +355,222 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://kuangbin.github.io/2014/09/04/hdu4742-cdq/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="kuangbin">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/blogLogo.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="kuangbin的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2014/09/04/hdu4742-cdq/" itemprop="url">
+                  HDU 4742 Pinball Game 3D （cdq分治）
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2014-09-04 23:10:38" itemprop="dateCreated datePublished" datetime="2014-09-04T23:10:38+08:00">2014-09-04</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-07-29 20:59:24" itemprop="dateModified" datetime="2018-07-29T20:59:24+08:00">2018-07-29</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/Online-Judge/" itemprop="url" rel="index"><span itemprop="name">Online Judge</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HDU/" itemprop="url" rel="index"><span itemprop="name">HDU</span></a></span>
+
+                
+                
+                  ，
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/cdq分治/" itemprop="url" rel="index"><span itemprop="name">cdq分治</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h2 id="HDU4742"><a href="#HDU4742" class="headerlink" title="HDU4742"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4742" target="_blank" rel="noopener">HDU4742</a></h2><p>  经典题，可以用树套树，也可以用cdq分治，还是cdq分治写起来比较方便！  </p>
+<h1 id="Pinball-Game-3D"><a href="#Pinball-Game-3D" class="headerlink" title="Pinball Game 3D"></a>Pinball Game 3D</h1><p><strong>Time Limit: 10000/5000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others) Total Submission(s): 630    Accepted Submission(s): 254</strong>  </p>
+<p>Problem Description</p>
+<p>RD is a smart boy and excel in pinball game. However, playing common 2D pinball game for a great number of times results in accumulating tedium.Recently, RD has found a new type of pinball game, a 3D pinball game. The 3D pinball game space can be regarded as a three dimensional coordinate system containing N balls. A ball can be considered as a point. At the beginning, RD made a shot and hit a ball. The ball hit by RD will move and may hit another ball and the “another ball” may move and hit another another ball, etc. But once a ball hit another ball, it will disappear. RD is skilled in this kind of game, so he is able to control every ball’s moving direction. But there is a limitation: if ball A’s coordinate is (x1,y1,z1) and ball B’s coordinate is (x2,y2,z2), then A can hit B only if x1 &lt;= x2 and y1 &lt;= y2 and z1 &lt;= z2. Now, you should help RD to calculate the maximum number of balls that can be hit and the number of different shooting schemes that can achieve that number. Two schemes are different if the sets of hit balls are not the same. The order doesn’t matter.</p>
+<p>Input</p>
+<p>The first line contains one integer T indicating the number of cases. In each case, the first line contains one integer N indicating the number of balls. The next N lines each contains three non-negative integer (x, y, z), indicating the coordinate of a ball. The data satisfies T &lt;= 3, N &lt;= 105, 0 &lt;= x, y, z &lt;= 230, no two balls have the same coordinate in one case.</p>
+<p>Output</p>
+<p>Print two integers for each case in a line, indicating the maximum number of balls that can be hit and the number of different shooting schemes. As the number of schemes can be quite large, you should output this number mod 230.</p>
+<p>Sample Input</p>
+<p>2 3 2 0 0 0 1 0 0 1 1 5 3 0 0 0 1 0 0 0 1 0 2 2 3 3 3</p>
+<p>Sample Output</p>
+<p>2 1 3 2</p>
+<p><em>Hint</em></p>
+<p>In the first case, RD can shoot the second ball at first and hit the third ball indirectly. In the second case, RD can shoot the second or the third ball initially and hit the fourth ball as well as the fifth ball. Two schemes are both the best.</p>
+<p>Source</p>
+<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2013%20ACM/ICPC%20Asia%20Regional%20Hangzhou%20Online&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2013 ACM/ICPC Asia Regional Hangzhou Online</a></p>
+<pre><code>就是三维的LIS。 按照x排序可以减少一维，然后使用cdq分治的方法，用左边的去更新右边的，按照y的顺序加入。   要对z进行离散化。  
+</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ***************</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Author        :kuangbin</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Created Time  :2014/9/4 21:53:53</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">File Name     :E:\2014ACM\专题学习\CDQ分治\HDU4742.cpp</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">************************************************ */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MOD = (<span class="number">1</span>&lt;&lt;<span class="number">30</span>);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">update</span><span class="params">(pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;&amp;p1,pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;p2)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(p1.first &lt; p2.first)p1 = p2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(p1.first == p2.first)&#123;</span><br><span class="line"></span><br><span class="line">		p1.second += p2.second;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(p1.second &gt;= MOD)p1.second -= MOD;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;dp[MAXN];</span><br><span class="line"></span><br><span class="line">pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;c[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">lowbit</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> x&amp;(-x);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">add</span><span class="params">(<span class="keyword">int</span> i,pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;val)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(i &lt;= n)&#123;</span><br><span class="line"></span><br><span class="line">		update(c[i],val);</span><br><span class="line"></span><br><span class="line">		i += lowbit(i);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; sum(<span class="keyword">int</span> i)&#123;</span><br><span class="line"></span><br><span class="line">	pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;res = make_pair(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(i &gt; <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">		update(res,c[i]);</span><br><span class="line"></span><br><span class="line">		i -= lowbit(i);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> res;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">CLR</span><span class="params">(<span class="keyword">int</span> i)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(i &lt;= n)&#123;</span><br><span class="line"></span><br><span class="line">		c[i] = make_pair(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		i += lowbit(i);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Point</span>&#123;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> x,y,z;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> id;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d%d"</span>,&amp;x,&amp;y,&amp;z);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;p[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpx</span><span class="params">(Point a,Point b)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(a.x != b.x)<span class="keyword">return</span> a.x &lt; b.x;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">if</span>(a.y != b.y)<span class="keyword">return</span> a.y &lt; b.y;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.z &lt; b.z;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">cmpy</span><span class="params">(Point a,Point b)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(a.y != b.y)<span class="keyword">return</span> a.y &lt; b.y;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> a.z &lt; b.z;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> zz[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">solve</span><span class="params">(<span class="keyword">int</span> l,<span class="keyword">int</span> r)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(l == r)<span class="keyword">return</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> mid = (l+r)/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">	solve(l,mid);</span><br><span class="line"></span><br><span class="line">	sort(p+l,p+mid+<span class="number">1</span>,cmpy);</span><br><span class="line"></span><br><span class="line">	sort(p+mid+<span class="number">1</span>,p+r+<span class="number">1</span>,cmpy);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> j = l;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = mid+<span class="number">1</span>;i &lt;= r;i++)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(j &lt;= mid &amp;&amp; p[j].y &lt;= p[i].y)</span><br><span class="line"></span><br><span class="line">		&#123;</span><br><span class="line"></span><br><span class="line">			add(p[j].z,dp[p[j].id]);</span><br><span class="line"></span><br><span class="line">			j++;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt; res = sum(p[i].z);</span><br><span class="line"></span><br><span class="line">		res.first++;</span><br><span class="line"></span><br><span class="line">		update(dp[p[i].id],res);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = l;i &lt;= mid;i++)CLR(p[i].z);</span><br><span class="line"></span><br><span class="line">	sort(p+mid+<span class="number">1</span>,p+r+<span class="number">1</span>,cmpx);</span><br><span class="line"></span><br><span class="line">	solve(mid+<span class="number">1</span>,r);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//freopen("in.txt","r",stdin);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//freopen("out.txt","w",stdout);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> T;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(T--)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> cnt = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line"></span><br><span class="line">			p[i].input();</span><br><span class="line"></span><br><span class="line">			zz[++cnt] = p[i].z;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		sort(zz+<span class="number">1</span>,zz+cnt+<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">		cnt = unique(zz+<span class="number">1</span>,zz+cnt+<span class="number">1</span>)-zz<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line"></span><br><span class="line">			p[i].z = lower_bound(zz+<span class="number">1</span>,zz+cnt+<span class="number">1</span>,p[i].z)-zz;</span><br><span class="line"></span><br><span class="line">		sort(p+<span class="number">1</span>,p+n+<span class="number">1</span>,cmpx);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line"></span><br><span class="line">			p[i].id = i;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line"></span><br><span class="line">			c[i] = make_pair(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">			dp[i] = make_pair(<span class="number">1</span>,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		solve(<span class="number">1</span>,n);</span><br><span class="line"></span><br><span class="line">		pair&lt;<span class="keyword">int</span>,<span class="keyword">int</span>&gt;ans = make_pair(<span class="number">0</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line"></span><br><span class="line">			update(ans,dp[i]);</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,ans.first,ans.second);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+	
+	<div>
+		
+	</div>
+ 
+	<div>
+      
+	</div>
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://kuangbin.github.io/2014/08/29/qtree-lct/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -2717,218 +2933,6 @@ void print();        //输出大数
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://kuangbin.github.io/2014/08/07/hdu4921/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="kuangbin">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/blogLogo.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="kuangbin的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2014/08/07/hdu4921/" itemprop="url">
-                  HDU 4921 Map （水题）
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2014-08-07 20:53:32" itemprop="dateCreated datePublished" datetime="2014-08-07T20:53:32+08:00">2014-08-07</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-07-29 13:43:28" itemprop="dateModified" datetime="2018-07-29T13:43:28+08:00">2018-07-29</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HDU/" itemprop="url" rel="index"><span itemprop="name">HDU</span></a></span>
-
-                
-                
-                  ，
-                
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HDU/Online-Judge/" itemprop="url" rel="index"><span itemprop="name">Online Judge</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <h2 id="HDU-4921"><a href="#HDU-4921" class="headerlink" title="HDU 4921"></a>HDU 4921</h2><h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4921" target="_blank" rel="noopener">Map</a></h1><h1 id="Map-1"><a href="#Map-1" class="headerlink" title="Map"></a>Map</h1><p><strong>Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 92    Accepted Submission(s): 19</strong>  </p>
-<p>Problem Description</p>
-<p>There are N pieces of fragments, and we’re going to select some of them to form a map. Some fragments can be selected into the map directly (named 1-level fragments), while each of the rest follows <strong>exactly one</strong> fragment as its prior fragment. If B follows A and A is an i-level fragment, then B is defined as an (i + 1) - level fragment, and B can be selected only if A has been selected before. Besides, a fragment is followed by at most one other fragment. Each fragment is assigned with a reliability. The reliability of the whole map is sum up by two parts: 1.The sum of reliabilities of all selected fragments; 2.If there are xi i-level fragments in total and we select yi(yi > 1) fragments among them to form the map, the reliability would increase by <img src="http://acm.hdu.edu.cn/data/images/C507-1001-1.jpg" alt="">,where Sidenotes the sum of reliabilities of selected fragments in level i. Please figure out the expectation of reliability of the map under the condition that all valid selections are equiprobable. At least one fragment should be selected.</p>
-<p>Input</p>
-<p>There are several test cases. The number of test cases T (T&lt;=10) occurs in the first line of input. For each test case: The first line consists of two integers N, M (1&lt;=N&lt;=10000,0&lt;=M&lt;N), indicating the number of fragments and relationships respectively. The second line contains N integers, which describes the reliability of each fragment. The given reliability ranges from 1 to 100, inclusive. Each of the following M lines contains two integers A and B, which denotes B follows A(0&lt;=A,B&lt;=N-1). You may assume that the number of 1-level fragments are no more than 10, and levels will not exceed 1000. No fragment will follow itself directly or indirectly.</p>
-<p>Output</p>
-<p>For each test case, output the expectation with 3 decimal places.</p>
-<p>Sample Input</p>
-<p>2 2 0 1 2 3 1 1 2 4 1 2</p>
-<p>Sample Output</p>
-<p>3.000 5.000</p>
-<p><em>Hint</em></p>
-<p>In the first sample, there’re three ways of selections: {0,1}, {0},{1},which respectively generates 6, 1 and 2 of reliability. Hence, the expectation is 3.</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%206&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Multi-University Training Contest 6</a></p>
-<pre><code>大水题一个。 就按照题目说的就是暴力。   卧槽，做的时候没有看到下标从0开始的，一直搞不出来第二个样例，然后WA无数次。  一直没发现问题。 经岐哥提醒是下标从0开始的，然后秒过啊。 sad, 最近这状态是有多差啊，题都做不出来了。   按照题目意思是形成很多条链。 链最多是10条，深度最多1000. 直接暴力。   首先先求出总数，假设有k个链，每条链深度是 num\[k\]. 那么总数就是  num\[1\]\*num\[2\]\*........num\[k\]   - 1了。 先累加第一种和。 只需要扫一遍每条链。 其实就是找出每个点出现的次数，是很好求的。   第二种也是很好求的，直接枚举，二进制去枚举2^k复杂度。 就是按照深度去找，枚举每个深度有几个是达到这个深度的，当然有的是达不到这个深度的。  
-</code></pre><p>#include &lt;stdio.h&gt;</p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <iostream></iostream></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <map></map></p>
-<p>#include <vector></vector></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;<br>using namespace std;<br>const int MAXN = 100010;<br>int to[MAXN];<br>int rto[MAXN];<br>bool f[MAXN];</p>
-<p>int a[MAXN];<br>int num[MAXN];<br>int b[MAXN];<br>int dep[MAXN];<br>int two[20];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    int n,m;<br>    scanf(“%d”,&amp;T);<br>    two[0] = 1;<br>    for(int i = 1;i &lt; 20;i++)<br>        two[i] = 2<em>two[i-1];<br>    while(T–)<br>    {<br>        scanf(“%d%d”,&amp;n,&amp;m);<br>        for(int i = 1;i &lt;= n;i++)<br>            scanf(“%d”,&amp;a[i]);<br>        for(int i = 1;i &lt;= n;i++)<br>        {<br>            f[i] = true;<br>            num[i] = 0;<br>            to[i] = -1;<br>            rto[i] = -1;<br>        }<br>        int u,v;<br>        while(m–)<br>        {<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            u++;<br>            v++;<br>            to[u] = v;<br>            rto[v] = u;<br>            f[v] = false;<br>        }<br>        for(int i = 1;i &lt;= n;i++)<br>            if(to[i] == -1)<br>            {<br>                u = i;<br>                num[u] = 1;<br>                while(rto[u] != -1)<br>                {<br>                    num[rto[u]] = num[u]+1;<br>                    u = rto[u];<br>                }<br>            }<br>        double tot = 1;<br>        for(int i = 1;i &lt;= n;i++)<br>            if(f[i])<br>                tot </em>= (num[i]+1);<br>        double ans = 0;<br>        int cc = 0;<br>        for(int i = 1;i &lt;= n;i++)<br>            if(f[i])<br>                b[cc++] = i;<br>        for(int i = 0;i &lt; cc;i++)<br>        {<br>            u = b[i];<br>            dep[u] = 1;<br>            double tt = 1.0/(num[u]+1);<br>            double s = 0;<br>            while(1)<br>            {<br>                s += a[u];<br>                ans += s*tt*(tot/(tot-1));//累加第一种<br>                if(to[u] == -1)break;<br>                dep[to[u]] = dep[u] + 1;<br>                num[to[u]] = num[u];<br>                u = to[u];<br>            }<br>        }<br>        int MD = 0;//最大深度<br>        for(int i = 1;i &lt;= n;i++)<br>            MD = max(MD,dep[i]);<br>        for(int d = 1;d &lt;= MD;d++)<br>        {<br>            for(int i = 1;i &lt; two[cc];i++)<br>            {<br>                bool flag = true;<br>                double tt = 1;<br>                int cnt = 0;<br>                double ss = 0;<br>                for(int j = 0;j &lt; cc;j++)<br>                    if(i &amp; two[j])<br>                    {<br>                        cnt++;<br>                        ss += a[b[j]];<br>                        if(dep[b[j]] != d)<br>                        {<br>                            flag = false;<br>                            break;<br>                        }<br>                        tt <em>= (num[b[j]]-d+1);<br>                    }<br>                    else<br>                    {<br>                        if(dep[b[j]] == d)tt </em>= (dep[b[j]]);<br>                        else tt <em>= (dep[b[j]]+1);<br>                    }<br>                int cnt2 = 0;<br>                for(int j = 0;j &lt; cc;j++)<br>                    if(dep[b[j]] == d)<br>                        cnt2++;<br>                if(!flag)continue;<br>                if(cnt &gt; 1)ans += ss\</em>cnt/cnt2*(tt/(tot-1));//累加第二种<br>            }<br>            for(int i = 0;i &lt; cc;i++)<br>                if( to[b[i]] != -1)<br>                    b[i] = to[b[i]];<br>        }<br>        printf(“%.3lf\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-	
-	<div>
-		
-	</div>
- 
-	<div>
-      
-	</div>
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -2980,7 +2984,7 @@ void print();        //输出大数
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">127</span>
+                    <span class="site-state-item-count">128</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
