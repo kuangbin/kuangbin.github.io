@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kuangbin.github.io/"/>
-  <updated>2018-08-01T13:56:46.113Z</updated>
+  <updated>2018-08-01T14:14:22.745Z</updated>
   <id>http://kuangbin.github.io/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://kuangbin.github.io/2018/08/01/ACM%E6%96%B0%E6%A8%A1%E6%9D%BF/"/>
     <id>http://kuangbin.github.io/2018/08/01/ACM新模板/</id>
     <published>2018-08-01T13:54:10.000Z</published>
-    <updated>2018-08-01T13:56:46.113Z</updated>
+    <updated>2018-08-01T14:14:22.745Z</updated>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;新模板下载地址：here(&lt;a href=&quot;https://github.com/kuangbin/ACM-ICPC/blob/master/kuangbin%E7%9A%84ACM%E6%A8%A1%E6%9D%BF%EF%BC%88%E6%96%B0%EF%BC%89.
+        &lt;p&gt;新模板下载地址：&lt;a href=&quot;https://github.com/kuangbin/ACM-ICPC/blob/master/kuangbin%E7%9A%84ACM%E6%A8%A1%E6%9D%BF%EF%BC%88%E6%96%B0%EF%BC%89.pdf&quot; 
       
     
     </summary>
@@ -517,9 +517,9 @@
     
       <category term="Contest" scheme="http://kuangbin.github.io/categories/Contest/"/>
     
-      <category term="套题" scheme="http://kuangbin.github.io/categories/%E5%A5%97%E9%A2%98/"/>
-    
       <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
+    
+      <category term="套题" scheme="http://kuangbin.github.io/categories/%E5%A5%97%E9%A2%98/"/>
     
       <category term="ZJU" scheme="http://kuangbin.github.io/categories/ZJU/"/>
     
