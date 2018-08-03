@@ -129,8 +129,6 @@
 <meta name="twitter:title" content="Algorithm">
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="kuangbin的博客" type="application/atom+xml" />
 
@@ -152,6 +150,15 @@
 
 
 
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123329699-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123329699-1');
+</script>
 
 
 
@@ -410,6 +417,16 @@
 
           </div>
           
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
 
   
 
@@ -1025,6 +1042,24 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
 
 
 
@@ -1050,6 +1085,14 @@
 	
     
 
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b6455de9c11f26c" async = "async" ></script>
+</div>
+
+      </div>
     
   </div>
 
@@ -1143,9 +1186,30 @@
 
   
 
-
+  
+    <script id="dsq-count-scr" src="https://kuangbin-github-io.disqus.com/count.js" async></script>
+  
 
   
+    <script type="text/javascript">
+      var disqus_config = function () {
+        this.page.url = 'http://kuangbin.github.io/algorithm/index.html';
+        this.page.identifier = 'algorithm/index.html';
+        this.page.title = 'Algorithm';
+        };
+      function loadComments () {
+        var d = document, s = d.createElement('script');
+        s.src = 'https://kuangbin-github-io.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      }
+      
+        loadComments();
+      
+    </script>
+  
+
+
 
 
 
@@ -1503,5 +1567,7 @@
 
   
 
+  <script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
 </body>
 </html>
