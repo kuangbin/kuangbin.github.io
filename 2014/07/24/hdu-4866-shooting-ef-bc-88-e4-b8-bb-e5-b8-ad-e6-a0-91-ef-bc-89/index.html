@@ -483,9 +483,7 @@
                   <i class="fa fa-comment-o"></i>
                 </span>
                 <a href="/2014/07/24/hdu-4866-shooting-ef-bc-88-e4-b8-bb-e5-b8-ad-e6-a0-91-ef-bc-89/#comments" itemprop="discussionUrl">
-                
-                  <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="2014/07/24/hdu-4866-shooting-ef-bc-88-e4-b8-bb-e5-b8-ad-e6-a0-91-ef-bc-89/" itemprop="commentCount"></span>
+                  <span class="post-meta-item-text">评论数：</span> <span class="post-comments-count valine-comment-count" data-xid="/2014/07/24/hdu-4866-shooting-ef-bc-88-e4-b8-bb-e5-b8-ad-e6-a0-91-ef-bc-89/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -687,14 +685,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
     </div>
-
   
 
 
@@ -1642,27 +1633,8 @@
 
   
 
-  
-    <script id="dsq-count-scr" src="https://kuangbin-github-io.disqus.com/count.js" async></script>
-  
 
-  
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'http://kuangbin.github.io/2014/07/24/hdu-4866-shooting-ef-bc-88-e4-b8-bb-e5-b8-ad-e6-a0-91-ef-bc-89/';
-        this.page.identifier = '2014/07/24/hdu-4866-shooting-ef-bc-88-e4-b8-bb-e5-b8-ad-e6-a0-91-ef-bc-89/';
-        this.page.title = 'HDU 4866 Shooting （主席树）';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://kuangbin-github-io.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
+
   
 
 
@@ -1672,7 +1644,30 @@
 
 
 
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'dmpgo3aJozOm83msYDt9GCV8-gzGzoHsz',
+        appKey: 'ImqAKJAJPzDYWv2il68TCjak',
+        placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 

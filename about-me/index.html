@@ -132,8 +132,6 @@
 <meta name="twitter:description" content="一个弱者，在不停地努力着~ 从区域赛打铁到final打铁，只为证明我是可以的！  mail :  kuangbin2009@126.com QQ    :  1691626124    QQ群！ (加群请写点验证信息) 181826055 （ACM交流群，  我新建的QQ群，目的是进行交流ACM相关算法，共同提高，不喜勿加！ 太NB的不要加！禁止D人。） 旨在构建一个最和谐的ACM交流群~~~">
 
 
-  
-
 
   <link rel="alternate" href="/atom.xml" title="kuangbin的博客" type="application/atom+xml" />
 
@@ -431,14 +429,7 @@
 
   
     <div class="comments" id="comments">
-      <div id="disqus_thread">
-        <noscript>
-          Please enable JavaScript to view the
-          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
-        </noscript>
-      </div>
     </div>
-
   
 
 
@@ -1386,27 +1377,8 @@
 
   
 
-  
-    <script id="dsq-count-scr" src="https://kuangbin-github-io.disqus.com/count.js" async></script>
-  
 
-  
-    <script type="text/javascript">
-      var disqus_config = function () {
-        this.page.url = 'http://kuangbin.github.io/about-me/index.html';
-        this.page.identifier = 'about-me/index.html';
-        this.page.title = 'About Me';
-        };
-      function loadComments () {
-        var d = document, s = d.createElement('script');
-        s.src = 'https://kuangbin-github-io.disqus.com/embed.js';
-        s.setAttribute('data-timestamp', '' + +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-      
-        loadComments();
-      
-    </script>
+
   
 
 
@@ -1416,7 +1388,30 @@
 
 
 
-
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'dmpgo3aJozOm83msYDt9GCV8-gzGzoHsz',
+        appKey: 'ImqAKJAJPzDYWv2il68TCjak',
+        placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
 
 
 
