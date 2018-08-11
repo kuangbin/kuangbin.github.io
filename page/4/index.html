@@ -511,43 +511,17 @@
       
         
           
-            <p><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=195" target="_blank" rel="noopener">SGU195</a> 题意比较难懂。 大致意思就是在一颗树形的关系里面。</p>
-<p>•Mocrosoft software这个公司有N个员工。除了老板（BillHates）以外，其他每个人都有一个自己的上司。现在过年了，老板打算给员工们发奖金。为了让支出最少，现在有三个规则：</p>
-<p>·Eachprogrammer may either assign a grant to one of his subordinates or have a grantassigned to him by his chief or none of the above. <strong>一、**</strong>每个员工可以安排自己的下属拿奖金，可以等待拿自己上司给自己的奖金。也可以什么都不做。（就是说<strong> </strong>    他给下属安排奖金后，他就不能有奖金了）<strong> ·Noprogrammer can simultaneously receive a grant and assign a grant to one of hissubordinates. </strong>二、没有哪一个<a href="http://www.xuebuyuan.com/" title="程序" target="_blank" rel="noopener">程序</a>猿可以同时接收上司给的奖金，还给自己下属安排奖金。<strong> </strong>  （就是说他给下属安排奖金后，他就不能由奖金了！）<strong> ·Noprogrammer can assign a grant to more than one of his subordinates </strong>三、每个程序猿最多只能给自己的一个下属（要是他有下属的话）安排奖金。**       注意1是不能选的。   贪心从底下一层开始选择。  </p>
-<h4 id="195-New-Year-Bonus-Grant"><a href="#195-New-Year-Bonus-Grant" class="headerlink" title="195. New Year Bonus Grant"></a>195. New Year Bonus Grant</h4><p>time limit per test: 0.75 sec. memory limit per test: 65536 KB</p>
-<p>input: standard output: standard</p>
-<p>All programmers of <em>Mocrosoft</em> software company are organized in a strict subordination hierarchy. Every programmer has exactly one chief, except Bill Hates who is also the head of the company and has no chief. Due to the celebration of the new 2003 year, chief accountant of <em>Mocrosoft</em> decided to pay a New Year Bonus Grant of 1000 dollars to some programmers. However being extremely concerned of the company wealth she would like to designate the least possible amount of money for these grants. On the other hand she didn’t want to be accused of being too greedy or of giving preferences to some programmers. To do this, she developed the following scheme of grants appointment:</p>
-<ul>
-<li>Each programmer may either assign a grant to one of his subordinates or have a grant assigned to him by his chief or none of the above.</li>
-<li>No programmer can simultaneously receive a grant and assign a grant to one of his subordinates.</li>
-<li>No programmer can assign a grant to more than one of his subordinates</li>
-</ul>
-<p>The scheme seemed to be designed perfectly — nobody would like to assign a grant to anybody since in this case he himself would not receive money. But programmers somehow discovered the plan of chief accountant and decided to make a trick to get the most money possible and share them fairly afterwards. The idea was to make such grant assignments that the total amount of grant money received is maximum possible. You were selected to write the program which will find the optimal grants appointment.</p>
-<p><strong>Input</strong></p>
-<p>The first line of the input file contains integer N — the number of programmers in <em>Mocrosoft</em> company (2 ≤ N ≤ 500 000). Each programmer is assigned his unique identifier — integer number ranging from 1 to N. Bill Hates has number 1 and each programmer has the number greater then the number of his chief. The second line of the input file contains N-1 integers, i-th of which being the number of the chief of the worker whose number is (i + 1).</p>
-<p><strong>Output</strong></p>
-<p>On the first line of the output file print the maximum possible amount of money workers can get. On the second line output the numbers of programmers that will receive grant in ascending order.</p>
-<p><strong>Sample test(s)</strong></p>
-<p>Input</p>
-<p>4 1 1 2</p>
-<p>Output</p>
-<p>2000 3 4</p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/11/28 18:42:49<br>File Name     :E:\2014ACM\SGU\SGU195.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const int MAXN = 500010;<br>int fa[MAXN];<br>bool vis[MAXN];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        fa[1] = 1;<br>        for(int i = 2;i &lt;= n;i++){<br>            scanf(“%d”,&amp;fa[i]);<br>        }<br>        vector<int>ans;<br>        memset(vis,false,sizeof(vis));<br>        for(int i = n;i &gt; 1;i–){<br>            int u = i;<br>            if(vis[u] || vis[fa[u]])continue;<br>            ans.push_back(u);<br>            vis[u] = true;<br>            vis[fa[u]] = true;<br>        }<br>        sort(ans.begin(),ans.end());<br>        int sz = ans.size();<br>        printf(“%d\n”,sz*1000);<br>        for(int i = 0;i &lt; sz;i++){<br>            printf(“%d”,ans[i]);<br>            if(i &lt; sz-1)printf(“ “);<br>            else printf(“\n”);<br>        }<br>    }<br>    return 0;<br>}</int></p>
-
-          
+          SGU195 题意比较难懂。 大致意思就是在一颗树形的关系里面。
+•Mocrosoft software这个公司有N个员工。除了老板（BillHates）以外，其他每个人都有一个自己的上司。现在过年了，老板打算给员工们发奖金。为了让支出最少，现在有三个规则：
+·Eachprogrammer may 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/28/sgu195/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -733,31 +707,15 @@
       
         
           
-            <p>Vim大法好！ 应大家的要求，写一篇博客来介绍下vim在ACM中的简单使用。 写本文的目的，只是为了给广大acmer一个入门vim的指导。不喜勿喷！ 不想看到的请远离！   vim大法好，远离sublime、cb保平安！   从13年开始，平时写程序和比赛都是用的vim，也一直在推荐大家使用vim，至于为何要用vim，原因很多。 为何要使用vim？1) 可以装逼，vim显得高端大气上档次，现场赛你打开的是丑陋的CB，别人打开的是VIM，高下立判。 2) 用vim可以明显提高写代码的感觉，加快代码速度。3) vim大法好。   当然，前面纯粹个人胡扯，要用啥都是个人偏好而已。   下面简单介绍VIM的使用。  </p>
-<h2 id="比赛篇"><a href="#比赛篇" class="headerlink" title="比赛篇"></a><strong>比赛篇</strong></h2><p>首先介绍vim在比赛使用的使用。 先大致介绍现场赛vim的配置方法。 现场赛比赛系统是ubuntu， 都是安装好了vim的。 ubuntu系统下打开终端（终端一般在左侧有了，没有就按Ctrl+Alt+T启动，然后可以锁定在左侧），打开终端输入vim就进入vim了。 配置方法是输入 vim ~/.vimrc (这样是用vim编辑配置文件，或者用 gedit ~/.vimrc 就是用gedit编辑了) 配置的话，按照自己习惯加几句配置文件就可以使用了。 我一般配置下面几个：</p>
-<p>syntax on<br>set nu<br>set tabstop=4<br>set shiftwidth=4<br>colo evening<br>set mouse=a<br>set cin</p>
-<p>上面这几个配置的具体含义可以去百度下，有的也是可以不要的。 然后配置以后保存。VIM的配置就结束了。   然后在终端里面  输入 vim A.cpp   然后就开始写代码了。 编译运行的话，可以另外打开一个终端（就是左侧右击，然后new一个出来），就可以一边编辑，一遍保存了。 但是注意在代码编译以后，一定要 :w 来保存下，然后进行编译运行。 编译可以输入 g++ A.cpp -o A 如果没有错就可以了。 然后输入  ./A 来运行，然后输入数据啥的，退出的话是 按 Ctrl+C        </p>
-<h2 id="VIM入门篇"><a href="#VIM入门篇" class="headerlink" title=" VIM入门篇"></a> VIM入门篇</h2><p>  <a href="http://coolshell.cn/articles/5426.html" target="_blank" rel="noopener"> 简明Vim练级攻略</a>       把这上面教的VIM命令都熟悉下，差不多就可以了。 VIM命令很多，但是一开始常用的就那么几个吧，需要的指令慢慢积累就会了。   如果你的系统是WINDOWS，那可以安装一个GVIM，进行学习，用来平时写代码。 下载链接：<a href="http://www.vim.org/" target="_blank" rel="noopener">here</a>  进去后点击左侧的Download, 然后选择</p>
-<ul>
-<li><a href="http://www.vim.org/download.php#pc" target="_blank" rel="noopener">PC: MS-DOS and MS-Windows</a></li>
-</ul>
-<p>这个进行下载。  下载以后进行安装。 安装后桌面出现好几个快捷方式，有用的就gVim 7.4， 其余可以删除。 GVIM就直接点开就可以写了。一般是新建一个文本，改名为A.cpp, 然后打开Gvim, 把A.cpp拖入Gvim ,然后就可以进行编辑了。 Gvim的配置，就是在安装目录那有一个 _vimrc文件，编辑这个文件，在后面添加一些你自己需要的配置。 我的配置如下: (加到_vimrc后面)  </p>
-<p>set nu<br>set history=1000000<br>set tabstop=4<br>set shiftwidth=4</p>
-<p>set smarttab</p>
-<p>set cindent</p>
-<p>colo evening</p>
-<p>set showcmd</p>
-<p>set nobackup<br>set noswapfile</p>
-<p>set mouse=a</p>
-<p>map <f6> :call CR()<cr><br>func! CR()<br>exec “w”<br>exec “!g++ -O2 -g  % -o %&lt;”<br>exec “! %&lt;”<br>endfunc</cr></f6></p>
-<p>imap &lt;c-]&gt; {<cr>}<c-o>O<left><right></right></left></c-o></cr></p>
-<p>map <c-a> ggVG”+y</c-a></p>
-<p>“inoremap ( ()<left><br>“inoremap [ []<left><br>“inoremap { {}<left><br>“inoremap “ “”<left><br>“inoremap ‘ ‘’<left></left></left></left></left></left></p>
-<p>map <f2> :call SetTitle()<cr><br>func SetTitle()<br>let l = 0<br>let l = l + 1 | call setline(l,’/<em> <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></em>‘)<br>let l = l + 1 | call setline(l,’Author        :kuangbin’)<br>let l = l + 1 | call setline(l,’Created Time  :’.strftime(‘%c’))<br>let l = l + 1 | call setline(l,’File Name     :’.expand(‘%’))<br>let l = l + 1 | call setline(l,’<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><em>**</em></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> */‘)<br>let l = l + 1 | call setline(l,’’)</cr></f2></p>
-<p>let l = l + 1 | call setline(l,’#include &lt;stdio.h&gt;’)<br>let l = l + 1 | call setline(l,’#include &lt;string.h&gt;’)<br>let l = l + 1 | call setline(l,’#include <iostream>‘)<br>let l = l + 1 | call setline(l,’#include <algorithm>‘)<br>let l = l + 1 | call setline(l,’#include <vector>‘)<br>let l = l + 1 | call setline(l,’#include <queue>‘)<br>let l = l + 1 | call setline(l,’#include <set>‘)<br>let l = l + 1 | call setline(l,’#include <map>‘)<br>let l = l + 1 | call setline(l,’#include <string>‘)<br>let l = l + 1 | call setline(l,’#include &lt;math.h&gt;’)<br>let l = l + 1 | call setline(l,’#include &lt;stdlib.h&gt;’)<br>let l = l + 1 | call setline(l,’#include &lt;time.h&gt;’)<br>let l = l + 1 | call setline(l,’using namespace std;’)<br>let l = l + 1 | call setline(l,’’)<br>let l = l + 1 | call setline(l,’int main()’)<br>let l = l + 1 | call setline(l,’{‘)<br>let l = l + 1 | call setline(l,’    //freopen(“in.txt”,”r”,stdin);’)<br>let l = l + 1 | call setline(l,’    //freopen(“out.txt”,”w”,stdout);’)<br>let l = l + 1 | call setline(l,’    ‘)<br>let l = l + 1 | call setline(l,’    return 0;’)<br>let l = l + 1 | call setline(l,’}’)<br>endfunc</string></map></set></queue></vector></algorithm></iostream></p>
-<pre><code>里面的配置可以自己修改，可以加一些快捷键之类的。 我的配置文件是 按F2，自动写好头文件之类的信息，然后按F6进行编译运行。 平时用起来都很方便。             欢迎进行交流讨论！ (**加群请写点验证信息**) 此外最近新建了一个QQ群。 如果是自以为很牛逼的人，请别加！ 181826055 （ACM交流群，  我新建的QQ群，目的是进行交流ACM相关算法，共同提高，不喜勿加！ 太NB的不要加！禁止D人。） 旨在构建一个最和谐的ACM交流群~~~  维护一个和谐的群环境，交流讨论算法相关。
-</code></pre>
-          
+          Vim大法好！ 应大家的要求，写一篇博客来介绍下vim在ACM中的简单使用。 写本文的目的，只是为了给广大acmer一个入门vim的指导。不喜勿喷！ 不想看到的请远离！   vim大法好，远离sublime、cb保平安！   从13年开始，平时写程序和比赛都是用的vim，也一直在推荐大家使用vim，
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/22/vim-acmicpc/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -964,35 +922,17 @@
       
         
           
-            <p><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=196" target="_blank" rel="noopener">SGU196</a>   水题。答案直接就是每个点的度数平方和。    </p>
-<h4 id="196-Matrix-Multiplication"><a href="#196-Matrix-Multiplication" class="headerlink" title="196. Matrix Multiplication"></a>196. Matrix Multiplication</h4><p>time limit per test: 0.25 sec. memory limit per test: 65536 KB</p>
-<p>input: standard output: standard</p>
-<p>Let us consider an undirected graph G = &lt;V, E&gt; which has N vertices and M edges. Incidence matrix of this graph is an N × M matrix A = {aij}, such that aij is 1 if i-th vertex is one of the ends of j-th edge and 0 in the other case. Your task is to find the sum of all elements of the matrix ATA where AT is A transposed, i.e. an M × N matrix obtained from A by turning its columns to rows and vice versa.</p>
-<p><strong>Input</strong></p>
-<p>The first line of the input file contains two integer numbers — N and M (2 le N le 10,000, 1 le M le 100,000). 2M integer numbers follow, forming M pairs, each pair describes one edge of the graph. All edges are different and there are no loops (i.e. edge ends are distinct).</p>
-<p><strong>Output</strong></p>
-<p>Output the only number — the sum requested.</p>
-<p><strong>Sample test(s)</strong></p>
-<p>Input</p>
-<p>4 4 1 2 1 3 2 3 2 4</p>
-<p>Output</p>
-<p>18</p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/11/21 22:57:16<br>File Name     :E:\2014ACM\SGU\SGU196.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>int du[10010];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n,m;<br>    while(scanf(“%d%d”,&amp;n,&amp;m) == 2){<br>        memset(du,0,sizeof(du));<br>        int u,v;<br>        while(m–){<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            du[u]++;<br>            du[v]++;<br>        }<br>        int ans = 0;<br>        for(int i = 1;i &lt;= n;i++)<br>            ans += du[i]*du[i];<br>        printf(“%d\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          SGU196   水题。答案直接就是每个点的度数平方和。    
+196. Matrix Multiplicationtime limit per test: 0.25 sec. memory limit per test: 65536 KB
+input: standard output: stan
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/21/sgu196/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1199,25 +1139,16 @@
       
         
           
-            <p><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=197" target="_blank" rel="noopener">SGU197</a>   给N*M的格子涂黑白两种颜色，要求没有2*2的小矩形是同色的。 N很大，M很小。 答案对P取模。   明显的状态压缩出转移，然后矩阵优化下就可以了。      </p>
-<h4 id="197-Nice-Patterns-Strike-Back"><a href="#197-Nice-Patterns-Strike-Back" class="headerlink" title="197. Nice Patterns Strike Back"></a>197. Nice Patterns Strike Back</h4><p>time limit per test: 0.5 sec. memory limit per test: 65536 KB</p>
-<p>input: standard output: standard</p>
-<p>You might have noticed that there is the new fashion among rich people to have their yards tiled with black and white tiles, forming a pattern. The company <em>Broken Tiles</em> is well known as the best tiling company in our region. It provides the widest choices of nice patterns to tile your yard with. The pattern is <em>nice</em> if there is no square of size 2 × 2, such that all tiles in it have the same color. So patterns on the figure 1 are nice, while patterns on the figure 2 are not.</p>
-<p><img src="http://acm.sgu.ru/images/p197-01.gif" alt=""></p>
-<p>The president of the company wonders whether the variety of nice patterns he can provide to the clients is large enough. Thus he asks you to find out the number of nice patterns that can be used to tile the yard of size N × M. Now he is interested in the long term estimation, so he suggests N ≤ 10100. However, he does not like big numbers, so he asks you to find the answer modulo P.</p>
-<p><strong>Input</strong></p>
-<p>The input file contains three integer numbers: N (1 ≤ N ≤ 10100), M (1 ≤ M ≤ 5) and P (1 ≤ P ≤ 10000).</p>
-<p><strong>Output</strong></p>
-<p>Write the number of nice patterns of size N × M modulo P to the output file.</p>
-<p><strong>Sample test(s)</strong></p>
-<p>Input</p>
-<p>Test #1 2 2 5 Test #2 3 3 23</p>
-<p>Output</p>
-<p>Test #1 4 Test #2 0</p>
-<p>import java.util.<em>;<br>import java.math.</em>;</p>
-<p>public class Solution<br>{<br>    static int P;<br>    static Matrix pow_M(Matrix a,BigInteger n){<br>        Matrix ret = new Matrix();<br>        Matrix tmp = a;<br>        ret.init(a.n,P);<br>        for(int i = 0;i &lt; a.n;i++)<br>            ret.mat[i][i] = 1;<br>        while(!n.equals(BigInteger.ZERO)){<br>            if(n.mod(BigInteger.valueOf(2)).equals(BigInteger.ONE))<br>                ret = ret.mul(tmp);<br>            tmp = tmp.mul(tmp);<br>            n = n.divide(BigInteger.valueOf(2));<br>        }<br>        return ret;<br>    }<br>    static boolean check(int s1,int s2,int n){<br>        for(int i = 0;i &lt; n-1;i++){<br>            if( (s1&amp;(1&lt;&lt;i)) == 0 &amp;&amp; (s1&amp;(1&lt;&lt;(i+1))) == 0<br>                    &amp;&amp; (s2&amp;(1&lt;&lt;i)) == 0 &amp;&amp; (s2&amp;(1&lt;&lt;(i+1))) == 0)<br>                return false;<br>            if( (s1&amp;(1&lt;&lt;i)) &gt; 0 &amp;&amp; (s1&amp;(1&lt;&lt;(i+1))) &gt; 0<br>                    &amp;&amp; (s2&amp;(1&lt;&lt;i)) &gt; 0 &amp;&amp; (s2&amp;(1&lt;&lt;(i+1))) &gt; 0)<br>                return false;<br>        }<br>        return true;<br>    }<br>    public static void main(String[] args)<br>    {<br>        // TODO Auto-generated method stub<br>        Scanner cin = new Scanner(System.in);<br>        BigInteger n;<br>        int m;<br>        while(cin.hasNext()){<br>            n = cin.nextBigInteger();<br>            m = cin.nextInt();<br>            P = cin.nextInt();<br>            Matrix a = new Matrix();<br>            a.init(1&lt;&lt;m,P);<br>            for(int i = 0;i &lt; (1&lt;&lt;m);i++)<br>                for(int j = 0;j &lt; (1&lt;&lt;m);j++)<br>                    if(check(i,j,m))<br>                        a.mat[i][j] = 1;<br>            a = pow_M(a,n.subtract(BigInteger.ONE));<br>            int ans = 0;<br>            for(int i = 0;i &lt; (1&lt;&lt;m);i++)<br>                for(int j = 0;j &lt; (1&lt;&lt;m);j++){<br>                    ans = ans + a.mat[i][j];<br>                    ans = ans%P;<br>                }<br>            System.out.println(ans);<br>        }<br>        cin.close();<br>    }<br>}<br>class Matrix{<br>    static int P;<br>    int [][]mat = new int[100][100];<br>    int n;<br>    void init(int _n,int _p){<br>        n = _n;<br>        P = _p;<br>        for(int i = 0;i &lt; n;i++)<br>            for(int j = 0;j &lt; n;j++)<br>                mat[i][j] = 0;<br>    }<br>    Matrix mul(Matrix b){<br>        Matrix ret = new Matrix();<br>        ret.init(n,P);<br>        for(int i = 0;i &lt; n;i++)<br>            for(int j = 0;j &lt; n;j++){<br>                for(int k = 0;k &lt; n;k++){<br>                    ret.mat[i][j] = ret.mat[i][j] + mat[i][k]*b.mat[k][j]%P;<br>                    ret.mat[i][j] %= P;<br>                }<br>            }<br>        return ret;<br>    }<br>}</p>
-
-          
+          SGU197   给N*M的格子涂黑白两种颜色，要求没有2*2的小矩形是同色的。 N很大，M很小。 答案对P取模。   明显的状态压缩出转移，然后矩阵优化下就可以了。      
+197. Nice Patterns Strike Backtime limit per test: 0.5 sec. 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/21/sgu197/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1424,55 +1355,16 @@
       
         
           
-            <p>胡搞，搜索+打表。  </p>
-<h1 id="NAND"><a href="#NAND" class="headerlink" title="NAND"></a>NAND</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 195    Accepted Submission(s): 61</strong></p>
-<p>Problem Description</p>
-<p>Xiaoqiang entered the “shortest code” challenge organized by some self-claimed astrologists. He was given a boolean function taking n inputs (in C++): <strong>bool f(bool x1, bool x2, bool x3){ //your code goes here //return something }</strong> All possible inputs and expected outputs of this function have been revealed: <img src="http://acm.hdu.edu.cn/data/images/C549-1008-1.jpg" alt=""> Xiaoqiang’s code must be like: <strong>bool a = NAND(b, c);</strong> where “a” is a newly defined variable,“b” and “c” can be a constant (0/1) or a function parameter (x1/x2/x3) or a previously defined variable. NAND is the “not-and” function: <strong>NAND(b, c)=!(b&amp;&amp;c)</strong> Because NAND is universal, Xiaoqiang knew that he could implement any boolean function he liked. Also, at the end of the code there should be a return statement: <strong>return y;</strong> where y can be a constant or a function parameter or a previously defined variable. After staring at the function for a while, Xiaoqiang came up with the answer: <strong>bool a = NAND(x1, x2); bool b = NAND(x2, x3); bool y = NAND(a, b); return y;</strong> Xiaoqiang wants to make sure that his solution is the shortest possible. Can you help him?</p>
-<p>Input</p>
-<p>The first line contains an integer T (T ≤ 20) denoting the number of the test cases. For each test case, there is one line containing 8 characters encoding the truth table of the function.</p>
-<p>Output</p>
-<p>For each test case, output a single line containing the minimum number of lines Xiaoqiang has to write.</p>
-<p>Sample Input</p>
-<p>1 00010011</p>
-<p>Sample Output</p>
-<p>4</p>
-<p><em>Hint</em></p>
-<p>Due to the small input domain, you can solve all the cases on your computer and submit a program with a table of all the answers.</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014+Asia+AnShan+Regional+Contest&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Asia AnShan Regional Contest</a></p>
-<pre><code>可以直接进行dfs. 把大部分答案打出来。   搜索策略就是纯粹的爆搜， 我是把深度现在在10以下，这样可以把答案 &lt;= 9 的数据都打出来了。   打表程序：  
-</code></pre><p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/11/20 22:57:22<br>File Name     :E:\2014ACM\2014现场赛\鞍山\H.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>int dp[1&lt;&lt;8];<br>bool used[1&lt;&lt;8];<br>unsigned char a[1&lt;&lt;8];<br>int cnt;<br>void dfs(int dep){<br>    if(dep &gt;= 10)return;<br>    for(int i = 0;i &lt; cnt;i++)<br>        for(int j = i;j &lt; cnt;j++){<br>            unsigned char tmp = ~(a[i]&amp;a[j]);<br>            if(used[tmp])continue;<br>            used[tmp] = true;<br>            a[cnt++] = tmp;<br>            if(dp[tmp] == -1 || dp[tmp] &gt; dep)dp[tmp] = dep;<br>            dfs(dep+1);<br>            used[tmp] = false;<br>            cnt–;<br>        }<br>}</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    freopen(“out.txt”,”w”,stdout);<br>    memset(dp,-1,sizeof(dp));<br>    cnt = 0;<br>    dp[0] = 1;<br>    dp[255] = 1;<br>    unsigned char x1 = 0x0f;<br>    unsigned char x2 = 0x33;<br>    unsigned char x3 = 0x55;<br>    dp[x1] = 1;<br>    dp[x2] = 1;<br>    dp[x3] = 1;<br>    memset(used,false,sizeof(used));<br>    used[0] = true;<br>    used[255] = true;<br>    used[x1] = true;<br>    used[x2] = true;<br>    used[x3] = true;<br>    a[cnt++] = 0;<br>    a[cnt++] = 255;<br>    a[cnt++] = x1;<br>    a[cnt++] = x2;<br>    a[cnt++] = x3;<br>    dfs(2);<br>    for(int i = 0;i &lt; 256;i++)<br>        printf(“%d,\n”,dp[i]);<br>    return 0;<br>}</p>
-<pre><code>这个程序大概几分钟就跑出来了。   然后有几个是-1，说明没有打出来，他们的答案肯定是 &gt;=10的。 然后其余几个随机吧！   随机一发在HDU竟然一直都是AC的~~~~  
-</code></pre><p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/11/20 23:29:04<br>File Name     :E:\2014ACM\2014现场赛\鞍山\H2.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>int dp[] = {<br>1,<br>5,<br>6,<br>3,<br>6,<br>3,<br>7,<br>4,<br>7,<br>8,<br>4,<br>5,<br>4,<br>5,<br>4,<br>1,<br>6,<br>3,<br>7,<br>4,<br>7,<br>4,<br>9,<br>7,<br>8,<br>8,<br>7,<br>5,<br>7,<br>5,<br>7,<br>4,<br>7,<br>8,<br>4,<br>5,<br>8,<br>8,<br>7,<br>5,<br>8,<br>9,<br>5,<br>6,<br>8,<br>8,<br>5,<br>5,<br>4,<br>5,<br>4,<br>1,<br>7,<br>5,<br>7,<br>4,<br>8,<br>8,<br>5,<br>5,<br>5,<br>7,<br>6,<br>4,<br>7,<br>8,<br>8,<br>8,<br>4,<br>5,<br>7,<br>5,<br>8,<br>9,<br>8,<br>8,<br>5,<br>6,<br>5,<br>5,<br>4,<br>5,<br>7,<br>5,<br>4,<br>1,<br>7,<br>4,<br>8,<br>8,<br>5,<br>7,<br>5,<br>5,<br>6,<br>4,<br>8,<br>9,<br>8,<br>8,<br>8,<br>8,<br>5,<br>7,<br>-1,<br>9,<br>8,<br>9,<br>8,<br>9,<br>8,<br>8,<br>5,<br>6,<br>5,<br>5,<br>5,<br>5,<br>6,<br>4,<br>8,<br>9,<br>8,<br>8,<br>8,<br>8,<br>8,<br>7,<br>8,<br>9,<br>9,<br>9,<br>9,<br>9,<br>-1,<br>9,<br>5,<br>7,<br>6,<br>6,<br>6,<br>6,<br>7,<br>6,<br>9,<br>9,<br>-1,<br>9,<br>-1,<br>9,<br>-1,<br>-1,<br>7,<br>6,<br>7,<br>7,<br>7,<br>7,<br>9,<br>7,<br>5,<br>7,<br>6,<br>6,<br>7,<br>6,<br>7,<br>7,<br>5,<br>6,<br>2,<br>3,<br>6,<br>6,<br>4,<br>3,<br>6,<br>6,<br>7,<br>6,<br>7,<br>7,<br>9,<br>7,<br>6,<br>6,<br>4,<br>3,<br>7,<br>7,<br>7,<br>6,<br>5,<br>7,<br>7,<br>6,<br>6,<br>6,<br>7,<br>7,<br>5,<br>6,<br>6,<br>6,<br>2,<br>3,<br>4,<br>3,<br>6,<br>6,<br>7,<br>7,<br>7,<br>6,<br>9,<br>7,<br>6,<br>6,<br>7,<br>7,<br>4,<br>3,<br>7,<br>6,<br>5,<br>6,<br>6,<br>6,<br>6,<br>6,<br>7,<br>7,<br>8,<br>9,<br>5,<br>6,<br>5,<br>6,<br>2,<br>5,<br>2,<br>3,<br>4,<br>3,<br>4,<br>3,<br>7,<br>6,<br>5,<br>6,<br>2,<br>5,<br>2,<br>5,<br>4,<br>1</p>
-<p>};</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    char str[20];<br>    scanf(“%d”,&amp;T);<br>    srand(time(NULL));<br>    while(T–){<br>        scanf(“%s”,str);<br>        int n = 0;<br>        for(int i = 0;i &lt; 8;i++){<br>            n *= 2;<br>            n += str[i]-‘0’;<br>        }<br>        if(dp[n] != -1)printf(“%d\n”,dp[n]);<br>        else printf(“%d\n”,10+rand()%3);<br>    }<br>    return 0;<br>}</p>
-
-          
+          胡搞，搜索+打表。  
+NANDTime Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 195    Accepted Submission(
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/20/hdu5077/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1693,36 +1585,16 @@
       
         
           
-            <p><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=198" target="_blank" rel="noopener">SGU198</a> 题意就是一个圆形的船，然后有一些圆形的岛阻碍着船，问船能不能顺利出来。 做法就是把船的半径累加到岛中，这样只要判断 船的圆心，是否被一些圆包围。 可以使用SPFA去判断，有没有负环。</p>
-<h4 id="198-Get-Out"><a href="#198-Get-Out" class="headerlink" title="198. Get Out!"></a>198. Get Out!</h4><p>time limit per test: 0.25 sec. memory limit per test: 65536 KB</p>
-<p>input: standard output: standard</p>
-<p>Captain Faraway on his famous circular ship <em>Kolobok</em> is lost among the islands of the archipelago that he has just discovered. Now he wonders whether he can get out of there. Help him! All islands in the archipelago can be composed of pieces that have circular form. You are given the map of archipelago and the position of captain. Find out whether captain can get out of there, i.e. can get as far from the point he is in the beginning as he likes.</p>
-<p><strong>Input</strong></p>
-<p>The first line contains N — the number of circular island parts (1 ≤ N ≤ 300). N lines follow, each containing xi, yi, ri — coordinates of center and radius of the i-th circle. All coordinates and radii are real. Objects may overlap with each other in arbitrary way. All objects are considered solid. The last line of the input file contains three real numbers — coordinates of the center of <em>Kolobok</em> and its radius. You may consider <em>Kolobok</em> to be the perfect circle and that it is in the free area in the beginning. <em>Kolobok</em> can move along any trajectory and is so strong that he can even touch islands, but no nonzero part of island must intersect <em>Kolobok</em> during his motion. You may assume that making calculations with the precision of 10-6 is satisfactory.</p>
-<p><strong>Output</strong></p>
-<p>Output YES if <em>Kolobok</em> can leave archipelago and NO if it cannot.</p>
-<p><strong>Sample test(s)</strong></p>
-<p>Input</p>
-<p>Test #1 7 2 2 1.1 -2 2 1.1 2 -2 1.0 -2 -2 1.0 2 -5 1.0 0 -8 1.0 -2 -6 1.0 0 0 1 Test #2 5 2 2 1.1 -2 2 1.1 2 -2 1.0 -2 -2 1.0 0 -3 0.01 0 0 1</p>
-<p>Output</p>
-<p>Test #1 YES Test #2 NO</p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/11/10 20:16:21<br>File Name     :D:\github\ACM-ICPC\SGU\SGU198.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const double eps = 1e-8;<br>const int MAXN = 310;<br>struct Circle{<br>    double x,y,r;<br>    Circle(double _x = 0,double _y = 0,double _r = 0){<br>        x = _x; y = _y; r = _r;<br>    }<br>    void input(){<br>        scanf(“%lf%lf%lf”,&amp;x,&amp;y,&amp;r);<br>    }<br>    bool check(Circle b){<br>        double d = hypot(x-b.x,y-b.y);<br>        return d &lt; r + b.r - eps;<br>    }<br>    Circle operator -(const Circle &amp;b)const{<br>        return Circle(x-b.x,y-b.y,0);<br>    }<br>    double operator <em>(const Circle &amp;b)const{<br>        return x\</em>b.x + y*b.y;<br>    }<br>    double operator ^(const Circle &amp;b)const{<br>        return x*b.y - y*b.x;<br>    }<br>}circle[MAXN];<br>Circle p0;<br>double rad(Circle a,Circle b){<br>    return atan2((a-p0)^(b-p0),(a-p0)*(b-p0));<br>}</p>
-<p>struct Edge{<br>    int to,next;<br>    double w;<br>}edge[MAXN*MAXN];<br>int head[MAXN],tot;<br>void init(){<br>    tot = 0;<br>    memset(head,-1,sizeof(head));<br>}<br>inline void addedge(int u,int v,double w){<br>    edge[tot].to = v;<br>    edge[tot].w = w;<br>    edge[tot].next = head[u];<br>    head[u] = tot++;<br>}<br>double dist[MAXN];<br>bool vis[MAXN];<br>int cnt[MAXN];<br>bool SPFA(int n){<br>    for(int i = 0;i &lt; n;i++){<br>        dist[i] = 0.0;<br>        vis[i] = false;<br>        cnt[i] = 0;<br>    }<br>    queue<int>q;<br>    for(int i = 0;i &lt; n;i++){<br>        vis[i] = true;<br>        q.push(i);<br>        cnt[i]++;<br>    }<br>    while(!q.empty()){<br>        int u = q.front();<br>        q.pop();<br>        vis[u] = false;<br>        for(int i = head[u];i != -1;i = edge[i].next){<br>            int v = edge[i].to;<br>            double w = edge[i].w;<br>            if(dist[u] + w &lt; dist[v] - eps){<br>                dist[v] = dist[u] + w;<br>                if(!vis[v]){<br>                    vis[v] = true;<br>                    cnt[v]++;<br>                    q.push(v);<br>                    if(cnt[v] &gt; n)return false;<br>                }<br>            }<br>        }<br>    }<br>    return true;<br>}</int></p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        for(int i = 0;i &lt; n;i++)<br>            circle[i].input();<br>        p0.input();<br>        for(int i = 0;i &lt; n;i++)<br>            circle[i].r += p0.r;<br>        init();<br>        for(int i = 0;i &lt; n;i++)<br>            for(int j = 0;j &lt; n;j++)<br>                if(i != j){<br>                    if(circle[i].check(circle[j]))<br>                        addedge(i,j,rad(circle[i],circle[j]));<br>                }<br>        if(SPFA(n))printf(“YES\n”);<br>        else printf(“NO\n”);<br>    }<br>    return 0;<br>}</p>
-
-          
+          SGU198 题意就是一个圆形的船，然后有一些圆形的岛阻碍着船，问船能不能顺利出来。 做法就是把船的半径累加到岛中，这样只要判断 船的圆心，是否被一些圆包围。 可以使用SPFA去判断，有没有负环。
+198. Get Out!time limit per test: 0.25 sec. memory 
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/11/sgu198/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1936,36 +1808,17 @@
       
         
           
-            <p><a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=199" target="_blank" rel="noopener">SGU199</a>   就是二维的LIS，要输出路径。 所以第一维进行排序，第二维用树状数组去找最大值。  </p>
-<h4 id="199-Beautiful-People"><a href="#199-Beautiful-People" class="headerlink" title="199. Beautiful People"></a>199. Beautiful People</h4><p>time limit per test: 0.25 sec. memory limit per test: 65536 KB</p>
-<p>input: standard output: standard</p>
-<p>The most prestigious sports club in one city has exactly N members. Each of its members is strong and beautiful. More precisely, i-th member of this club (members being numbered by the time they entered the club) has strength Si and beauty Bi . Since this is a very prestigious club, its members are very rich and therefore extraordinary people, so they often extremely hate each other. Strictly speaking, i-th member of the club Mr X hates j-th member of the club Mr Y if Si ≤ Sj and Bi ≥ Bj or if Si ≥ Sj and Bi ≤ Bj (if both properties of Mr X are greater then corresponding properties of Mr Y, he doesn’t even notice him, on the other hand, if both of his properties are less, he respects Mr Y very much). To celebrate a new 2003 year, the administration of the club is planning to organize a party. However they are afraid that if two people who hate each other would simultaneouly attend the party, after a drink or two they would start a fight. So no two people who hate each other should be invited. On the other hand, to keep the club presti≥ at the apropriate level, administration wants to invite as many people as possible. Being the only one among administration who is not afraid of touching a computer, you are to write a program which would find out whom to invite to the party.</p>
-<p><strong>Input</strong></p>
-<p>The first line of the input file contains integer N — the number of members of the club. ( 2 ≤ N ≤ 100,000 ). Next N lines contain two numbers each — Si and Bi respectively ( 1 ≤ Si, Bi ≤ 109 ).</p>
-<p><strong>Output</strong></p>
-<p>On the first line of the output file print the maximum number of the people that can be invited to the party. On the second line output N integers — numbers of members to be invited in arbitrary order. If several solutions exist, output any one.</p>
-<p><strong>Sample test(s)</strong></p>
-<p>Input</p>
-<p>4 1 1 1 2 2 1 2 2</p>
-<p>Output</p>
-<p>2 1 4</p>
-<p><a href="http://acm.sgu.ru/submit.php?problem=199" target="_blank" rel="noopener">[submit]</a></p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/11/4 11:37:23<br>File Name     :E:\2014ACM\SGU\SGU199.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const int MAXN = 100010;<br>int dp[MAXN];<br>int c[MAXN];<br>int cnt;<br>int lowbit(int x){<br>    return x&amp;(-x);<br>}<br>void add(int x,int id){<br>    int i = x;<br>    while(i &lt;= cnt){<br>        if(dp[id] &gt; dp[c[i]])<br>            c[i] = id;<br>        i += lowbit(i);<br>    }<br>}<br>int query(int i){<br>    int ret = 0;<br>    while(i &gt; 0){<br>        if(dp[c[i]] &gt; dp[ret])ret = c[i];<br>        i -=lowbit(i);<br>    }<br>    return ret;<br>}<br>struct Node{<br>    int x,y;<br>    int index;<br>    bool operator &lt;(const Node &amp;b)const{<br>        return x &lt; b.x || (x == b.x &amp;&amp; y &lt; b.y);<br>    }<br>}node[MAXN];<br>int yy[MAXN];<br>int pre[MAXN];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1){<br>        cnt = 0;<br>        for(int i = 1;i &lt;= n;i++){<br>            scanf(“%d%d”,&amp;node[i].x,&amp;node[i].y);<br>            node[i].index = i;<br>            yy[++cnt] = node[i].y;<br>        }<br>        sort(node+1,node+n+1);<br>        sort(yy+1,yy+cnt+1);<br>        cnt = unique(yy+1,yy+cnt+1) - yy - 1;<br>        map&lt;int,int&gt;mp;<br>        for(int i = 1;i &lt;= cnt;i++)mp[yy[i]] = i;<br>        for(int i = 1;i &lt;= n;i++)<br>            node[i].y = mp[node[i].y];<br>        memset(c,0,sizeof(c));<br>        memset(dp,0,sizeof(dp));<br>        int id = 1;<br>        for(int i = 1;i &lt;= n;i++){<br>            while(node[id].x != node[i].x){<br>                add(node[id].y,id);<br>                id++;<br>            }<br>            int tmp = query(node[i].y-1);<br>            dp[i] = dp[tmp] + 1;<br>            pre[i] = tmp;<br>        }<br>        int now = 0;<br>        for(int i = 1;i &lt;= n;i++)<br>            if(dp[i] &gt; dp[now])<br>                now = i;<br>        vector<int>ans;<br>        while(now){<br>            ans.push_back(node[now].index);<br>            now = pre[now];<br>        }<br>        reverse(ans.begin(),ans.end());<br>        int sz = ans.size();<br>        printf(“%d\n”,sz);<br>        for(int i = 0;i &lt; sz;i++){<br>            printf(“%d”,ans[i]);<br>            if(i &lt; sz-1)printf(“ “);<br>            else printf(“\n”);<br>        }<br>    }<br>    return 0;<br>}</int></p>
-
-          
+          SGU199   就是二维的LIS，要输出路径。 所以第一维进行排序，第二维用树状数组去找最大值。  
+199. Beautiful Peopletime limit per test: 0.25 sec. memory limit per test: 65536 KB
+input: standar
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/11/09/sgu199/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2172,40 +2025,16 @@
       
         
           
-            <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5071" target="_blank" rel="noopener">HDU5071</a>   简单模拟。 读懂题还是比较好写的，很简单。 注意一些坑点，最后一段话要理解，先bye 在顶上的。 用long long 安全点。</p>
-<h1 id="Chat"><a href="#Chat" class="headerlink" title="Chat"></a>Chat</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 1142    Accepted Submission(s): 260</strong></p>
-<p>Problem Description</p>
-<p>As everyone knows, DRD has no girlfriends. But as everyone also knows, DRD’s friend ATM’s friend CLJ has many potential girlfriends. One evidence is CLJ’s chatting record.</p>
-<p><img src="http://acm.hdu.edu.cn/data/images/C549-1001-1.jpg" alt=""></p>
-<p>CLJ chats with many girls all the time. Sometimes he begins a new conversation and sometimes he ends a conversation. Sometimes he chats with the girl whose window is on the top. You can imagine CLJ’s windows as a queue. The first girl in the queue is the top girl if no one is “always on top ”. Since CLJ is so popular, he begins to assign a unique positive integer as priority for every girl. The higher priority a girl has, the more CLJ likes her. For example, GYZ has priority 109, and JZP has priority 108 while Sister Soup has priority 1, and Face Face has priority 2. As a famous programmer, CLJ leads a group to implement his own WM(window manager). The WM will log CLJ’s operations. Now you are supposed to implement the log system. The general logging format is “Operation #X: LOGMSG.”, where X is the number of the operation and LOGMSG is the logging message. There are several kinds of operations CLJ may use: 1.<strong>Add u:</strong> CLJ opens a new window whose priority is u, and the new window will be the last window in the window queue. This operation will always be successful except the only case in which there is already a window with priority u. If it is successful, LOGMSG will be “success”. Otherwise LOGMSG will be “same priority”. 2.<strong>Close u:</strong> CLJ closes a window whose priority is u. If there exists such a window, the operation will be successful and LOGMSG will be “close u with c”, where u is the priority and c is the number of words CLJ has spoken to this window. Otherwise, LOGMSG will be “invalid priority”. Note that ANY window can be closed. 3.<strong>Chat w:</strong> CLJ chats with the top window, and he speaks w words. The top window is the first window in the queue, or the “always on top” window (as described below) instead if there exists. If no window is in the queue, LOGMSG will be “empty”, otherwise the operation can be successful and LOGMSG will be “success”. 4.<strong>Rotate x:</strong> CLJ performs one or more Alt-Tabs to move the x-th window to the first one in the queue. For example, if there are 4 windows in the queue, whose priorities are 1, 3, 5, 7 respectively and CLJ performs “Rotate 3”, then the window’s priorities in the queue will become 5, 1, 3, 7. Note that if CLJ wants to move the first window to the head, this operation is still considered “successful”. If x is out of range (smaller than 1 or larger than the size of the queue), LOGMSG will be “out of range”. Otherwise LOGMSG should be “success”. 5.<strong>Prior:</strong> CLJ finds out the girl with the maximum priority and then moves the window to the head of the queue. Note that if the girl with the maximum priority is already the first window, this operation is considered successful as well. If the window queue is empty, this operation will fail and LOGMSG must be “empty”. If it is successful, LOGMSG must be “success”. 6.<strong>Choose u:</strong> CLJ chooses the girl with priority u and moves the window to the head of the queue.This operation is considered successful if and only if the window with priority u exists. LOGMSG for the successful cases should be “success” and for the other cases should be “invalid priority”. 7.<strong>Top u:</strong> CLJ makes the window of the girl with priority u always on top. Always on top is a special state, which means whoever the first girl in the queue is, the top one must be u if u is always on top. As you can see, two girls cannot be always on top at the same time, so if one girl is always on top while CLJ wants another always on top, the first will be not always on top any more, except the two girls are the same one. Anyone can be always on top. LOGMSG is the same as that of the Choose operation. 8.<strong>Untop:</strong> CLJ cancels the “always on top” state of the girl who is always on top. That is, the girl who is always on top now is not in this special state any more. This operation will fail unless there is one girl always on top. If it fails, LOGMSG should be “no such person”, otherwise should be “success”. As a gentleman, CLJ will say goodbye to every active window he has ever spoken to at last, “active” here means the window has not been closed so far. The logging format is “Bye u: c” where u is the priority and c is the number of words he has ever spoken to this window. He will always say good bye to the current top girl if he has spoken to her before he closes it.</p>
-<p>Input</p>
-<p>The first line contains an integer T (T ≤ 10), denoting the number of the test cases. For each test case, the first line contains an integer n(0 &lt; n ≤ 5000), representing the number of operations. Then follow n operations, one in a line. All the parameters are positive integers below 109.</p>
-<p>Output</p>
-<p>Output all the logging contents.</p>
-<p>Sample Input</p>
-<p>1 18 Prior Add 1 Chat 1 Add 2 Chat 2 Top 2 Chat 3 Untop Chat 4 Choose 2 Chat 5 Rotate 2 Chat 4 Close 2 Add 3 Prior Chat 2 Close 1</p>
-<p>Sample Output</p>
-<p>Operation #1: empty. Operation #2: success. Operation #3: success. Operation #4: success. Operation #5: success. Operation #6: success. Operation #7: success. Operation #8: success. Operation #9: success. Operation #10: success. Operation #11: success. Operation #12: success. Operation #13: success. Operation #14: close 2 with 8. Operation #15: success. Operation #16: success. Operation #17: success. Operation #18: close 1 with 11. Bye 3: 2</p>
-<p><em>Hint</em></p>
-<p>This problem description does not relate to any real person in THU.</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014+Asia+AnShan+Regional+Contest&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Asia AnShan Regional Contest</a></p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/10/31 22:46:39<br>File Name     :E:\2014ACM\2014现场赛\鞍山\B.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>int sta[5010];<br>int cnt;<br>int top;<br>int index;<br>map&lt;int,long long&gt;mp;<br>void gao1(int u){<br>    for(int i = 1;i &lt;= cnt;i++)<br>        if(sta[i] == u){<br>            printf(“Operation #%d: same priority.\n”,index);<br>            return;<br>        }<br>    printf(“Operation #%d: success.\n”,index);<br>    sta[++cnt] = u;<br>    mp[u] = 0;<br>}<br>void gao2(int u){<br>    for(int i = 1;i &lt;= cnt;i++)<br>        if(sta[i] == u){<br>            if(top != -1){<br>                if(top == u){<br>                    top = -1;<br>                }<br>            }<br>            for(int j = i;j &lt; cnt;j++)sta[j] = sta[j+1];<br>            cnt–;<br>            printf(“Operation #%d: close %d with %I64d.\n”,index,u,mp[u]);<br>            return;<br>        }<br>    printf(“Operation #%d: invalid priority.\n”,index);<br>}<br>void gao3(int w){<br>    if(cnt == 0){<br>        printf(“Operation #%d: empty.\n”,index);<br>        return;<br>    }<br>    if(top != -1)mp[top] += w;<br>    else mp[sta[1]] += w;<br>    printf(“Operation #%d: success.\n”,index);<br>}<br>void gao4(int x){<br>    if(x &lt; 1 || x &gt; cnt){<br>        printf(“Operation #%d: out of range.\n”,index);<br>        return;<br>    }<br>    int tmp = sta[x];<br>    for(int i = x;i &gt; 1;i–)sta[i] = sta[i-1];<br>    sta[1] = tmp;<br>    printf(“Operation #%d: success.\n”,index);<br>}<br>void gao5(){<br>    if(cnt == 0){<br>        printf(“Operation #%d: empty.\n”,index);<br>        return;<br>    }<br>    int id = 1;<br>    for(int i = 1;i &lt;= cnt;i++)<br>        if(sta[i] &gt; sta[id])<br>            id = i;<br>    gao4(id);<br>}<br>void gao6(int u){<br>    for(int i = 1;i &lt;= cnt;i++)<br>        if(sta[i] == u){<br>            gao4(i);<br>            return;<br>        }<br>    printf(“Operation #%d: invalid priority.\n”,index);<br>}<br>void gao7(int u){<br>    for(int i = 1;i &lt;= cnt;i++)<br>        if(sta[i] == u){<br>            top = u;<br>            printf(“Operation #%d: success.\n”,index);<br>            return;<br>        }<br>    printf(“Operation #%d: invalid priority.\n”,index);<br>}<br>void gao8(){<br>    if(top != -1){<br>        top = -1;<br>        printf(“Operation #%d: success.\n”,index);<br>    }<br>    else printf(“Operation #%d: no such person.\n”,index);<br>}</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    int n;<br>    scanf(“%d”,&amp;T);<br>    while(T–){<br>        scanf(“%d”,&amp;n);<br>        cnt = 0;<br>        top = -1;<br>        mp.clear();<br>        char op[20];<br>        int u;<br>        for(index = 1;index &lt;= n;index++){<br>            scanf(“%s”,op);<br>            if(strcmp(op,”Add”) == 0){<br>                scanf(“%d”,&amp;u);<br>                gao1(u);<br>            }<br>            else if(strcmp(op,”Close”) == 0){<br>                scanf(“%d”,&amp;u);<br>                gao2(u);<br>            }<br>            else if(strcmp(op,”Chat”) == 0){<br>                scanf(“%d”,&amp;u);<br>                gao3(u);<br>            }<br>            else if(strcmp(op,”Rotate”) == 0){<br>                scanf(“%d”,&amp;u);<br>                gao4(u);<br>            }<br>            else if(strcmp(op,”Prior”) == 0){<br>                gao5();<br>            }<br>            else if(strcmp(op,”Choose”) == 0){<br>                scanf(“%d”,&amp;u);<br>                gao6(u);<br>            }<br>            else if(strcmp(op,”Top”) == 0){<br>                scanf(“%d”,&amp;u);<br>                gao7(u);<br>            }<br>            else gao8();<br>        }<br>        if(top != -1 &amp;&amp; mp[top])<br>            printf(“Bye %d: %I64d\n”,top,mp[top]);<br>        for(int i = 1;i &lt;= cnt;i++)<br>            if(sta[i] != top &amp;&amp; mp[sta[i]])<br>                printf(“Bye %d: %I64d\n”,sta[i],mp[sta[i]]);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU5071   简单模拟。 读懂题还是比较好写的，很简单。 注意一些坑点，最后一段话要理解，先bye 在顶上的。 用long long 安全点。
+ChatTime Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/10/31/hdu5071/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2419,36 +2248,15 @@
       
         
           
-            <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5072" target="_blank" rel="noopener">HDU5072</a>   给了n个不同的数，要求有多少个三元组，两两互质 或者 两两不互质。   模型请参考 《算法竞赛入门经典 训练指南》  p105 问题6  （训练指南真的是神书啊，多次区域赛都有类似题了，卧槽）   现场的时候明显想复杂了，用了复杂方法搞。 其实从方面考虑。  直接对每个数，求有多少个和它互质的，多少个和它不互质的， 相乘累加。。  就是反面的2倍了。   至于如何求有多少个互质的，直接质因数分解，然后容斥就可以了。 HDU 时限有点紧， 现场可以随便搞！  </p>
-<h1 id="Coprime"><a href="#Coprime" class="headerlink" title="Coprime"></a>Coprime</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 556    Accepted Submission(s): 254</strong></p>
-<p>Problem Description</p>
-<p>There are n people standing in a line. Each of them has a unique id number. Now the Ragnarok is coming. We should choose 3 people to defend the evil. As a group, the 3 people should be able to communicate. They are able to communicate if and only if their id numbers are pairwise coprime or pairwise not coprime. In other words, if their id numbers are a, b, c, then they can communicate if and only if [(a, b) = (b, c) = (a, c) = 1] or [(a, b) ≠ 1 and (a, c) ≠ 1 and (b, c) ≠ 1], where (x, y) denotes the greatest common divisor of x and y. We want to know how many 3-people-groups can be chosen from the n people.</p>
-<p>Input</p>
-<p>The first line contains an integer T (T ≤ 5), denoting the number of the test cases. For each test case, the first line contains an integer n(3 ≤ n ≤ 105), denoting the number of people. The next line contains n distinct integers a1, a2, . . . , an(1 ≤ ai ≤ 105) separated by a single space, where ai stands for the id number of the i-th person.</p>
-<p>Output</p>
-<p>For each test case, output the answer in a line.</p>
-<p>Sample Input</p>
-<p>1 5 1 3 9 10 2</p>
-<p>Sample Output</p>
-<p>4</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014+Asia+AnShan+Regional+Contest&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Asia AnShan Regional Contest</a></p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/10/30 12:20:43<br>File Name     :E:\2014ACM\2014现场赛\鞍山\C.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const int MAXN = 100000;<br>int prime[MAXN+1];<br>void getPrime(){<br>    memset(prime,0,sizeof(prime));<br>    for(int i = 2;i &lt;= MAXN;i++){<br>        if(!prime[i])prime[++prime[0]] = i;<br>        for(int j = 1;j &lt;= prime[0] &amp;&amp; prime[j] &lt;= MAXN/i;j++){<br>            prime[prime[j]*i] = 1;<br>            if(i%prime[j] == 0)break;<br>        }<br>    }<br>}<br>int factor[100][2];<br>int fatCnt;<br>inline int getFactor(int x){<br>    fatCnt = 0;<br>    for(int i = 1;prime[i] &lt;= x/prime[i];i++)<br>        if(x%prime[i] == 0){<br>            factor[fatCnt][0] = prime[i];<br>            factor[fatCnt][1] = 0;<br>            while(x%prime[i] == 0){<br>                factor[fatCnt][1]++;<br>                x /= prime[i];<br>            }<br>            fatCnt++;<br>        }<br>    if(x != 1){<br>        factor[fatCnt][0] = x;<br>        factor[fatCnt++][1] = 1;<br>    }<br>    return fatCnt;<br>}<br>int a[100010];<br>int num[100010];<br>int two[20];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    int n;<br>    scanf(“%d”,&amp;T);<br>    two[0] = 1;<br>    for(int i = 1;i &lt; 20;i++)<br>        two[i] = two[i-1]&lt;&lt;1;<br>    getPrime();<br>    while(T–){<br>        scanf(“%d”,&amp;n);<br>        memset(num,0,sizeof(num));<br>        for(int i = 0;i &lt; n;i++){<br>            scanf(“%d”,&amp;a[i]);<br>            getFactor(a[i]);<br>            for(int j = 0;j &lt; two[fatCnt];j++){<br>                int tmp = 1;<br>                for(int k = 0;k &lt; fatCnt;k++)<br>                    if(j&amp;two[k]){<br>                        tmp <em>= factor[k][0];<br>                    }<br>                num[tmp]++;<br>            }<br>        }<br>        long long ret = 0;<br>        for(int i = 0;i &lt; n;i++){<br>            getFactor(a[i]);<br>            int cc = 0;<br>            for(int j = 0;j &lt; two[fatCnt];j++){<br>                int tmp = 1;<br>                int cnt = 0;<br>                for(int k = 0;k &lt; fatCnt;k++)<br>                    if(j&amp;two[k]){<br>                        cnt++;<br>                        tmp </em>= factor[k][0];<br>                    }<br>                if(cnt&amp;1)cc -= num[tmp];<br>                else cc += num[tmp];<br>            }<br>            if(a[i] == 1)cc–;<br>            ret += (long long)cc<em>(n-1-cc);<br>        }<br>        long long tot = (long long)n</em>(n-1)*(n-2)/6;<br>        printf(“%I64d\n”,tot-ret/2);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU5072   给了n个不同的数，要求有多少个三元组，两两互质 或者 两两不互质。   模型请参考 《算法竞赛入门经典 训练指南》  p105 问题6  （训练指南真的是神书啊，多次区域赛都有类似题了，卧槽）   现场的时候明显想复杂了，用了复杂方法搞。 其实从方面考虑。  直接对每个数，求有多
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/10/31/hdu5072/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2655,40 +2463,16 @@
       
         
           
-            <p><a href="http://acm.hdu.edu.cn/showproblem.php?pid=5073" target="_blank" rel="noopener">HDU5073</a> 水题。维护和以及平方和就可以了。</p>
-<h1 id="Galaxy"><a href="#Galaxy" class="headerlink" title="Galaxy"></a>Galaxy</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 505    Accepted Submission(s): 109 Special Judge</strong></p>
-<p>Problem Description</p>
-<p>Good news for us: to release the financial pressure, the government started selling galaxies and we can buy them from now on! The first one who bought a galaxy was Tianming Yun and he gave it to Xin Cheng as a present.</p>
-<p><img src="http://acm.hdu.edu.cn/data/images/C549-1004-2.jpg" alt=""></p>
-<p>To be fashionable, DRD also bought himself a galaxy. He named it Rho Galaxy. There are n stars in Rho Galaxy, and they have the same weight, namely one unit weight, and a negligible volume. They initially lie in a line rotating around their center of mass. Everything runs well except one thing. DRD thinks that the galaxy rotates too slow. As we know, to increase the angular speed with the same angular momentum, we have to decrease the moment of inertia. The moment of inertia I of a set of n stars can be calculated with the formula</p>
-<p><img src="http://acm.hdu.edu.cn/data/images/C549-1004-1.jpg" alt=""></p>
-<p>where wi is the weight of star i, di is the distance form star i to the mass of center. As DRD’s friend, ATM, who bought M78 Galaxy, wants to help him. ATM creates some black holes and white holes so that he can transport stars in a negligible time. After transportation, the n stars will also rotate around their new center of mass. Due to financial pressure, ATM can only transport at most k stars. Since volumes of the stars are negligible, two or more stars can be transported to the same position. Now, you are supposed to calculate the minimum moment of inertia after transportation.</p>
-<p>Input</p>
-<p>The first line contains an integer T (T ≤ 10), denoting the number of the test cases. For each test case, the first line contains two integers, n(1 ≤ n ≤ 50000) and k(0 ≤ k ≤ n), as mentioned above. The next line contains n integers representing the positions of the stars. The absolute values of positions will be no more than 50000.</p>
-<p>Output</p>
-<p>For each test case, output one real number in one line representing the minimum moment of inertia. Your answer will be considered correct if and only if its absolute or relative error is less than 1e-9.</p>
-<p>Sample Input</p>
-<p>2 3 2 -1 0 1 4 2 -2 -1 1 2</p>
-<p>Sample Output</p>
-<p>0 0.5</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014+Asia+AnShan+Regional+Contest&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Asia AnShan Regional Contest</a></p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/10/22 23:20:07<br>File Name     :E:\2014ACM\2014现场赛\鞍山\D.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>double x[50010];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    int n,k;<br>    scanf(“%d”,&amp;T);<br>    while(T–){<br>        scanf(“%d%d”,&amp;n,&amp;k);<br>        for(int i = 0;i &lt; n;i++)<br>            scanf(“%lf”,&amp;x[i]);<br>        sort(x,x+n);<br>        if(n == k){<br>            printf(“0\n”);<br>            continue;<br>        }<br>        int cnt = n-k;<br>        double sum = 0;<br>        double sum2 = 0;<br>        for(int i = 0;i &lt; cnt;i++){<br>            sum += x[i];<br>            sum2 += x[i]<em>x[i];<br>        }<br>        double ans = sum2 - 2\</em>sum*(sum/cnt) + cnt<em>(sum/cnt)</em>(sum/cnt);<br>        for(int i = cnt;i &lt; n;i++){<br>            sum += x[i];<br>            sum2 += x[i]<em>x[i];<br>            sum -= x[i-cnt];<br>            sum2 -= x[i-cnt]</em>x[i-cnt];<br>            ans = min(ans,sum2-2*sum*(sum/cnt)+cnt<em>(sum/cnt)</em>(sum/cnt));<br>        }<br>        printf(“%.10lf\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU5073 水题。维护和以及平方和就可以了。
+GalaxyTime Limit: 2000/1000 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 505    Accep
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/10/22/hdu5073/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>

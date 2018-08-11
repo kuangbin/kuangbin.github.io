@@ -497,36 +497,15 @@
       
         
           
-            <h2 id="HDU-4921"><a href="#HDU-4921" class="headerlink" title="HDU 4921"></a>HDU 4921</h2><h1 id="Map"><a href="#Map" class="headerlink" title="Map"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4921" target="_blank" rel="noopener">Map</a></h1><h1 id="Map-1"><a href="#Map-1" class="headerlink" title="Map"></a>Map</h1><p><strong>Time Limit: 3000/1500 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 92    Accepted Submission(s): 19</strong>  </p>
-<p>Problem Description</p>
-<p>There are N pieces of fragments, and we’re going to select some of them to form a map. Some fragments can be selected into the map directly (named 1-level fragments), while each of the rest follows <strong>exactly one</strong> fragment as its prior fragment. If B follows A and A is an i-level fragment, then B is defined as an (i + 1) - level fragment, and B can be selected only if A has been selected before. Besides, a fragment is followed by at most one other fragment. Each fragment is assigned with a reliability. The reliability of the whole map is sum up by two parts: 1.The sum of reliabilities of all selected fragments; 2.If there are xi i-level fragments in total and we select yi(yi > 1) fragments among them to form the map, the reliability would increase by <img src="http://acm.hdu.edu.cn/data/images/C507-1001-1.jpg" alt="">,where Sidenotes the sum of reliabilities of selected fragments in level i. Please figure out the expectation of reliability of the map under the condition that all valid selections are equiprobable. At least one fragment should be selected.</p>
-<p>Input</p>
-<p>There are several test cases. The number of test cases T (T&lt;=10) occurs in the first line of input. For each test case: The first line consists of two integers N, M (1&lt;=N&lt;=10000,0&lt;=M&lt;N), indicating the number of fragments and relationships respectively. The second line contains N integers, which describes the reliability of each fragment. The given reliability ranges from 1 to 100, inclusive. Each of the following M lines contains two integers A and B, which denotes B follows A(0&lt;=A,B&lt;=N-1). You may assume that the number of 1-level fragments are no more than 10, and levels will not exceed 1000. No fragment will follow itself directly or indirectly.</p>
-<p>Output</p>
-<p>For each test case, output the expectation with 3 decimal places.</p>
-<p>Sample Input</p>
-<p>2 2 0 1 2 3 1 1 2 4 1 2</p>
-<p>Sample Output</p>
-<p>3.000 5.000</p>
-<p><em>Hint</em></p>
-<p>In the first sample, there’re three ways of selections: {0,1}, {0},{1},which respectively generates 6, 1 and 2 of reliability. Hence, the expectation is 3.</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%206&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Multi-University Training Contest 6</a></p>
-<pre><code>大水题一个。 就按照题目说的就是暴力。   卧槽，做的时候没有看到下标从0开始的，一直搞不出来第二个样例，然后WA无数次。  一直没发现问题。 经岐哥提醒是下标从0开始的，然后秒过啊。 sad, 最近这状态是有多差啊，题都做不出来了。   按照题目意思是形成很多条链。 链最多是10条，深度最多1000. 直接暴力。   首先先求出总数，假设有k个链，每条链深度是 num\[k\]. 那么总数就是  num\[1\]\*num\[2\]\*........num\[k\]   - 1了。 先累加第一种和。 只需要扫一遍每条链。 其实就是找出每个点出现的次数，是很好求的。   第二种也是很好求的，直接枚举，二进制去枚举2^k复杂度。 就是按照深度去找，枚举每个深度有几个是达到这个深度的，当然有的是达不到这个深度的。  
-</code></pre><p>#include &lt;stdio.h&gt;</p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <iostream></iostream></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <map></map></p>
-<p>#include <vector></vector></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;<br>using namespace std;<br>const int MAXN = 100010;<br>int to[MAXN];<br>int rto[MAXN];<br>bool f[MAXN];</p>
-<p>int a[MAXN];<br>int num[MAXN];<br>int b[MAXN];<br>int dep[MAXN];<br>int two[20];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    int n,m;<br>    scanf(“%d”,&amp;T);<br>    two[0] = 1;<br>    for(int i = 1;i &lt; 20;i++)<br>        two[i] = 2<em>two[i-1];<br>    while(T–)<br>    {<br>        scanf(“%d%d”,&amp;n,&amp;m);<br>        for(int i = 1;i &lt;= n;i++)<br>            scanf(“%d”,&amp;a[i]);<br>        for(int i = 1;i &lt;= n;i++)<br>        {<br>            f[i] = true;<br>            num[i] = 0;<br>            to[i] = -1;<br>            rto[i] = -1;<br>        }<br>        int u,v;<br>        while(m–)<br>        {<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            u++;<br>            v++;<br>            to[u] = v;<br>            rto[v] = u;<br>            f[v] = false;<br>        }<br>        for(int i = 1;i &lt;= n;i++)<br>            if(to[i] == -1)<br>            {<br>                u = i;<br>                num[u] = 1;<br>                while(rto[u] != -1)<br>                {<br>                    num[rto[u]] = num[u]+1;<br>                    u = rto[u];<br>                }<br>            }<br>        double tot = 1;<br>        for(int i = 1;i &lt;= n;i++)<br>            if(f[i])<br>                tot </em>= (num[i]+1);<br>        double ans = 0;<br>        int cc = 0;<br>        for(int i = 1;i &lt;= n;i++)<br>            if(f[i])<br>                b[cc++] = i;<br>        for(int i = 0;i &lt; cc;i++)<br>        {<br>            u = b[i];<br>            dep[u] = 1;<br>            double tt = 1.0/(num[u]+1);<br>            double s = 0;<br>            while(1)<br>            {<br>                s += a[u];<br>                ans += s*tt*(tot/(tot-1));//累加第一种<br>                if(to[u] == -1)break;<br>                dep[to[u]] = dep[u] + 1;<br>                num[to[u]] = num[u];<br>                u = to[u];<br>            }<br>        }<br>        int MD = 0;//最大深度<br>        for(int i = 1;i &lt;= n;i++)<br>            MD = max(MD,dep[i]);<br>        for(int d = 1;d &lt;= MD;d++)<br>        {<br>            for(int i = 1;i &lt; two[cc];i++)<br>            {<br>                bool flag = true;<br>                double tt = 1;<br>                int cnt = 0;<br>                double ss = 0;<br>                for(int j = 0;j &lt; cc;j++)<br>                    if(i &amp; two[j])<br>                    {<br>                        cnt++;<br>                        ss += a[b[j]];<br>                        if(dep[b[j]] != d)<br>                        {<br>                            flag = false;<br>                            break;<br>                        }<br>                        tt <em>= (num[b[j]]-d+1);<br>                    }<br>                    else<br>                    {<br>                        if(dep[b[j]] == d)tt </em>= (dep[b[j]]);<br>                        else tt <em>= (dep[b[j]]+1);<br>                    }<br>                int cnt2 = 0;<br>                for(int j = 0;j &lt; cc;j++)<br>                    if(dep[b[j]] == d)<br>                        cnt2++;<br>                if(!flag)continue;<br>                if(cnt &gt; 1)ans += ss\</em>cnt/cnt2*(tt/(tot-1));//累加第二种<br>            }<br>            for(int i = 0;i &lt; cc;i++)<br>                if( to[b[i]] != -1)<br>                    b[i] = to[b[i]];<br>        }<br>        printf(“%.3lf\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU 4921MapMapTime Limit: 3000/1500 MS (Java/Others)    Memory Limit: 262144/262144 K (Java/Others) Total Submission(s): 92    Accepted Submission(s):
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/07/hdu4921/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -733,39 +712,15 @@
       
         
           
-            <h2 id="HDU-4912"><a href="#HDU-4912" class="headerlink" title="HDU 4912"></a>HDU 4912</h2><h1 id="Paths-on-the-tree"><a href="#Paths-on-the-tree" class="headerlink" title="Paths on the tree"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4912" target="_blank" rel="noopener">Paths on the tree</a></h1><h1 id="Paths-on-the-tree-1"><a href="#Paths-on-the-tree-1" class="headerlink" title="Paths on the tree"></a>Paths on the tree</h1><p><strong>Time Limit: 4000/2000 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others) Total Submission(s): 80    Accepted Submission(s): 25</strong>  </p>
-<p>Problem Description</p>
-<p>bobo has a tree, whose vertices are conveniently labeled by 1,2,…,n. There are m paths on the tree. bobo would like to pick some paths while any two paths do not share common vertices. Find the maximum number of paths bobo can pick.</p>
-<p>Input</p>
-<p>The input consists of several tests. For each tests: The first line contains n,m (1≤n,m≤105). Each of the following (n - 1) lines contain 2 integers ai,bi denoting an edge between vertices ai and bi (1≤ai,bi≤n). Each of the following m lines contain 2 integers ui,vi denoting a path between vertices ui and vi (1≤ui,vi≤n).</p>
-<p>Output</p>
-<p>For each tests: A single integer, the maximum number of paths.</p>
-<p>Sample Input</p>
-<p>3 2 1 2 1 3 1 2 1 3 7 3 1 2 1 3 2 4 2 5 3 6 3 7 2 3 4 5 6 7</p>
-<p>Sample Output</p>
-<p>1 2</p>
-<p>Author</p>
-<p>Xiaoxu Guo (ftiasch)</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%205&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Multi-University Training Contest 5</a></p>
-<pre><code>随便选择一个根。变成有根树。
-</code></pre><h3 id="然后每个路径，u-v-找出u-v的LCA。"><a href="#然后每个路径，u-v-找出u-v的LCA。" class="headerlink" title="然后每个路径，u - v  找出u - v的LCA。"></a>然后每个路径，u - v  找出u - v的LCA。</h3><p>根据所有路径的LCA的深度进行选择。 每选择一个路径以后，把LCA下面的子树都进行标记。 如果u,v没有被标记，这个路径是可以的。   贪心的正确性很容易想明白。</p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/5 19:37:30<br>File Name     :E:\2014ACM\比赛\2014多校训练\2014多校5\HDU4912.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const int MAXN = 100010;<br>const int DEG = 20;<br>struct Edge<br>{<br>    int to,next;<br>}edge[MAXN*2];<br>int head[MAXN],tot;<br>void init()<br>{<br>    tot = 0;<br>    memset(head,-1,sizeof(head));<br>}<br>void addedge(int u,int v)<br>{<br>    edge[tot].to = v;<br>    edge[tot].next = head[u];<br>    head[u] = tot++;<br>}<br>int fa[MAXN][DEG];<br>int deg[MAXN];<br>void BFS(int root)<br>{<br>    queue<int>q;<br>    deg[root] = 0;<br>    fa[root][0] = root;<br>    q.push(root);<br>    while(!q.empty())<br>    {<br>        int u = q.front();<br>        q.pop();<br>        for(int i = 1;i &lt; DEG;i++)<br>            fa[u][i] = fa[fa[u][i-1]][i-1];<br>        for(int i = head[u];i != -1;i = edge[i].next)<br>        {<br>            int v = edge[i].to;<br>            if(v == fa[u][0])continue;<br>            deg[v] = deg[u] + 1;<br>            fa[v][0] = u;<br>            q.push(v);<br>        }<br>    }<br>}<br>int LCA(int u,int v)<br>{<br>    if(deg[u] &gt; deg[v])swap(u,v);<br>    int hu = deg[u], hv = deg[v];<br>    int tu = u, tv = v;<br>    for(int det = hv-hu,i=0;det;det&gt;&gt;=1,i++)<br>        if(det&amp;1)<br>            tv = fa[tv][i];<br>    if(tu == tv)return tu;<br>    for(int i = DEG-1;i &gt;= 0;i–)<br>    {<br>        if(fa[tu][i] == fa[tv][i])continue;<br>        tu = fa[tu][i];<br>        tv = fa[tv][i];<br>    }<br>    return fa[tu][0];<br>}<br>bool vis[MAXN];<br>void gao(int u)<br>{<br>    if(vis[u])return;<br>    vis[u] = true;<br>    for(int i = head[u];i != -1;i = edge[i].next)<br>    {<br>        int v = edge[i].to;<br>        if(v == fa[u][0])continue;<br>        gao(v);<br>    }<br>}<br>struct Node<br>{<br>    int u,v;<br>    int lca;<br>}node[MAXN];<br>bool cmp(Node a,Node b)<br>{<br>    return deg[a.lca] &gt; deg[b.lca];<br>}</int></p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n,m;<br>    while(scanf(“%d%d”,&amp;n,&amp;m) == 2)<br>    {<br>        init();<br>        int u,v;<br>        for(int i = 1;i &lt; n;i++)<br>        {<br>            scanf(“%d%d”,&amp;u,&amp;v);<br>            addedge(u,v);<br>            addedge(v,u);<br>        }<br>        BFS(1);<br>        for(int i = 0;i &lt; m;i++)<br>        {<br>            scanf(“%d%d”,&amp;node[i].u,&amp;node[i].v);<br>            if(deg[node[i].u] &gt; deg[node[i].v])<br>                swap(node[i].u,node[i].v);<br>            node[i].lca = LCA(node[i].u,node[i].v);<br>        }<br>        sort(node,node+m,cmp);<br>        int ans = 0;<br>        memset(vis,false,sizeof(vis));<br>        for(int i = 0;i &lt; m;i++)<br>        {<br>            if(vis[node[i].u] || vis[node[i].v])continue;<br>            ans++;<br>            gao(node[i].lca);<br>        }<br>        printf(“%d\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU 4912Paths on the treePaths on the treeTime Limit: 4000/2000 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others) Total Submission(s): 8
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/05/hdu4912/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -972,41 +927,15 @@
       
         
           
-            <h2 id="HDU-4913"><a href="#HDU-4913" class="headerlink" title="HDU 4913"></a>HDU 4913</h2><h1 id="Least-common-multiple"><a href="#Least-common-multiple" class="headerlink" title="Least common multiple"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4913" target="_blank" rel="noopener">Least common multiple</a></h1><h1 id="Least-common-multiple-1"><a href="#Least-common-multiple-1" class="headerlink" title="Least common multiple"></a>Least common multiple</h1><p><strong>Time Limit: 6000/3000 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others) Total Submission(s): 61    Accepted Submission(s): 17</strong>  </p>
-<p>Problem Description</p>
-<p>bobo has an integer set S={x1,x2,…,xn}, where xi=2ai * 3bi.For each non-empty subsets of S, bobo added the LCM (least common multiple) of the subset up. Find the sum of LCM modulo (109+7).</p>
-<p>Input</p>
-<p>The input consists of several tests. For each tests:The first line contains n (1≤n≤105). Each of the following n lines contain 2 integers ai,bi (0≤ai,bi≤109).</p>
-<p>Output</p>
-<p>For each tests:A single integer, the value of the sum.</p>
-<p>Sample Input</p>
-<p>2 0 1 1 0 3 1 2 2 1 1 2</p>
-<p>Sample Output</p>
-<p>11 174</p>
-<p>Author</p>
-<p>Xiaoxu Guo (ftiasch)</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%205&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Multi-University Training Contest 5</a></p>
-<h3 id="题意很清楚，也很容易理解。LCM一定是2-i-3-j-的形式。"><a href="#题意很清楚，也很容易理解。LCM一定是2-i-3-j-的形式。" class="headerlink" title="题意很清楚，也很容易理解。LCM一定是2^i 3^j 的形式。"></a>题意很清楚，也很容易理解。LCM一定是2^i 3^j 的形式。</h3><h4 id="这题的关键是转化的过程，将问题转化为线段树解决。"><a href="#这题的关键是转化的过程，将问题转化为线段树解决。" class="headerlink" title="这题的关键是转化的过程，将问题转化为线段树解决。"></a>这题的关键是转化的过程，将问题转化为线段树解决。</h4><p>  最近状态真是差，写个线段树卡半天，写个几何也RE到现在。 早日退役保平安。   最简单的思路就是 就是假如要求LCM等于 2^a*3^b 的，假如需要求LCM为2^a*3^b 的有多少个，肯定是先找出LCM的2次数&lt;=a,3次数&lt;=b的， 然后减掉LCM比这个值小的。   我的做法就是把这些数先按照a从小到大，再按照b从小到大排序。 然后for一遍。枚举到i的时候， 比如第i个数是 \( 2^{a_i}*3^{b_i} \)    那么前面插入的数，2的指数是小于等于 \( a_i \)的。 这个时候先统计再前i 个数里面，包含了第i个数的子集对应的答案。  既然包含了\(2^{a_i}\) 那么LCM一定是包含\( 2^{a_i} \)的。 这样求和的话，其实是可以把这一项提取出来的。  假如在3的指数里面，&lt;=j的数有num[j]个。那么需要累加的就是 \[2^{a_i}*3^{j}<em>(2^{num[j]}-2^{num[j-1]}) \] 当然可以先把3的指数离散化一下，然后使用线段树进行维护。  需要的操作就是单点加值，区间乘以2，区间求和。 维护的就是  \( 3^{j} </em> (2^{num[j]} - 2^{num[j-1]}) \) 当然还有一些细节，比如查询哪个区间，修改哪个区间啥的。 具体看代码吧。  </p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/5 19:08:16<br>File Name     :E:\2014ACM\比赛\2014多校训练\2014多校5\HDU4913.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const int MOD = 1e9+7;<br>const int MAXN = 100010;<br>struct Node<br>{<br>    int x,y;<br>    void input()<br>    {<br>        scanf(“%d%d”,&amp;x,&amp;y);<br>    }<br>}node[MAXN];<br>bool cmp(Node a,Node b)<br>{<br>    if(a.x != b.x)return a.x &lt; b.x;<br>    else return a.y &lt; b.y;<br>}<br>int tot;<br>int c[MAXN];<br>int lowbit(int x)<br>{<br>    return x&amp;(-x);<br>}<br>void add(int i,int val)<br>{<br>    while(i &lt;= tot)<br>    {<br>        c[i] += val;<br>        i += lowbit(i);<br>    }<br>}<br>int sum(int i)<br>{<br>    int s = 0;<br>    while(i)<br>    {<br>        s += c[i];<br>        i -= lowbit(i);<br>    }<br>    return s;<br>}</p>
-<p>int b[MAXN];</p>
-<p>long long pow_m(long long a,long long n)<br>{<br>    long long ret = 1;<br>    long long tmp = a;<br>    while(n)<br>    {<br>        if(n&amp;1)ret = ret<em>tmp%MOD;<br>        tmp = tmp</em>tmp%MOD;<br>        n &gt;&gt;= 1;<br>    }<br>    return ret;<br>}</p>
-<p>struct SEGNODE<br>{<br>    int l,r;<br>    int val;<br>    long long sum;<br>    long long lazy;<br>}segTree[MAXN&lt;&lt;2];<br>void push_up(int i)<br>{<br>    segTree[i].sum = segTree[i&lt;&lt;1].sum + segTree[(i&lt;&lt;1)|1].sum;<br>    if(segTree[i].sum &gt;= MOD)segTree[i].sum -= MOD;<br>}<br>void Update(int i,int k )<br>{<br>    segTree[i].sum = segTree[i].sum<em>k%MOD;<br>    segTree[i].lazy = segTree[i].lazy</em>k%MOD;<br>}<br>void push_down(int i)<br>{<br>    if(segTree[i].lazy != 1)<br>    {<br>        Update(i&lt;&lt;1,segTree[i].lazy);<br>        Update((i&lt;&lt;1)|1,segTree[i].lazy);<br>        segTree[i].lazy = 1;<br>    }<br>}<br>void build(int i,int l,int r)<br>{<br>    segTree[i].l = l;<br>    segTree[i].r = r;<br>    segTree[i].sum = 0;<br>    segTree[i].lazy = 1;<br>    if(l == r)<br>    {<br>        segTree[i].val = pow_m(3,b[l]);<br>        return;<br>    }<br>    int mid = (l+r)/2;<br>    build(i&lt;&lt;1,l,mid);<br>    build((i&lt;&lt;1)|1,mid+1,r);<br>}<br>void ADD(int i,int k)<br>{<br>    if(segTree[i].l == k &amp;&amp; segTree[i].r == k)<br>    {<br>        int tmp = sum(k);<br>        segTree[i].sum += pow_m(2,tmp)*segTree[i].val%MOD;<br>        if(segTree[i].sum &gt;= MOD)segTree[i].sum-=MOD;<br>        add(k,1);<br>        return;<br>    }<br>    int mid = (segTree[i].l + segTree[i].r)/2;<br>    push_down(i);<br>    if(k &lt;= mid)ADD(i&lt;&lt;1,k);<br>    else ADD((i&lt;&lt;1)|1,k);<br>    push_up(i);<br>}<br>void CHANGE(int i,int l,int r)<br>{<br>    if(r &lt; l)return;<br>    if(segTree[i].l == l &amp;&amp; segTree[i].r == r)<br>    {<br>        Update(i,2);<br>        return;<br>    }<br>    int mid = (segTree[i].l + segTree[i].r)/2;<br>    push_down(i);<br>    if(r &lt;= mid)CHANGE(i&lt;&lt;1,l,r);<br>    else if(l &gt; mid)CHANGE((i&lt;&lt;1)|1,l,r);<br>    else<br>    {<br>        CHANGE(i&lt;&lt;1,l,mid);<br>        CHANGE((i&lt;&lt;1)|1,mid+1,r);<br>    }<br>    push_up(i);<br>}<br>long long sum(int i,int l,int r)<br>{<br>    if(segTree[i].l == l &amp;&amp; segTree[i].r == r)<br>        return segTree[i].sum;<br>    int mid = (segTree[i].l+segTree[i].r)/2;<br>    push_down(i);<br>    if(r &lt;= mid)return sum(i&lt;&lt;1,l,r);<br>    else if(l &gt; mid)return sum((i&lt;&lt;1)|1,l,r);<br>    else<br>    {<br>        return (sum(i&lt;&lt;1,l,mid)+sum((i&lt;&lt;1)|1,mid+1,r))%MOD;<br>    }<br>}</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1)<br>    {<br>        for(int i = 0;i &lt; n;i++)<br>        {<br>            node[i].input();<br>            b[i] = node[i].y;<br>        }<br>        sort(node,node+n,cmp);<br>        sort(b,b+n);<br>        tot = unique(b,b+n)-b;<br>        map&lt;int,int&gt;mp;<br>        for(int i = 0;i &lt; tot;i++)mp[b[i]] = i+1;<br>        for(int i = tot;i &gt; 0;i–)<br>            b[i] = b[i-1];<br>        memset(c,0,sizeof(c));<br>        long long ans = 0;<br>        build(1,1,tot);<br>        for(int i = 0;i &lt; n;i++)<br>        {<br>            int id = mp[node[i].y];<br>            long long tmp = pow_m(2,node[i].x);<br>            tmp = tmp <em> (sum(1,id,tot) + pow_m(3,node[i].y))%MOD;<br>            tmp = (tmp%MOD+MOD)%MOD;<br>            ans += tmp;<br>            if(ans &gt;= MOD)ans -= MOD;<br>            int nn = sum(id-1);<br>            ans += pow_m(2,node[i].x) </em> (pow_m(2,nn) - 1)%MOD*pow_m(3,node[i].y)%MOD;<br>            if(ans &gt;= MOD)ans -= MOD;<br>            ADD(1,id);<br>            CHANGE(1,id+1,tot);<br>        }<br>        printf(“%d\n”,(int)ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU 4913Least common multipleLeast common multipleTime Limit: 6000/3000 MS (Java/Others)    Memory Limit: 131072/131072 K (Java/Others) Total Submissi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/05/hdu4913/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1206,39 +1135,18 @@
       
         
           
-            <h2 id="SGU-110-Dungeon"><a href="#SGU-110-Dungeon" class="headerlink" title="SGU 110 Dungeon"></a>SGU 110 <a href="http://acm.sgu.ru/problem.php?contest=0&amp;problem=110" target="_blank" rel="noopener">Dungeon</a></h2><p>  一些球体，给了一个光线，求光线反射的顺序。</p>
-<p>110. Dungeon</p>
-<p>time limit per test: 0.25 sec. memory limit per test: 4096 KB</p>
-<p>The mission of space explorers found on planet M the vast dungeon. One of the dungeon halls is fill with the bright spheres. The explorers find out that the light rays reflect from the surface of the spheres according the ordinary law (the incidence angle is equal to the reflectance angle, the incidence ray, the reflected ray and the perpendicular to the sphere surface lay in the one plane). The ancient legend says that if the light ray will reflect from the spheres in the proper order, than the door to the room with very precious ancient knowledge will open. You are not to guess the right sequence; your task is much simpler. You are given the positions and the radii of the spheres, the place where the laser shot was made and the direction of light propagation. And you must find out the sequence in which the light will be reflected from the spheres.</p>
-<p>Input</p>
-<p>The first line of input contains the single integer n (1≤n≤50) - the amount of the spheres. The next n lines contain the coordinates and the radii of the spheres xi, yi, zi, ri (the integer numbers less or equal to 10000 by absolute value). The last line contains 6 real numbers - the coordinates of two points. The first one gives the coordinates of the place of laser shot, and the second gives the direction in which it was made (the second point is the point on the ray). The starting point of the ray lies strictly outside of any sphere.</p>
-<p>Output</p>
-<p>Your program must output the sequence of sphere numbers (spheres are numbers from 1 as they was given in input), from which the light ray was reflected. If the ray will reflect more the 10 times, than you must output first 10, then a space and the word ‘etc.’ (without quotes). Notice: if the light ray goes at a tangent to the sphere you must assume that the ray was reflected by the sphere.</p>
-<p>Sample Input 1</p>
-<p>1<br>0 0 2 1<br>0 0 0 0 0 1</p>
-<p>Sample Output 1</p>
-<p>1</p>
-<p>Sample Input 2</p>
-<p>2<br>0 0 2 1<br>0 0 -2 1<br>0 0 0 0 0 100</p>
-<p>Sample Output 2</p>
-<p>1 2 1 2 1 2 1 2 1 2 etc.</p>
-<pre><code>按照点 和 方向向量去表示射线。 用参数方程去求解射线和球的交点，先找到一个最小的，然后进行反射。
-</code></pre><p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/4 22:01:33<br>File Name     :E:\2014ACM\专题学习\计算几何\三维几何\SGU110.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const double eps = 1e-8;<br>int sgn(double x)<br>{<br>    if(fabs(x) &lt; eps)return 0;<br>    if(x &lt; 0)return -1;<br>    else return 1;<br>}<br>struct Point3<br>{<br>    double x,y,z;<br>    Point3(double _x = 0,double _y = 0,double _z = 0)<br>    {<br>        x = _x;<br>        y = _y;<br>        z = _z;<br>    }<br>    void input()<br>    {<br>        scanf(“%lf%lf%lf”,&amp;x,&amp;y,&amp;z);<br>    }<br>    double len()<br>    {<br>        return sqrt(x*x+y*y+z<em>z);<br>    }<br>    double len2()<br>    {<br>        return x\</em>x+y*y+z<em>z;<br>    }<br>    double distance(const Point3 &amp;b)const<br>    {<br>        return sqrt((x-b.x)</em>(x-b.x)+(y-b.y)<em>(y-b.y)+(z-b.z)</em>(z-b.z));<br>    }<br>    Point3 operator -(const Point3 &amp;b)const<br>    {<br>        return Point3(x-b.x,y-b.y,z-b.z);<br>    }<br>    Point3 operator +(const Point3 &amp;b)const<br>    {<br>        return Point3(x+b.x,y+b.y,z+b.z);<br>    }<br>    Point3 operator <em>(const double &amp;k)const<br>    {<br>        return Point3(x\</em>k,y*k,z<em>k);<br>    }<br>    Point3 operator /(const double &amp;k)const<br>    {<br>        return Point3(x/k,y/k,z/k);<br>    }<br>    double operator </em>(const Point3 &amp;b)const<br>    {<br>        return x*b.x+y*b.y+z<em>b.z;<br>    }<br>    Point3 operator ^(const Point3 &amp;b)const<br>    {<br>        return Point3(y\</em>b.z-z*b.y,z*b.x+x*b.z,x*b.y-y*b.x);<br>    }<br>};<br>//球体<br>struct Sphere<br>{<br>    Point3 o;<br>    double r;<br>    void input()<br>    {<br>        o.input();<br>        scanf(“%lf”,&amp;r);<br>    }<br>};<br>//射线和球求交点<br>bool Intersaction(Point3 st,Point3 dir,Sphere sp,double &amp;t)<br>{<br>    double a = dir.x*dir.x + dir.y*dir.y + dir.z<em>dir.z;<br>    double b = 2</em>(st.x-sp.o.x)*dir.x + 2*(st.y-sp.o.y)*dir.y + 2*(st.z-sp.o.z)<em>dir.z;<br>    double c = (st.x-sp.o.x)</em>(st.x-sp.o.x) + (st.y-sp.o.y)<em>(st.y-sp.o.y) +<br>        (st.z-sp.o.z)</em>(st.z-sp.o.z) - sp.r<em>sp.r;<br>    double deta = b\</em>b - 4*a<em>c;<br>    if(sgn(deta) &lt; 0)return false;<br>    double x1 = (-b-sqrt(deta))/(2</em>a);<br>    double x2 = (-b+sqrt(deta))/(2<em>a);<br>    if(x1 &gt; x2)swap(x1,x2);<br>    if(sgn(x1) &lt;= 0)return false;<br>    t = x1;<br>    return true;<br>}<br>Point3 Ref(Point3 st,Point3 p,Sphere sp)<br>{<br>    Point3 tp = sp.o + ( ((p-sp.o)</em>((p-sp.o)<em>(st-sp.o)))/((p-sp.o).len2()) );<br>    return Point3(2\</em>tp.x-st.x,2*tp.y-st.y,2*tp.z-st.z)-p;<br>}<br>Sphere sp[100];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1)<br>    {<br>        for(int i = 0;i &lt; n;i++)sp[i].input();<br>        Point3 now,dir;<br>        now.input();<br>        dir.input();<br>        dir = dir - now;<br>        int last = -1;<br>        for(int i = 0;i &lt; 11;i++)<br>        {<br>            int id = -1;<br>            double mint = 1e300;<br>            for(int j = 0;j &lt; n;j++)<br>                if(j != last)<br>                {<br>                    double t;<br>                    if(Intersaction(now,dir,sp[j],t))<br>                        if(mint &gt; t)<br>                        {<br>                            id = j;<br>                            mint = t;<br>                        }<br>                }<br>            if(id != -1)<br>            {<br>                if(i == 10)<br>                {<br>                    printf(“ etc.\n”);<br>                    break;<br>                }<br>                if(i &gt; 0)printf(“ “);<br>                Point3 pp = now + (dir*mint);<br>                Point3 tmp = Ref(now,pp,sp[id]);<br>                now = pp;<br>                dir = tmp;<br>                printf(“%d”,id+1);<br>            }<br>            else<br>            {<br>                printf(“\n”);<br>                break;<br>            }<br>            last = id;<br>        }<br>    }<br>    return 0;<br>}</p>
-
-          
+          SGU 110 Dungeon  一些球体，给了一个光线，求光线反射的顺序。
+110. Dungeon
+time limit per test: 0.25 sec. memory limit per test: 4096 KB
+The mission of space explorers found
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/04/sgu110/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1431,38 +1339,15 @@
       
         
           
-            <h1 id="HDU-4908"><a href="#HDU-4908" class="headerlink" title="HDU 4908"></a>HDU 4908</h1><h1 id="BestCoder-Sequence"><a href="#BestCoder-Sequence" class="headerlink" title="BestCoder Sequence"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4908" target="_blank" rel="noopener">BestCoder Sequence</a></h1><h1 id="BestCoder-Sequence-1"><a href="#BestCoder-Sequence-1" class="headerlink" title="BestCoder Sequence"></a>BestCoder Sequence</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others) Total Submission(s): 113    Accepted Submission(s): 49</strong>  </p>
-<p>Problem Description</p>
-<p>Mr Potato is a coder. Mr Potato is the BestCoder. One night, an amazing sequence appeared in his dream. Length of this sequence is odd, the median number is M, and he named this sequence as <em>Bestcoder Sequence</em>. As the best coder, Mr potato has strong curiosity, he wonder the number of consecutive sub-sequences which are <em>bestcoder sequences</em> in a given permutation of 1 ~ N.</p>
-<p>Input</p>
-<p>Input contains multiple test cases. For each test case, there is a pair of integers N and M in the first line, and an permutation of 1 ~ N in the second line. <strong>[Technical Specification]</strong> 1. 1 &lt;= N &lt;= 40000 2. 1 &lt;= M &lt;= N</p>
-<p>Output</p>
-<p>For each case, you should output the number of consecutive sub-sequences which are the <em>Bestcoder Sequences</em>.</p>
-<p>Sample Input</p>
-<p>1 1 1 5 3 4 5 3 2 1</p>
-<p>Sample Output</p>
-<p>1 3</p>
-<p><em>Hint</em></p>
-<p>For the second case, {3},{5,3,2},{4,5,3,2,1} are Bestcoder Sequence.</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=BestCoder%20Round%20#3&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">BestCoder Round #3</a></p>
-<pre><code>在一个1-N的全排列中。 找有多少个子串，这个子串的中位数是M, 这个串必须跨越M的位置。 然后需要大于M的个数等于小于M的个数。 一边统计，一边直接搞就可以了。
-</code></pre><p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/3 19:07:52<br>File Name     :B.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>const int MAXN = 40010;</p>
-<p>int a[MAXN];<br>int n,m;<br>int num[MAXN*2];<br>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    while(scanf(“%d%d”,&amp;n,&amp;m) == 2)<br>    {<br>        int id = -1;<br>        for(int i = 1;i &lt;= n;i++)<br>        {<br>            scanf(“%d”,&amp;a[i]);<br>            if(a[i] == m)<br>                id = i;<br>        }<br>        memset(num,0,sizeof(num));<br>        int s = 0;<br>        for(int i = id;i &gt;= 1;i–)<br>        {<br>            if(a[i] &gt; m)s++;<br>            else if(a[i] &lt; m)s–;<br>            num[s+40000]++;<br>        }<br>        int ans = 0;<br>        s = 0;<br>        for(int i = id;i &lt;= n;i++)<br>        {<br>            if(a[i] &lt; m)s++;<br>            else if(a[i] &gt; m)s–;<br>            ans += num[40000+s];<br>        }<br>        printf(“%d\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU 4908BestCoder SequenceBestCoder SequenceTime Limit: 2000/1000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others) Total Submission(s): 1
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/03/hdu4908/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1655,53 +1540,15 @@
       
         
           
-            <h2 id="HDU-4909"><a href="#HDU-4909" class="headerlink" title="HDU 4909"></a>HDU 4909</h2><h1 id="String"><a href="#String" class="headerlink" title="String"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4909" target="_blank" rel="noopener">String</a></h1><h1 id="String-1"><a href="#String-1" class="headerlink" title="String"></a>String</h1><p><strong>Time Limit: 4000/2000 MS (Java/Others)    Memory Limit: 524288/524288 K (Java/Others) Total Submission(s): 54    Accepted Submission(s): 13</strong>  </p>
-<p>Problem Description</p>
-<p>You hava a non-empty string which consists of lowercase English letters and may contain at most one ‘?’. Let’s choose non-empty substring G from S (it can be G = S). A substring of a string is a continuous subsequence of the string. if G contains ‘?’ then ‘?’ can be deleted or replaced by one of lowercase english letters. After that if each letter occurs even number of times in G then G is a good substring. Find number of all good substrings.</p>
-<p>Input</p>
-<p>The input consists of an integer T, followed by T lines, each containing a non-empty string. The length of the string doesn’t exceed 20000. <strong>[Technical Specification]</strong> 1 &lt;= T &lt;= 100</p>
-<p>Output</p>
-<p>For each test case, print a single integer which is the number of good substrings of a given string.</p>
-<p>Sample Input</p>
-<p>3 abc?ca aabbcc aaaaa</p>
-<p>Sample Output</p>
-<p>7 6 6</p>
-<p><em>Hint</em></p>
-<p>Good substrings of “abc?ca”: “?”, “c?”, “?c”, “c?c”, “bc?c”, “c?ca”, “abc?ca”</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=BestCoder%20Round%20#3&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">BestCoder Round #3</a></p>
-<pre><code>因为最多只有一个?   两段可以的话，字母出现次数的奇偶性只能相等或者差1\. 用map 去映射出现次数，然后查找。   一个坑点导致了TLE, 还是对map 不够熟悉啊。 如果直接ans += mp\[s\],  会新加入好多无用点，s如果不在会直接插入的。 应该if(mp.count(s))ans += mp\[s\];  
-</code></pre><p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/3 19:47:05<br>File Name     :C.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>int num[30];<br>char str[20010];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    scanf(“%d”,&amp;T);<br>    while(T–)<br>    {<br>        scanf(“%s”,str);<br>        map&lt;int,int&gt;mp1;<br>        map&lt;int,int&gt;mp2;<br>        bool has = false;<br>        int n = strlen(str);<br>        has = false;<br>        mp1[0]++;<br>        memset(num,0,sizeof(num));<br>        int s = 0;<br>        int ans = 0;<br>        for(int i = 0;i &lt; n;i++)<br>        {<br>            if(str[i] != ‘?’)<br>            {<br>                s ^= (1&lt;&lt;(str[i]-‘a’));<br>            }<br>            else<br>            {<br>                has = true;<br>            }<br>            if(!has)<br>            {<br>                if(mp1.count(s))ans += mp1[s];<br>                mp1[s]++;<br>            }<br>            else<br>            {<br>                if(mp2.count(s))ans += mp2[s];<br>                if(mp1.count(s))ans += mp1[s];<br>                for(int j = 0;j &lt; 26;j++)<br>                    if(mp1.count(s^(1&lt;&lt;j)))<br>                    ans += mp1[s^(1&lt;&lt;j)];<br>                mp2[s]++;<br>            }<br>        }<br>        printf(“%d\n”,ans);<br>    }<br>    return 0;<br>}</p>
-<p>  可以使用数组进行优化，空间换时间。</p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/3 19:47:05<br>File Name     :C.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>char str[20010];<br>short num1[1&lt;&lt;26];<br>short num2[1&lt;&lt;26];<br>int a[20010];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int T;<br>    scanf(“%d”,&amp;T);<br>    while(T–)<br>    {<br>        scanf(“%s”,str);<br>        bool has = false;<br>        int n = strlen(str);<br>        num1[0]++;<br>        int s = 0;<br>        int ans = 0;<br>        for(int i = 0;i &lt; n;i++)<br>        {<br>            if(str[i] != ‘?’)<br>            {<br>                s ^= (1&lt;&lt;(str[i]-‘a’));<br>            }<br>            else<br>            {<br>                has = true;<br>            }<br>            a[i] = s;<br>            if(!has)<br>            {<br>                ans += num1[s];<br>                num1[s]++;<br>            }<br>            else<br>            {<br>                ans += num1[s];<br>                ans += num2[s];<br>                for(int j = 0;j &lt; 26;j++)<br>                    ans += num1[s^(1&lt;&lt;j)];<br>                num2[s]++;<br>            }<br>        }<br>        for(int i = 0;i &lt; n;i++)<br>        {<br>            if(num1[a[i]])num1[a[i]] = 0;<br>            if(num2[a[i]])num2[a[i]] = 0;<br>        }<br>        num1[0] = 0;<br>        printf(“%d\n”,ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU 4909StringStringTime Limit: 4000/2000 MS (Java/Others)    Memory Limit: 524288/524288 K (Java/Others) Total Submission(s): 54    Accepted Submissi
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/03/hdu4909/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1901,105 +1748,15 @@
       
         
           
-            <h2 id="HDU-4910"><a href="#HDU-4910" class="headerlink" title="HDU 4910"></a>HDU 4910</h2><h1 id="Problem-about-GCD"><a href="#Problem-about-GCD" class="headerlink" title="Problem about GCD"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4910" target="_blank" rel="noopener">Problem about GCD</a></h1><h3 id="求小于等于-N-的与N互质的所有数的乘积mod-N"><a href="#求小于等于-N-的与N互质的所有数的乘积mod-N" class="headerlink" title="求小于等于 N 的与N互质的所有数的乘积mod N"></a>求小于等于 N 的与N互质的所有数的乘积mod N</h3><h1 id="Problem-about-GCD-1"><a href="#Problem-about-GCD-1" class="headerlink" title="Problem about GCD"></a>Problem about GCD</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others) Total Submission(s): 26    Accepted Submission(s): 6</strong>  </p>
-<p>Problem Description</p>
-<p>Given integer m. Find multiplication of all 1&lt;=a&lt;=m such gcd(a, m)=1 (coprime with m) modulo m.</p>
-<p>Input</p>
-<p>Input contains multiple tests, one test per line. Last line contains -1, it should be skipped.<strong>[Technical Specification]</strong> m &lt;= 10^18</p>
-<p>Output</p>
-<p>For each test please output result. One case per line. Less than 160 test cases.</p>
-<p>Sample Input</p>
-<p>1 2 3 4 5 -1</p>
-<p>Sample Output</p>
-<p>0 1 2 3 4</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=BestCoder%20Round%20#3&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">BestCoder Round #3</a></p>
-<h4 id="很显然，需要找规律。-答案要么是N-1，要么是1"><a href="#很显然，需要找规律。-答案要么是N-1，要么是1" class="headerlink" title="很显然，需要找规律。 答案要么是N-1，要么是1."></a>很显然，需要找规律。 答案要么是N-1，要么是1.</h4><p>答案为N-1的情况是: 1 2 4 此外 如果 N!=4 &amp;&amp; N%4 == 0  答案是1 如果N为偶数，要求N/2 是 p^k的形式； 如果N为奇数，要求N是p^k的形式。</p>
-<p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/3 19:24:03<br>File Name     :D.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;</p>
-<p>/* *************************************************<br> * Miller_Rabin 算法进行素数测试<br> * 速度快，可以判断一个 &lt; 2^63 的数是不是素数<br> *<br> <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong>/</p>
-<p>const int S = 20; //随机算法判定次数，一般8~10就够了</p>
-<p>// 计算ret = (a*b)%c     a,b,c &lt; 2^63<br>long long mult_mod(long long a,long long b,long long c)<br>{<br>    a %= c;<br>    b %= c;<br>    long long ret = 0;<br>    long long tmp = a;<br>    while(b)<br>    {<br>        if(b &amp; 1)<br>        {<br>            ret += tmp;<br>            if(ret &gt; c)ret -= c;//直接取模慢很多<br>        }<br>        tmp &lt;&lt;= 1;<br>        if(tmp &gt; c)tmp -= c;<br>        b &gt;&gt;= 1;<br>    }<br>    return ret;<br>}</p>
-<p>// 计算 ret = (a^n)%mod<br>long long pow_mod(long long a,long long n,long long mod)<br>{<br>     long long ret = 1;<br>     long long temp = a%mod;<br>     while(n)<br>     {<br>         if(n &amp; 1)ret = mult_mod(ret,temp,mod);<br>         temp = mult_mod(temp,temp,mod);<br>         n &gt;&gt;= 1;<br>     }<br>     return ret;<br>}</p>
-<p>// 通过 a^(n-1)=1(mod n)来判断n是不是素数<br>// n-1 = x*2^t 中间使用二次判断<br>// 是合数返回true, 不一定是合数返回false<br>bool check(long long a,long long n,long long x,long long t)<br>{<br>     long long ret = pow_mod(a,x,n);<br>     long long last = ret;<br>     for(int i = 1;i &lt;= t;i++)<br>     {<br>         ret = mult_mod(ret,ret,n);<br>         if(ret == 1 &amp;&amp; last != 1 &amp;&amp; last != n-1)return true;//合数<br>         last = ret;<br>     }<br>     if(ret != 1)return true;<br>     else return false;<br>}<br>//<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>// Miller_Rabin算法<br>// 是素数返回true,(可能是伪素数)<br>// 不是素数返回false<br>//<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>bool Miller_Rabin(long long n)<br>{<br>     if( n &lt; 2)return false;<br>     if( n == 2)return true;<br>     if( (n&amp;1) == 0)return false;//偶数<br>     long long x = n - 1;<br>     long long t = 0;<br>     while( (x&amp;1)==0 ){x &gt;&gt;= 1; t++;}</p>
-<pre><code>srand(time(NULL));/* *************** */
-
-for(int i = 0;i &lt; S;i++)
-{
-    long long a  = rand()%(n-1) + 1;
-    if( check(a,n,x,t) )
-       return false;
-}
-return true;
-</code></pre><p>}</p>
-<p>//<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>**</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>// pollard_rho 算法进行质因素分解<br>//<br>//<br>//<strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>*</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>long long factor[100];//质因素分解结果（刚返回时时无序的）<br>int tol;//质因素的个数，编号0~tol-1</p>
-<p>long long gcd(long long a,long long b)<br>{<br>     long long t;<br>     while(b)<br>     {<br>         t = a;<br>         a = b;<br>         b = t%b;<br>     }<br>     if(a &gt;= 0)return a;<br>     else return -a;<br>}</p>
-<p> //找出一个因子<br>long long pollard_rho(long long x,long long c)<br>{<br>     long long i = 1, k = 2;<br>     srand(time(NULL));<br>     long long x0 = rand()%(x-1) + 1;<br>     long long y = x0;<br>     while(1)<br>     {<br>         i ++;<br>         x0 = (mult_mod(x0,x0,x) + c)%x;<br>         long long d = gcd(y - x0,x);<br>         if( d != 1 &amp;&amp; d != x)return d;<br>         if(y == x0)return x;<br>         if(i == k){y = x0; k += k;}<br>     }<br>}<br> //对 n进行素因子分解，存入factor. k设置为107左右即可<br>void findfac(long long n,int k)<br>{<br>     if(n == 1)return;<br>     if(Miller_Rabin(n))<br>     {<br>         factor[tol++] = n;<br>         return;<br>     }<br>     long long p = n;<br>     int c = k;<br>     while( p &gt;= n)<br>        p = pollard_rho(p,c–);//值变化，防止死循环k<br>     findfac(p,k);<br>     findfac(n/p,k);<br>}</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);</p>
-<pre><code>long long n;
-while(scanf(&quot;%I64d&quot;,&amp;n) == 1)
-{
-    if(n == -1)break;
-    if(n &lt;= 1)
-    {
-        printf(&quot;0\\n&quot;);
-        continue;
-    }
-    if(n == 1 || n == 2 || n == 4)
-    {
-        printf(&quot;%I64d\\n&quot;,n-1);
-        continue;
-    }
-    if(n != 4 &amp;&amp; n % 4 == 0)
-    {
-        printf(&quot;1\\n&quot;);
-        continue;
-    }
-    tol = 0;
-    if(n%2 == 0)
-    {
-        findfac(n/2,107);
-        sort(factor,factor+tol);
-        bool flag = true;
-        for(int i = 1;i &lt; tol;i++)
-            if(factor\[i-1\] != factor\[i\])
-            {
-                flag = false;
-                break;
-            }
-        if(flag)printf(&quot;%I64d\\n&quot;,n-1);
-        else printf(&quot;1\\n&quot;);
-    }
-    else
-    {
-        findfac(n,107);
-        sort(factor,factor+tol);
-        bool flag = true;
-        for(int i = 1;i &lt; tol;i++)
-            if(factor\[i-1\] != factor\[i\])
-            {
-                flag = false;
-                break;
-            }
-        if(flag)printf(&quot;%I64d\\n&quot;,n-1);
-        else printf(&quot;1\\n&quot;);
-    }
-}
-return 0;
-</code></pre><p>}</p>
-
-          
+          HDU 4910Problem about GCD求小于等于 N 的与N互质的所有数的乘积mod NProblem about GCDTime Limit: 2000/1000 MS (Java/Others)    Memory Limit: 32768/32768 K (Java/Others)
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/03/hdu4910/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2199,38 +1956,15 @@ return 0;
       
         
           
-            <h2 id="HDU-4893"><a href="#HDU-4893" class="headerlink" title="HDU 4893"></a>HDU 4893</h2><h1 id="Wow-Such-Sequence"><a href="#Wow-Such-Sequence" class="headerlink" title="Wow! Such Sequence!"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4893" target="_blank" rel="noopener">Wow! Such Sequence!</a></h1><h1 id="Wow-Such-Sequence-1"><a href="#Wow-Such-Sequence-1" class="headerlink" title="Wow! Such Sequence!"></a>Wow! Such Sequence!</h1><p><strong>Time Limit: 10000/5000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others) Total Submission(s): 2407    Accepted Submission(s): 711</strong>  </p>
-<p>Problem Description</p>
-<p>Recently, Doge got a funny birthday present from his new friend, Protein Tiger from St. Beeze College. No, not cactuses. It’s a mysterious blackbox.After some research, Doge found that the box is maintaining a sequence an of n numbers internally, initially all numbers are zero, and there are THREE “operations”: 1.Add d to the k-th number of the sequence. 2.Query the sum of ai where l ≤ i ≤ r. 3.Change ai to the nearest Fibonacci number, where l ≤ i ≤ r. 4.Play sound “Chee-rio!”, a bit useless. Let F0 = 1,F1 = 1,Fibonacci number Fn is defined as Fn = Fn - 1 + Fn - 2 for n ≥ 2. Nearest Fibonacci number of number x means the smallest Fn where |Fn - x| is also smallest. Doge doesn’t believe the machine could respond each request in less than 10ms. Help Doge figure out the reason.</p>
-<p>Input</p>
-<p>Input contains several test cases, please process till EOF. For each test case, there will be one line containing two integers n, m. Next m lines, each line indicates a query:1 k d - “add” 2 l r - “query sum” 3 l r - “change to nearest Fibonacci” 1 ≤ n ≤ 100000, 1 ≤ m ≤ 100000, |d| &lt; 231, all queries will be valid.</p>
-<p>Output</p>
-<p>For each Type 2 (“query sum”) operation, output one line containing an integer represent the answer of this query.</p>
-<p>Sample Input</p>
-<p>1 1 2 1 1 5 4 1 1 7 1 3 17 3 2 4 2 1 5</p>
-<p>Sample Output</p>
-<p>0 22</p>
-<p>Author</p>
-<p>Fudan University</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%203&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Multi-University Training Contest 3</a></p>
-<pre><code>水题。 理解题意就可以了， int WA了，改成long long AC
-</code></pre><p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/3 16:39:04<br>File Name     :E:\2014ACM\比赛\2014多校训练\2014多校3\HDU4891.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>char str[1010][10100];</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    int n;<br>    while(scanf(“%d”,&amp;n) == 1)<br>    {<br>        gets(str[0]);<br>        for(int i = 0;i &lt; n;i++)<br>            gets(str[i]);<br>        long long ans = 1;<br>        int c0 = 0, c1 = 0;<br>        int cnt0 = 0, cnt1 = 0;<br>        for(int i = 0;i &lt; n;i++)<br>        {<br>            if(ans &gt; 100000)break;<br>            int len = strlen(str[i]);<br>            for(int j = 0;j &lt; len;j++)<br>            {<br>                if(str[i][j] == ‘$’)<br>                {<br>                    if(c0 == 0)c0 = 1;<br>                    else<br>                    {<br>                        ans <em>= (cnt0+1);<br>                        cnt0 = 0;<br>                        c0 = 0;<br>                    }<br>                }<br>                if(str[i][j] == ‘{‘)<br>                    c1 = 1;<br>                if(str[i][j] == ‘}’)<br>                {<br>                    c1 = 0;<br>                    ans </em>= (cnt1+1);<br>                    cnt1 = 0;<br>                }<br>                if(c0 &gt; 0)<br>                {<br>                    if(str[i][j] == ‘ ‘)<br>                        cnt0++;<br>                    else<br>                    {<br>                        ans *= (cnt0+1);<br>                        cnt0 = 0;<br>                    }<br>                }<br>                if(c1 &gt; 0 &amp;&amp; str[i][j] == ‘|’)<br>                    cnt1++;<br>                if(ans &gt; 100000)break;<br>            }<br>        }<br>        if(ans &gt; 100000)printf(“doge\n”);<br>        else printf(“%d\n”,(int)ans);<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU 4893Wow! Such Sequence!Wow! Such Sequence!Time Limit: 10000/5000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others) Total Submission(s)
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/03/hdu4893-2/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2444,40 +2178,16 @@ return 0;
       
         
           
-            <h2 id="HDU-4893"><a href="#HDU-4893" class="headerlink" title="HDU 4893"></a>HDU 4893</h2><h1 id="Wow-Such-Sequence"><a href="#Wow-Such-Sequence" class="headerlink" title="Wow! Such Sequence!"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4893" target="_blank" rel="noopener">Wow! Such Sequence!</a></h1><p>  线段树。 加个标记就可以了。</p>
-<h1 id="Wow-Such-Sequence-1"><a href="#Wow-Such-Sequence-1" class="headerlink" title="Wow! Such Sequence!"></a>Wow! Such Sequence!</h1><p><strong>Time Limit: 10000/5000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others) Total Submission(s): 2403    Accepted Submission(s): 710</strong>  </p>
-<p>Problem Description</p>
-<p>Recently, Doge got a funny birthday present from his new friend, Protein Tiger from St. Beeze College. No, not cactuses. It’s a mysterious blackbox. After some research, Doge found that the box is maintaining a sequence an of n numbers internally, initially all numbers are zero, and there are THREE “operations”: 1.Add d to the k-th number of the sequence. 2.Query the sum of ai where l ≤ i ≤ r. 3.Change ai to the nearest Fibonacci number, where l ≤ i ≤ r. 4.Play sound “Chee-rio!”, a bit useless. Let F0 = 1,F1 = 1,Fibonacci number Fn is defined as Fn = Fn - 1 + Fn - 2 for n ≥ 2. Nearest Fibonacci number of number x means the smallest Fn where |Fn - x| is also smallest. Doge doesn’t believe the machine could respond each request in less than 10ms. Help Doge figure out the reason.</p>
-<p>Input</p>
-<p>Input contains several test cases, please process till EOF. For each test case, there will be one line containing two integers n, m. Next m lines, each line indicates a query: 1 k d - “add” 2 l r - “query sum” 3 l r - “change to nearest Fibonacci” 1 ≤ n ≤ 100000, 1 ≤ m ≤ 100000, |d| &lt; 231, all queries will be valid.</p>
-<p>Output</p>
-<p>For each Type 2 (“query sum”) operation, output one line containing an integer represent the answer of this query.</p>
-<p>Sample Input</p>
-<p>1 1 2 1 1 5 4 1 1 7 1 3 17 3 2 4 2 1 5</p>
-<p>Sample Output</p>
-<p>0 22</p>
-<p>Author</p>
-<p>Fudan University</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%203&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Multi-University Training Contest 3</a></p>
-<pre><code>只需要使用线段树，加个懒得标记。 sum1表示当前的和，sum2表示当前最近的斐波那契数列的和。 然后直接搞就可以了。
-</code></pre><p>/* <strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>***</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong><br>Author        :kuangbin<br>Created Time  :2014/8/3 15:06:42<br>File Name     :E:\2014ACM\比赛\2014多校训练\2014多校3\HDU4893.cpp<br>************************************************ */</p>
-<p>#include &lt;stdio.h&gt;</p>
-<p>#include &lt;string.h&gt;</p>
-<p>#include <iostream></iostream></p>
-<p>#include <algorithm></algorithm></p>
-<p>#include <vector></vector></p>
-<p>#include <queue></queue></p>
-<p>#include <set></set></p>
-<p>#include <map></map></p>
-<p>#include <string></string></p>
-<p>#include &lt;math.h&gt;</p>
-<p>#include &lt;stdlib.h&gt;</p>
-<p>#include &lt;time.h&gt;<br>using namespace std;<br>long long f[72];<br>const int MAXN = 100010;<br>struct Node<br>{<br>    int l,r;<br>    int lazy;<br>    long long sum1,sum2;<br>}segTree[MAXN&lt;&lt;2];<br>void Update(int i)<br>{<br>    segTree[i].sum1 = segTree[i].sum2;<br>    segTree[i].lazy = 1;<br>}<br>void push_up(int i)<br>{<br>    segTree[i].sum1 = segTree[i&lt;&lt;1].sum1 + segTree[(i&lt;&lt;1)|1].sum1;<br>    segTree[i].sum2 = segTree[i&lt;&lt;1].sum2 + segTree[(i&lt;&lt;1)|1].sum2;<br>}<br>void push_down(int i)<br>{<br>    if(segTree[i].lazy)<br>    {<br>        Update(i&lt;&lt;1);<br>        Update((i&lt;&lt;1)|1);<br>        segTree[i].lazy = 0;<br>    }<br>}<br>void build(int i,int l,int r)<br>{<br>    segTree[i].l = l;<br>    segTree[i].r = r;<br>    segTree[i].lazy = 0;<br>    if(l == r)<br>    {<br>        segTree[i].sum1 = 0;<br>        segTree[i].sum2 = 1;<br>        return;<br>    }<br>    int mid = (l+r)/2;<br>    build(i&lt;&lt;1,l,mid);<br>    build((i&lt;&lt;1)|1,mid+1,r);<br>    push_up(i);<br>}</p>
-<p>void Add(int i,int k,int d)<br>{<br>    if(segTree[i].l == k &amp;&amp; segTree[i].r == k)<br>    {<br>        segTree[i].sum1 += d;<br>        int id = lower_bound(f,f+70,segTree[i].sum1) - f;<br>        segTree[i].sum2 = f[id];<br>        if(id &gt; 0)<br>        {<br>            if(segTree[i].sum1-f[id-1] &lt;= f[id]-segTree[i].sum1)<br>                segTree[i].sum2 = f[id-1];<br>        }<br>        return;<br>    }<br>    push_down(i);<br>    int mid = (segTree[i].l + segTree[i].r)/2;<br>    if(k &lt;= mid)Add(i&lt;&lt;1,k,d);<br>    else Add((i&lt;&lt;1)|1,k,d);<br>    push_up(i);<br>}<br>long long query(int i,int l,int r)<br>{<br>    if(segTree[i].l == l &amp;&amp; segTree[i].r == r)<br>        return segTree[i].sum1;<br>    push_down(i);<br>    int mid = (segTree[i].l + segTree[i].r)/2;<br>    if(r &lt;= mid)return query(i&lt;&lt;1,l,r);<br>    else if(l &gt; mid)return query((i&lt;&lt;1)|1,l,r);<br>    else return query(i&lt;&lt;1,l,mid) + query((i&lt;&lt;1)|1,mid+1,r);<br>}<br>void Change(int i,int l,int r)<br>{<br>    if(segTree[i].l == l &amp;&amp; segTree[i].r == r)<br>    {<br>        Update(i);<br>        return;<br>    }<br>    if(segTree[i].lazy)return;<br>    int mid = (segTree[i].l + segTree[i].r)/2;<br>    if(r &lt;= mid)Change(i&lt;&lt;1,l,r);<br>    else if(l &gt; mid)Change((i&lt;&lt;1)|1,l,r);<br>    else<br>    {<br>        Change(i&lt;&lt;1,l,mid);<br>        Change((i&lt;&lt;1)|1,mid+1,r);<br>    }<br>    push_up(i);<br>}</p>
-<p>int main()<br>{<br>    //freopen(“in.txt”,”r”,stdin);<br>    //freopen(“out.txt”,”w”,stdout);<br>    f[0] = 1;<br>    f[1] = 1;<br>    for(int i = 2;i &lt; 70;i++)<br>    {<br>        f[i] = f[i-1]+f[i-2];<br>    }<br>    int n,m;<br>    while(scanf(“%d%d”,&amp;n,&amp;m) == 2)<br>    {<br>        build(1,1,n);<br>        int op;<br>        int l,r;<br>        while(m–)<br>        {<br>            scanf(“%d%d%d”,&amp;op,&amp;l,&amp;r);<br>            if(op == 1)Add(1,l,r);<br>            else if(op == 2)printf(“%I64d\n”,query(1,l,r));<br>            else Change(1,l,r);<br>        }<br>    }<br>    return 0;<br>}</p>
-
-          
+          HDU 4893Wow! Such Sequence!  线段树。 加个标记就可以了。
+Wow! Such Sequence!Time Limit: 10000/5000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others) To
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/03/hdu4893/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -2624,14 +2334,14 @@ return 0;
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HDU/" itemprop="url" rel="index"><span itemprop="name">HDU</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
 
                 
                 
                   ，
                 
               
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/算法/" itemprop="url" rel="index"><span itemprop="name">算法</span></a></span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing"><a href="/categories/HDU/" itemprop="url" rel="index"><span itemprop="name">HDU</span></a></span>
 
                 
                 
@@ -2677,26 +2387,15 @@ return 0;
       
         
           
-            <h1 id="HDU-4889"><a href="#HDU-4889" class="headerlink" title="HDU 4889"></a>HDU 4889</h1><h1 id="Scary-Path-Finding-Algorithm"><a href="#Scary-Path-Finding-Algorithm" class="headerlink" title="Scary Path Finding Algorithm"></a><a href="http://acm.hdu.edu.cn/showproblem.php?pid=4889" target="_blank" rel="noopener">Scary Path Finding Algorithm</a></h1><h1 id="Scary-Path-Finding-Algorithm-1"><a href="#Scary-Path-Finding-Algorithm-1" class="headerlink" title="Scary Path Finding Algorithm"></a>Scary Path Finding Algorithm</h1><p><strong>Time Limit: 2000/1000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others) Total Submission(s): 268    Accepted Submission(s): 121 Special Judge</strong>  </p>
-<p>Problem Description</p>
-<p>Fackyyj loves the challenge phase in TwosigmaCrap(TC). One day, he meet a task asking him to find shortest path from vertex 1 to vertex n, in a graph with at most n vertices and m edges. (1 ≤ n ≤ 100,0 ≤ m ≤ n(n-1))Fackyyj solved this problem at first glance, after that he opened someone’s submission, spotted the following code: long long spfa_slf() { int n,m; cin &gt;&gt; n &gt;&gt; m; vector&lt;pair&lt;int,int&gt; &gt; edges[111]; for(int i = 0;i &lt; m;i++) { int x,y,w; cin &gt;&gt; x &gt;&gt; y &gt;&gt; w; edges[x].push_back(make_pair(y,w)); } deque<int> q; vector<long long=""> dist(n+1, ~0ULL&gt;&gt;1); vector<bool> inQueue(n+1, false); dist[1] = 0; q.push_back(1); inQueue[1] = true; int doge = 0; while(!q.empty()) { int x = q.front(); q.pop_front(); if(doge++ &gt; C) { puts(“doge”); return 233; } for(vector&lt;pair&lt;int,int&gt; &gt;::iterator it = edges[x].begin(); it != edges[x].end();++it) { int y = it-&gt;first; int w = it-&gt;second; if(dist[y] &gt; dist[x] + w) { dist[y] = dist[x] + w; if(!inQueue[y]) { inQueue[y] = true; if(!q.empty() &amp;&amp; dist[y] &gt; dist[q.front()]) q.push_back(y); else q.push_front(y); } } } inQueue[x] = false; } return dist[n]; } Fackyyj’s face lit up with an evil smile. He immediately clicked button “Challenge!”, but due to a hard disk failure, all of his test case generators were lost! Fackyyj had no interest on recreating his precise generators, so he asked you to write one. The generator should be able to generate a test case with at most 100 vertices, and it must be able to fail the above code, i.e. let the above code print “doge”. It should <strong>NOT</strong> contain any negative-cost loop. For those guys who doesn’t know C++, Fackyyj explain the general idea of the above algorithm by the following psuedo-code:</bool></long></int></p>
-<p><img src="http://acm.hdu.edu.cn/data/images/C504-1003-1.jpg" alt=""></p>
-<p>Input</p>
-<p>Input contains several test cases, please process till EOF. For each test case, there will be a single line containing an integer C. It is the constant C in the above code. (C &lt;= 23333333)</p>
-<p>Output</p>
-<p>For each test case, on the first line, print two integers, n and m, indicating the number of vertices and the number of edges of your graph. Next m lines, on each line print <strong>x</strong> <strong>y</strong> <strong>w</strong>, means there is a road from x to y, cost w. 1 ≤ n ≤ 100,0 ≤ m ≤ n(n-1),|w| &lt; 231. Note that your output shouldn’t contain any negative-cost loop.</p>
-<p>Sample Input</p>
-<p>1</p>
-<p>Sample Output</p>
-<p>4 3 1 2 1 2 3 1 3 4 1</p>
-<p>Author</p>
-<p>Fudan University</p>
-<p>Source</p>
-<p><a href="http://acm.hdu.edu.cn/search.php?field=problem&amp;key=2014%20Multi-University%20Training%20Contest%203&amp;source=1&amp;searchmode=source" target="_blank" rel="noopener">2014 Multi-University Training Contest 3</a></p>
-<pre><code>直接进行构造。
-</code></pre><figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* ***************</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Author        :kuangbin</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">Created Time  :2014/8/3 12:18:25</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">File Name     :E:\2014ACM\比赛\2014多校训练\2014多校3\HDU4889.cpp</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">************************************************ */</span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdio.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;iostream&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;algorithm&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;vector&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;queue&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;set&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;map&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;string&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;math.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;stdlib.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;time.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//freopen("in.txt","r",stdin);</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//freopen("out.txt","w",stdout);</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">int</span> C;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;C) == <span class="number">1</span>)</span><br><span class="line"></span><br><span class="line">	&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> n = <span class="number">30</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> m = n*(n<span class="number">-1</span>)/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d %d\n"</span>,n,m);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line"></span><br><span class="line">		&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j &lt;= n;j++)</span><br><span class="line"></span><br><span class="line">				<span class="built_in">printf</span>(<span class="string">"%d %d %d\n"</span>,i,j,-(<span class="number">1</span>&lt;&lt;(n-i)));</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-          
+          HDU 4889Scary Path Finding AlgorithmScary Path Finding AlgorithmTime Limit: 2000/1000 MS (Java/Others)    Memory Limit: 65536/65536 K (Java/Others) To
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2014/08/03/hdu4889/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
