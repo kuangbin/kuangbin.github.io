@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kuangbin.github.io/"/>
-  <updated>2018-09-01T13:50:08.204Z</updated>
+  <updated>2018-09-01T14:11:20.738Z</updated>
   <id>http://kuangbin.github.io/</id>
   
   <author>
@@ -15,6 +15,52 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018-ACM-ICPC-Nanjing-online-J</title>
+    <link href="http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-J/"/>
+    <id>http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-J/</id>
+    <published>2018-09-01T14:03:22.000Z</published>
+    <updated>2018-09-01T14:11:20.738Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ACM-ICPC-2018-南京赛区网络预赛-J题&quot;&gt;&lt;a href=&quot;#ACM-ICPC-2018-南京赛区网络预赛-J题&quot; class=&quot;headerlink&quot; title=&quot;ACM-ICPC 2018 南京赛区网络预赛 J题&quot;&gt;&lt;/a&gt;ACM-ICPC 20
+      
+    
+    </summary>
+    
+      <category term="数学" scheme="http://kuangbin.github.io/categories/%E6%95%B0%E5%AD%A6/"/>
+    
+    
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>2018-ACM-ICPC-Nanjing-online-G</title>
+    <link href="http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-G/"/>
+    <id>http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-G/</id>
+    <published>2018-09-01T13:58:01.000Z</published>
+    <updated>2018-09-01T14:05:06.787Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ACM-ICPC-2018-南京赛区网络预赛-G题&quot;&gt;&lt;a href=&quot;#ACM-ICPC-2018-南京赛区网络预赛-G题&quot; class=&quot;headerlink&quot; title=&quot;ACM-ICPC 2018 南京赛区网络预赛 G题&quot;&gt;&lt;/a&gt;ACM-ICPC 20
+      
+    
+    </summary>
+    
+      <category term="线段树" scheme="http://kuangbin.github.io/categories/%E7%BA%BF%E6%AE%B5%E6%A0%91/"/>
+    
+    
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
+    
+  </entry>
   
   <entry>
     <title>2018-ACM-ICPC-Nanjing-online-E</title>
@@ -138,9 +184,9 @@
     
       <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
-    
       <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
       <category term="水题" scheme="http://kuangbin.github.io/categories/%E6%B0%B4%E9%A2%98/"/>
     
@@ -434,9 +480,9 @@
     
       <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
-    
       <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
     
       <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
@@ -498,60 +544,6 @@
       <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
       <category term="构造" scheme="http://kuangbin.github.io/tags/%E6%9E%84%E9%80%A0/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>The 15th Zhejiang University Programming Contest 部分题解</title>
-    <link href="http://kuangbin.github.io/2015/04/12/15th-zju/"/>
-    <id>http://kuangbin.github.io/2015/04/12/15th-zju/</id>
-    <published>2015-04-12T14:48:57.000Z</published>
-    <updated>2018-07-29T11:19:22.738Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;比赛链接: &lt;a href=&quot;http://acm.zju.edu.cn/onlinejudge/showContestProblems.do?contestId=361&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;here&lt;/a&gt; 题目对应到ZOJ38
-      
-    
-    </summary>
-    
-      <category term="Contest" scheme="http://kuangbin.github.io/categories/Contest/"/>
-    
-      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
-    
-      <category term="套题" scheme="http://kuangbin.github.io/categories/%E5%A5%97%E9%A2%98/"/>
-    
-      <category term="ZJU" scheme="http://kuangbin.github.io/categories/ZJU/"/>
-    
-    
-      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
-    
-      <category term="ZOJ" scheme="http://kuangbin.github.io/tags/ZOJ/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BestCoder Round #36  （HDU5198  HDU5199  HDU5200 HDU5201）</title>
-    <link href="http://kuangbin.github.io/2015/04/06/bc36/"/>
-    <id>http://kuangbin.github.io/2015/04/06/bc36/</id>
-    <published>2015-04-06T08:44:37.000Z</published>
-    <updated>2018-07-29T12:46:28.872Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;水题四发。 &lt;a href=&quot;http://acm.hdu.edu.cn/showproblem.php?pid=5201&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;HDU5201&lt;/a&gt; m个猴子要分n个桃子。要使得第一个猴子分到的是最多的。 也就是
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
-    
-      <category term="HDU" scheme="http://kuangbin.github.io/categories/HDU/"/>
-    
     
   </entry>
   
