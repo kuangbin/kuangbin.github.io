@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kuangbin.github.io/"/>
-  <updated>2018-08-01T14:14:22.745Z</updated>
+  <updated>2018-09-01T13:50:08.204Z</updated>
   <id>http://kuangbin.github.io/</id>
   
   <author>
@@ -15,6 +15,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2018-ACM-ICPC-Nanjing-online-E</title>
+    <link href="http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-E/"/>
+    <id>http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-E/</id>
+    <published>2018-09-01T13:41:50.000Z</published>
+    <updated>2018-09-01T13:50:08.204Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ACM-ICPC-2018-南京赛区网络预赛-E题&quot;&gt;&lt;a href=&quot;#ACM-ICPC-2018-南京赛区网络预赛-E题&quot; class=&quot;headerlink&quot; title=&quot;ACM-ICPC 2018 南京赛区网络预赛 E题&quot;&gt;&lt;/a&gt;ACM-ICPC 20
+      
+    
+    </summary>
+    
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
+    
+      <category term="状态压缩" scheme="http://kuangbin.github.io/categories/%E7%8A%B6%E6%80%81%E5%8E%8B%E7%BC%A9/"/>
+    
+    
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
+    
+      <category term="比赛" scheme="http://kuangbin.github.io/tags/%E6%AF%94%E8%B5%9B/"/>
+    
+  </entry>
   
   <entry>
     <title>ACM新模板</title>
@@ -111,9 +138,9 @@
     
       <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
+    
+      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
       <category term="水题" scheme="http://kuangbin.github.io/categories/%E6%B0%B4%E9%A2%98/"/>
     
@@ -407,9 +434,9 @@
     
       <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
       <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
+    
+      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
       <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
@@ -525,33 +552,6 @@
     
       <category term="HDU" scheme="http://kuangbin.github.io/categories/HDU/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>2002-2003 ACM-ICPC Northeastern European Regional Contest (NEERC 02)</title>
-    <link href="http://kuangbin.github.io/2015/02/28/2002neerc/"/>
-    <id>http://kuangbin.github.io/2015/02/28/2002neerc/</id>
-    <published>2015-02-28T05:13:41.000Z</published>
-    <updated>2018-07-29T11:28:07.033Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;做了几套题，先来总结一套题。 NEERC2002 题目链接：&lt;a href=&quot;http://codeforces.com/gym/100002&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://codeforces.com/gym/100002&lt;
-      
-    
-    </summary>
-    
-      <category term="Contest" scheme="http://kuangbin.github.io/categories/Contest/"/>
-    
-      <category term="套题" scheme="http://kuangbin.github.io/categories/%E5%A5%97%E9%A2%98/"/>
-    
-      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
   </entry>
   
