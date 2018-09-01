@@ -215,31 +215,6 @@
   </entry>
   
   <entry>
-    <title>2015 ACM/ICPC world finals 总结</title>
-    <link href="http://kuangbin.github.io/2015/07/19/2015-acmicpc-world-finals/"/>
-    <id>http://kuangbin.github.io/2015/07/19/2015-acmicpc-world-finals/</id>
-    <published>2015-07-19T05:48:41.000Z</published>
-    <updated>2018-07-29T12:30:04.342Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;拖了很久，终于有时间写final的总结帖了。 从第一次参加ICPC比赛，好像每次都写了总结，作为最后一次ICPC比赛，也理应写个总结收尾。简单记录下final的比赛过程和感想。 退役贴有空再补上，这次真退役了~ 首先先上几个图吧！ [caption id=”attachme
-      
-    
-    </summary>
-    
-      <category term="小结" scheme="http://kuangbin.github.io/categories/%E5%B0%8F%E7%BB%93/"/>
-    
-    
-      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
-    
-      <category term="杂记" scheme="http://kuangbin.github.io/tags/%E6%9D%82%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>机器学习和深度学习资料</title>
     <link href="http://kuangbin.github.io/2015/06/10/ml-dl-links/"/>
     <id>http://kuangbin.github.io/2015/06/10/ml-dl-links/</id>
@@ -550,6 +525,33 @@
     
       <category term="HDU" scheme="http://kuangbin.github.io/categories/HDU/"/>
     
+    
+  </entry>
+  
+  <entry>
+    <title>2002-2003 ACM-ICPC Northeastern European Regional Contest (NEERC 02)</title>
+    <link href="http://kuangbin.github.io/2015/02/28/2002neerc/"/>
+    <id>http://kuangbin.github.io/2015/02/28/2002neerc/</id>
+    <published>2015-02-28T05:13:41.000Z</published>
+    <updated>2018-07-29T11:28:07.033Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;做了几套题，先来总结一套题。 NEERC2002 题目链接：&lt;a href=&quot;http://codeforces.com/gym/100002&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;http://codeforces.com/gym/100002&lt;
+      
+    
+    </summary>
+    
+      <category term="Contest" scheme="http://kuangbin.github.io/categories/Contest/"/>
+    
+      <category term="套题" scheme="http://kuangbin.github.io/categories/%E5%A5%97%E9%A2%98/"/>
+    
+      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
     
   </entry>
   
