@@ -127,7 +127,7 @@
 <meta property="og:site_name" content="kuangbin的博客">
 <meta property="og:description" content="ACM-ICPC 2018 南京赛区网络预赛 J题题目链接：https://nanti.jisuanke.com/t/30999 A square-free integer is an integer which is indivisible by any square number except 11. For example, $6 = 2 \cdot 36=2⋅3$ is square-fr">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-09-01T14:34:00.886Z">
+<meta property="og:updated_time" content="2018-09-01T14:39:58.518Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2018-ACM-ICPC-Nanjing-online-J">
 <meta name="twitter:description" content="ACM-ICPC 2018 南京赛区网络预赛 J题题目链接：https://nanti.jisuanke.com/t/30999 A square-free integer is an integer which is indivisible by any square number except 11. For example, $6 = 2 \cdot 36=2⋅3$ is square-fr">
@@ -408,7 +408,7 @@
                 
               
 
-              <time title="创建时间：2018-09-01 22:03:22 / 修改时间：22:34:00" itemprop="dateCreated datePublished" datetime="2018-09-01T22:03:22+08:00">2018-09-01</time>
+              <time title="创建时间：2018-09-01 22:03:22 / 修改时间：22:39:58" itemprop="dateCreated datePublished" datetime="2018-09-01T22:03:22+08:00">2018-09-01</time>
             
 
             
@@ -496,9 +496,9 @@
 <p>如果要$f(n)$非0，只能是每个素因子的指数要么是1，要么是2. 而且指数是1的话贡献为2，指数为2的话贡献只有1. （因为指数为1，可以取0个或者1个，指数为2只能取1一个了）。</p>
 <p>比如$f(2^1 \times 3^2) = 2 \times 1$. $f(2^1 \times 3^1 \times 5^1) = 2 \times 2 \times 2$.</p>
 <p>所有如果单独求一个$f(n)$的话，只需要对$n$进行素因素分解。</p>
-<p>但是现在需要求$1~2*10^7$的$f(n)$, 我们需要进行递推。</p>
+<p>但是现在需要求$1 \sim 2 \times 10^7$的$f(n)$, 我们需要进行递推。</p>
 <p>假如我们知道$n$的最小素因子是p的话，而且p的指数是x的话，即$n = p^x \times y$.</p>
-<p>那么很显然，如果x == 1, 那么$f(n) == 2 \times f(y)$, 如果x == 2, 那么$f(n) = f(y)$, 如果x &gt; 2, 那么$f(n)  = 0$.</p>
+<p>那么很显然，如果x == 1, 那么$f(n) = 2 \times f(y)$, 如果x == 2, 那么$f(n) = f(y)$, 如果x &gt; 2, 那么$f(n)  = 0$.</p>
 <p>所以只要我们可以求到一个数的最小素因子，这个问题递推一下就解决了。</p>
 <p>幸好我们可以用线性筛。我模板里面有，不懂原理的可以搜一下。</p>
 <p>线性时间可以求得每个数最小的素因子，然后搞一搞。</p>
@@ -536,7 +536,7 @@
   <p><span>本文标题:</span>2018-ACM-ICPC-Nanjing-online-J</a></p>
   <p><span>文章作者:</span>kuangbin</a></p>
   <p><span>发布时间:</span>2018年09月01日 - 22:03:22</p>
-  <p><span>最后更新:</span>2018年09月01日 - 22:34:00</p>
+  <p><span>最后更新:</span>2018年09月01日 - 22:39:58</p>
   <p><span>原始链接:</span><a href="/2018/09/01/2018-ACM-ICPC-Nanjing-online-J/" title="2018-ACM-ICPC-Nanjing-online-J">http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-J/</a>
     <span class="copy-path"  title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-J/"  aria-label="复制成功！"></i></span>
   </p>
