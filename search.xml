@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[2018-ACM-ICPC-Nanjing-online-J]]></title>
     <url>%2F2018%2F09%2F01%2F2018-ACM-ICPC-Nanjing-online-J%2F</url>
-    <content type="text"><![CDATA[ACM-ICPC 2018 南京赛区网络预赛 J题题目链接：https://nanti.jisuanke.com/t/30999 A square-free integer is an integer which is indivisible by any square number except 11. For example, 6 = 2 \cdot 36=2⋅3 is square-free, but 12 = 2^2 \cdot 312=22⋅3 is not, because 2^222 is a square number. Some integers could be decomposed into product of two square-free integers, there may be more than one decomposition ways. For example, 6 = 1\cdot 6=6 \cdot 1=2\cdot 3=3\cdot 2, n=ab6=1⋅6=6⋅1=2⋅3=3⋅2,n=aband n=ban=ba are considered different if a \not = ba̸=b. f(n)f(n) is the number of decomposition ways that n=abn=ab such that aa and bb are square-free integers. The problem is calculating \sum_{i = 1}^nf(i)∑i=1nf(i). InputThe first line contains an integer T(T\le 20)T(T≤20), denoting the number of test cases. For each test case, there first line has a integer n(n \le 2\cdot 10^7)n(n≤2⋅107). OutputFor each test case, print the answer \sum_{i = 1}^n f(i)∑i=1nf(i). Hint\sum_{i = 1}^8 f(i)=f(1)+ \cdots +f(8)∑i=18f(i)=f(1)+⋯+f(8)=1+2+2+1+2+4+2+0=14=1+2+2+1+2+4+2+0=14. 样例输入复制123258 样例输出复制12814 题目来源ACM-ICPC 2018 南京赛区网络预赛 首先我们先研究一下$f(n)$. 如果对n进行素因子分解的话，只要有一个素数的指数大于2, 那么$f(n)$ 就是0. 比如$f(2^3) = 0$, $f(2*3^4)=0$. 如果要$f(n)$非0，只能是每个素因子的指数要么是1，要么是2. 而且指数是1的话贡献为2，指数为2的话贡献只有1. （因为指数为1，可以取0个或者1个，指数为2只能取1一个了）。 比如$f(2^1 \times 3^2) = 2 \times 1$. $f(2^1 \times 3^1 \times 5^1) = 2 \times 2 \times 2$.]]></content>
+    <content type="text"><![CDATA[ACM-ICPC 2018 南京赛区网络预赛 J题题目链接：https://nanti.jisuanke.com/t/30999 A square-free integer is an integer which is indivisible by any square number except 11. For example, 6 = 2 \cdot 36=2⋅3 is square-free, but 12 = 2^2 \cdot 312=22⋅3 is not, because 2^222 is a square number. Some integers could be decomposed into product of two square-free integers, there may be more than one decomposition ways. For example, 6 = 1\cdot 6=6 \cdot 1=2\cdot 3=3\cdot 2, n=ab6=1⋅6=6⋅1=2⋅3=3⋅2,n=aband n=ban=ba are considered different if a \not = ba̸=b. f(n)f(n) is the number of decomposition ways that n=abn=ab such that aa and bb are square-free integers. The problem is calculating \sum_{i = 1}^nf(i)∑i=1nf(i). InputThe first line contains an integer T(T\le 20)T(T≤20), denoting the number of test cases. For each test case, there first line has a integer n(n \le 2\cdot 10^7)n(n≤2⋅107). OutputFor each test case, print the answer \sum_{i = 1}^n f(i)∑i=1nf(i). Hint\sum_{i = 1}^8 f(i)=f(1)+ \cdots +f(8)∑i=18f(i)=f(1)+⋯+f(8)=1+2+2+1+2+4+2+0=14=1+2+2+1+2+4+2+0=14. 样例输入复制123258 样例输出复制12814 题目来源ACM-ICPC 2018 南京赛区网络预赛 首先我们先研究一下$f(n)$. 如果对$n$进行素因子分解的话，只要有一个素数的指数大于2, 那么$f(n)$ 就是0. 比如$f(2^3) = 0$, $f(2*3^4)=0$. 如果要$f(n)$非0，只能是每个素因子的指数要么是1，要么是2. 而且指数是1的话贡献为2，指数为2的话贡献只有1. （因为指数为1，可以取0个或者1个，指数为2只能取1一个了）。 比如$f(2^1 \times 3^2) = 2 \times 1$. $f(2^1 \times 3^1 \times 5^1) = 2 \times 2 \times 2$. 所有如果单独求一个$f(n)$的话，只需要对$n$进行素因素分解。 但是现在需要求$1~2*10^7$的$f(n)$, 我们需要进行递推。 假如我们知道$n$的最小素因子是p的话，而且p的指数是x的话，即$n = p^x \times y$. 那么很显然，如果x == 1, 那么$f(n) == 2 \times f(y)$, 如果x == 2, 那么$f(n) = f(y)$, 如果x &gt; 2, 那么$f(n) = 0$. 所以只要我们可以求到一个数的最小素因子，这个问题递推一下就解决了。 幸好我们可以用线性筛。我模板里面有，不懂原理的可以搜一下。 线性时间可以求得每个数最小的素因子，然后搞一搞。 本题有点卡常，减少循环次数，小心谨慎。 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748#include &lt;bits/stdc++.h&gt;using namespace std;const int MAXN = 20000010;int prime[MAXN+1];int minPrime[MAXN+1];void getPrime() &#123; memset(prime, 0, sizeof(prime)); for (int i = 2; i &lt;= MAXN; i++) &#123; if (!prime[i]) &#123; prime[++prime[0]] = i; minPrime[i] = i; &#125; for (int j = 1; j &lt;= prime[0] &amp;&amp; prime[j] &lt;= MAXN/i; j++) &#123; prime[prime[j] * i] = 1; minPrime[prime[j] * i] = prime[j]; if (i % prime[j] == 0)break; &#125; &#125;&#125;long long a[MAXN+1];int main() &#123; getPrime(); a[0] = 0; a[1] = 1; for (int i = 2; i &lt;= MAXN; i++) &#123; int cnt = 0; int tmp = i; int mm = minPrime[i]; if ((long long)mm*mm &lt; MAXN &amp;&amp; (long long)mm*mm*mm &lt; MAXN &amp;&amp; i%(mm*mm*mm) == 0) a[i] = 0; else if ((long long)mm*mm &lt; MAXN &amp;&amp; i%(mm*mm) == 0)a[i] = a[i/mm/mm]; else a[i] = 2*a[i/mm]; &#125; for (int i = 1; i &lt;= MAXN; i++) a[i] += a[i-1]; int n; int T; scanf("%d", &amp;T); while (T--) &#123; scanf("%d", &amp;n); cout&lt;&lt;a[n]&lt;&lt;endl; &#125; return 0;&#125;]]></content>
       <categories>
         <category>数学</category>
       </categories>
@@ -839,9 +839,9 @@
       <tags>
         <tag>ACM</tag>
         <tag>ZOJ</tag>
-        <tag>splay</tag>
         <tag>数据结构</tag>
         <tag>替罪羊树</tag>
+        <tag>splay</tag>
       </tags>
   </entry>
   <entry>
@@ -858,9 +858,9 @@
       <tags>
         <tag>ACM</tag>
         <tag>HDU</tag>
-        <tag>splay</tag>
         <tag>数据结构</tag>
         <tag>替罪羊树</tag>
+        <tag>splay</tag>
         <tag>树套树</tag>
       </tags>
   </entry>
@@ -927,9 +927,9 @@
       </categories>
       <tags>
         <tag>ACM</tag>
+        <tag>BZOJ</tag>
         <tag>数据结构</tag>
         <tag>替罪羊树</tag>
-        <tag>BZOJ</tag>
       </tags>
   </entry>
   <entry>
