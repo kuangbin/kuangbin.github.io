@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kuangbin.github.io/"/>
-  <updated>2018-09-01T14:30:58.859Z</updated>
+  <updated>2018-09-01T14:37:52.383Z</updated>
   <id>http://kuangbin.github.io/</id>
   
   <author>
@@ -17,11 +17,36 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>2018-ACM-ICPC-Nanjing-online-L</title>
+    <link href="http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-L/"/>
+    <id>http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-L/</id>
+    <published>2018-09-01T14:34:56.000Z</published>
+    <updated>2018-09-01T14:37:52.383Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;ACM-ICPC-2018-南京赛区网络预赛-L题&quot;&gt;&lt;a href=&quot;#ACM-ICPC-2018-南京赛区网络预赛-L题&quot; class=&quot;headerlink&quot; title=&quot;ACM-ICPC 2018 南京赛区网络预赛 L题&quot;&gt;&lt;/a&gt;ACM-ICPC 20
+      
+    
+    </summary>
+    
+      <category term="最短路" scheme="http://kuangbin.github.io/categories/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    
+    
+      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
+    
+      <category term="最短路" scheme="http://kuangbin.github.io/tags/%E6%9C%80%E7%9F%AD%E8%B7%AF/"/>
+    
+  </entry>
+  
+  <entry>
     <title>2018-ACM-ICPC-Nanjing-online-J</title>
     <link href="http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-J/"/>
     <id>http://kuangbin.github.io/2018/09/01/2018-ACM-ICPC-Nanjing-online-J/</id>
     <published>2018-09-01T14:03:22.000Z</published>
-    <updated>2018-09-01T14:30:58.859Z</updated>
+    <updated>2018-09-01T14:34:00.886Z</updated>
     
     <summary type="html">
     
@@ -515,35 +540,6 @@
     
       <category term="杂言" scheme="http://kuangbin.github.io/categories/%E5%85%B6%E4%BB%96/%E6%9D%82%E8%A8%80/"/>
     
-    
-  </entry>
-  
-  <entry>
-    <title>UVALive 6770 - Baggage （构造）</title>
-    <link href="http://kuangbin.github.io/2015/04/21/uvalive6770/"/>
-    <id>http://kuangbin.github.io/2015/04/21/uvalive6770/</id>
-    <published>2015-04-21T10:28:43.000Z</published>
-    <updated>2018-07-29T05:43:28.998Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;https://icpcarchive.ecs.baylor.edu/index.php?option=com_onlinejudge&amp;amp;Itemid=8&amp;amp;category=590&amp;amp;page=show_problem&amp;amp;prob
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
-    
-      <category term="UVALive" scheme="http://kuangbin.github.io/categories/Online-Judge/UVALive/"/>
-    
-      <category term="构造" scheme="http://kuangbin.github.io/categories/Online-Judge/UVALive/%E6%9E%84%E9%80%A0/"/>
-    
-    
-      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
-    
-      <category term="构造" scheme="http://kuangbin.github.io/tags/%E6%9E%84%E9%80%A0/"/>
     
   </entry>
   
