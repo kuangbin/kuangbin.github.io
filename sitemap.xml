@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://kuangbin.github.io/2019/01/06/20190106zsxq/</loc>
+    
+    <lastmod>2019-01-06T12:03:04.019Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://kuangbin.github.io/2015/01/13/acmicpc-wf-shu/</loc>
     
     <lastmod>2019-01-06T08:30:50.046Z</lastmod>
@@ -387,7 +394,7 @@
   </url>
   
   <url>
-    <loc>http://kuangbin.github.io/algorithm/index.html</loc>
+    <loc>http://kuangbin.github.io/about-me/index.html</loc>
     
     <lastmod>2018-07-29T05:43:29.000Z</lastmod>
     
@@ -408,7 +415,7 @@
   </url>
   
   <url>
-    <loc>http://kuangbin.github.io/about-me/index.html</loc>
+    <loc>http://kuangbin.github.io/algorithm/index.html</loc>
     
     <lastmod>2018-07-29T05:43:29.000Z</lastmod>
     
