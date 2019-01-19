@@ -1,0 +1,1834 @@
+<!DOCTYPE html>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-flash.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=6.3.0" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=6.3.0">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=6.3.0">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=6.3.0" color="#222">
+
+
+
+
+
+
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '6.3.0',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    fastclick: false,
+    lazyload: false,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+  
+
+
+
+
+  <meta name="description" content="拖了很久，终于有时间写final的总结帖了。 从第一次参加ICPC比赛，好像每次都写了总结，作为最后一次ICPC比赛，也理应写个总结收尾。简单记录下final的比赛过程和感想。 退役贴有空再补上，这次真退役了~ 首先先上几个图吧！ [caption id=”attachment_631” align=”alignnone” width=”707”] 官方拍摄的全队合影[/caption]   [c">
+<meta name="keywords" content="ACM,杂记">
+<meta property="og:type" content="website">
+<meta property="og:title" content="2015 ACM&#x2F;ICPC world finals 总结">
+<meta property="og:url" content="http://kuangbin.github.io/backup/2015-acmicpc-world-finals.html">
+<meta property="og:site_name" content="kuangbin的博客">
+<meta property="og:description" content="拖了很久，终于有时间写final的总结帖了。 从第一次参加ICPC比赛，好像每次都写了总结，作为最后一次ICPC比赛，也理应写个总结收尾。简单记录下final的比赛过程和感想。 退役贴有空再补上，这次真退役了~ 首先先上几个图吧！ [caption id=”attachment_631” align=”alignnone” width=”707”] 官方拍摄的全队合影[/caption]   [c">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150516-1945.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150520-3479.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150520-3443.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/rehearsal_0308.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/2015world_final_rank_change.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/team_problem.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/team_submission.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0156.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0072.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0091.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0076.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0077.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0081.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0082.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0083.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0086.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0085.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150516-19461.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0114.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0116.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0117.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0118.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0119.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0120.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0121.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0122.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0123.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0124.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124037.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124256.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124522.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124525.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_140928.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_140940.jpg">
+<meta property="og:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0230.jpg">
+<meta property="og:updated_time" content="2018-07-29T12:30:04.342Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2015 ACM&#x2F;ICPC world finals 总结">
+<meta name="twitter:description" content="拖了很久，终于有时间写final的总结帖了。 从第一次参加ICPC比赛，好像每次都写了总结，作为最后一次ICPC比赛，也理应写个总结收尾。简单记录下final的比赛过程和感想。 退役贴有空再补上，这次真退役了~ 首先先上几个图吧！ [caption id=”attachment_631” align=”alignnone” width=”707”] 官方拍摄的全队合影[/caption]   [c">
+<meta name="twitter:image" content="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150516-1945.jpg">
+
+
+
+  <link rel="alternate" href="/atom.xml" title="kuangbin的博客" type="application/atom+xml" />
+
+
+
+
+  <link rel="canonical" href="http://kuangbin.github.io/backup/2015-acmicpc-world-finals.html"/>
+
+
+
+<script type="text/javascript" id="page.configurations">
+  CONFIG.page = {
+    sidebar: "",
+  };
+</script>
+
+  <title>2015 ACM/ICPC world finals 总结 | kuangbin的博客</title>
+  
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123329699-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123329699-1');
+</script>
+
+
+
+
+
+
+  <noscript>
+  <style type="text/css">
+    .use-motion .motion-element,
+    .use-motion .brand,
+    .use-motion .menu-item,
+    .sidebar-inner,
+    .use-motion .post-block,
+    .use-motion .pagination,
+    .use-motion .comments,
+    .use-motion .post-header,
+    .use-motion .post-body,
+    .use-motion .collection-title { opacity: initial; }
+
+    .use-motion .logo,
+    .use-motion .site-title,
+    .use-motion .site-subtitle {
+      opacity: initial;
+      top: initial;
+    }
+
+    .use-motion {
+      .logo-line-before i { left: initial; }
+      .logo-line-after i { right: initial; }
+    }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+	
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">kuangbin的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+    
+  </div>
+
+  <div class="site-nav-toggle">
+    <button aria-label="切换导航栏">
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  
+    <ul id="menu" class="menu">
+      
+        
+        
+        
+          
+          <li class="menu-item menu-item-home">
+    <a href="/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-home"></i> <br />首页</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-about">
+    <a href="/about/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-user"></i> <br />关于</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-tags">
+    <a href="/tags/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />标签</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-categories">
+    <a href="/categories/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-th"></i> <br />分类</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-archives">
+    <a href="/archives/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />归档</a>
+  </li>
+        
+        
+        
+          
+          <li class="menu-item menu-item-catalogue">
+    <a href="/catalogue/" rel="section">
+      <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />目录</a>
+  </li>
+
+      
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />搜索</a>
+        </li>
+      
+    </ul>
+  
+
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off"
+             placeholder="搜索..." spellcheck="false"
+             type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+  
+
+
+
+</div>
+    </header>
+
+    
+
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+            
+
+    
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+      
+      
+    
+    
+
+  
+
+
+          
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+    
+    
+    <div class="post-block page">
+      <header class="post-header">
+
+<h1 class="post-title" itemprop="name headline">2015 ACM/ICPC world finals 总结</h1>
+
+<div class="post-meta">
+  
+  
+
+
+
+</div>
+
+</header>
+
+      
+      
+      
+      <div class="post-body">
+        
+        
+          <p>拖了很久，终于有时间写final的总结帖了。 从第一次参加ICPC比赛，好像每次都写了总结，作为最后一次ICPC比赛，也理应写个总结收尾。简单记录下final的比赛过程和感想。 退役贴有空再补上，这次真退役了~ 首先先上几个图吧！ [caption id=”attachment_631” align=”alignnone” width=”707”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150516-1945.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150516-1945.jpg" alt="官方拍摄的全队合影"></a> 官方拍摄的全队合影[/caption]   [caption id=”attachment_634” align=”alignnone” width=”712”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150520-3479.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150520-3479.jpg" alt="跟Bill的合影~"></a> 跟Bill的合影~[/caption]   [caption id=”attachment_633” align=”alignnone” width=”714”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150520-3443.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150520-3443.jpg" alt="奖杯全队合影"></a> 奖杯全队合影[/caption] [caption id=”attachment_630” align=”alignnone” width=”718”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/rehearsal_0308.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/rehearsal_0308.jpg" alt="我们比赛的吉祥物"></a> 我们比赛的吉祥物[/caption]     首先看看最终的比赛结果，官方排名链接<a href="http://icpc.baylor.edu/scoreboard/" target="_blank" rel="noopener">here</a>， 山寨排名<a href="http://board.acmicpc.info/icpc2015/board.php" target="_blank" rel="noopener">here</a> 最终是7题，实际31名，并列28名。 [caption id=”attachment_640” align=”alignnone” width=”808”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/2015world_final_rank_change.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/2015world_final_rank_change.jpg" alt="排名变化曲线"></a> 排名变化曲线[/caption]   前面总体还算顺利，几乎都是1A（就C题SB了一发，WA了一次）。非常遗憾的是最后一个小时毫无建树，非常可惜没有做出第8题。 全场都在看题敲题，都剩下好多题没看，连E题都没看，最后一小时，我在死磕H，然后就GG了。 <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/team_problem.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/team_problem.jpg" alt="team_problem"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/team_submission.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/team_submission.jpg" alt="team_submission"></a> 个人感觉做出的七个题都是比较简单的了，其实还是可以更快把7个题做完，然后做出其他题的。 题目阅读量比较大。全场几乎都在读题、写代码， 结果还是好多题没有读，TAT。   首先记录下整个final行程： 先来一发来回坐飞机的安排： [caption id=”attachment_646” align=”alignnone” width=”663”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0156.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0156.jpg" alt="final之旅"></a> final之旅[/caption]   摩洛哥算是比较远的了，途中就花费了好多时间，时间安排也是比较紧，都没啥时间玩耍的。   5月14日： 出发前整理了一份final模板，刻录打印了一发。然后晚上收拾了东西，晚上8点坐安排好的车去了机场。我们总共去了8个人。刚好是凌晨的飞机，在机场等待了好久，然后登记了。期间膜拜到了浙江理工和HDU的众位神牛，我们是一趟飞机去迪拜的。 5月15日：漫长的飞机还是挺无聊的，幸好提前存了几套题目，在机场和飞机上理论AC了好多题目。早上5点多到了迪拜机场，在机场等待了9个多小时。老师在机场的酒店里找了两个房间让我们放东西休息下，然后开始在迪拜的免税店逛！  迪拜机场都是都太高档了，屌丝完全买不起。 期间看到个可爱的小熊，打算带进比赛地方作为吉祥物，希望带来good luck，于是花了7美刀买了个。然后买了一些吃的东西。之后就坐飞机去卡萨布兰卡了。 然后在当地时间晚上8点多到达了卡萨布兰卡的机场，换乘国内航班，在那又等待了三个多小时，转机的地方实在是破旧，类似一个小汽车站一样，还没有网，特别困在凳子上小睡了一会。 5月16日：凌晨的飞机从卡萨布兰卡到马拉喀什，半个多小时飞机就到了。经过众多波折，总算到达了。在机场出关取行李，然后机场有志愿者在迎接。但是比较坑的是在机场又等了好久，要等很多人到了才安排才把我们送到住的酒店。安排的车又特别小的，完全装不下这么多人，特别挤。 最后总算到达了酒店，我们是住Palmeraie Palace，总体感觉还是很不错的。 <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0072.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0072.jpg" alt="IMG_0072"></a> 办了一会的入住手续，然后队员是三人间，房间看起来是非常不错的。 [caption id=”attachment_650” align=”alignnone” width=”545”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0091.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0091.jpg" alt="董壕住的房间"></a> 董壕住的房间[/caption]   然后睡了几个小时，感觉还是很累的。然后睡醒了起来了，想去找吃的，发现早餐已经没了。之后就在周围逛了一发，熟悉下环境。住的酒店就跟迷宫一样，非常容易走错。 <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0076.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0076.jpg" alt="IMG_0076"></a><a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0077.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0077.jpg" alt="IMG_0077"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0081.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0081.jpg" alt="IMG_0081"></a><a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0082.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0082.jpg" alt="IMG_0082"></a><a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0083.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0083.jpg" alt="IMG_0083"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0086.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0086.jpg" alt="IMG_0086"></a><a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0085.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0085.jpg" alt="IMG_0085"></a>   住的酒店里面有个很大的花园，里面有游泳池，环境非常好。中午吃饭是自助餐，在那吃的都是非常好的，感觉非常爽！ 下午也是那周围随便走了一下，看到了很多有趣的东西。 然后适牛过来了，去仰慕了一发。 晚餐继续是高级的自助餐，说是IBM的欢迎晚宴。吃完饭就去注册了，注册流程非常多，分成了一个个小步骤。把模板、字典、吉祥物等都交上去了，领回来一些纪念品。还拍了队伍照片。 来一发我们的集体合照。 [caption id=”attachment_660” align=”alignnone” width=”564”]<a href="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150516-19461.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/RMS-150516-19461.jpg" alt="Shanghai University"></a> Shanghai University[/caption] 然后回来和吴神、适牛玩了一发，之后去适牛房间打牌，然后适牛体力不支，就回去睡觉了~ <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0114.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0114.jpg" alt="IMG_0114"></a> 5月17日： 这天早上享受到了酒店高档的早晨。在游泳池旁边吃早晨~ <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0116.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0116.jpg" alt="IMG_0116"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0117.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0117.jpg" alt="IMG_0117"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0118.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0118.jpg" alt="IMG_0118"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0119.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0119.jpg" alt="IMG_0119"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0120.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0120.jpg" alt="IMG_0120"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0121.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0121.jpg" alt="IMG_0121"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0122.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0122.jpg" alt="IMG_0122"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0123.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0123.jpg" alt="IMG_0123"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0124.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0124.jpg" alt="IMG_0124"></a>   然后上午坐车去了当地的市中心，那边还是比较热闹的，可以看到各种各样的人，卖各种东西的。 在那逛了好长时间，买买东西，参观之类的。重要的是感受一发当地的风土人情。 <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124037.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124037.jpg" alt="IMG_20150517_124037"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124256.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124256.jpg" alt="IMG_20150517_124256"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124522.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124522.jpg" alt="IMG_20150517_124522"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124525.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_124525.jpg" alt="IMG_20150517_124525"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_140928.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_140928.jpg" alt="IMG_20150517_140928"></a> <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_140940.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_20150517_140940.jpg" alt="IMG_20150517_140940"></a> 然后一直在外面玩到下午才回来，回来休息下，就是吃丰盛的晚餐~ 然后在酒店玩玩逛逛，就睡觉了。 5月18日： 起来一样在酒店吃了高级的早晨。 然后上午为了出去买明信片，打车去了趟外面的的超市，买完就回来了，但还是被出租车司机给坑了一发。然后回来听了IBM的技术讲座，听起来很高端大气的样子。中午又是吃了自助餐。下午在酒店玩了一下，四点去参加了开幕式。 开幕式非常牛逼。 <a href="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0230.jpg" target="_blank" rel="noopener"><img src="http://www.kuangbin.top/wp-content/uploads/2015/06/IMG_0230.jpg" alt="IMG_0230"></a> 开幕式结束后， 被运送到一个神秘的地方吃晚餐。 吃的是类似农家乐的形式，有点不习惯的感觉。应该也是那的一种特色吧。先是各种载歌载舞的， 之后是一大盘的菜端过来，吃完几大盘就结束了。 吃完以后，就坐车回酒店了，然后洗洗睡了~   5月19日： 这一天主要的事情就是热身赛 早上起来，吃了早餐，然后周围转了一圈。 然后开始热身赛进场，进去后熟悉了下环境。 热身赛开始以后，例行配置了一下环境，然后开始热身赛。 热身赛题不难，看上去都是原题，好几个是上一年final的原题。 上来写了一发水搜索，WA之后调整一发姿势过了。 然后电脑给队友写，自己在旁边推构造题，推了好久推出来了，然后写完AC。 其余题感觉代码写起来有点烦，就没去写了，坐等结束~ ， 太慌张，连环境都没测试。 然后去吃午餐了。 吃完午餐去听了回答一些热身赛提的问题，大部分是一些比较滑稽的问题吧~ 愉快地结束了。 结束后，又有一个小时可以进入比赛场地进行机器等测试。 本来想测试一发电脑等环境的，然后给队友写题了，之后队友执着写到结束，便放弃了测试，之后去围观了一发吴码，讨论了些问题。 感觉热身赛比较失败，几乎什么都没测试，心有点不安，但是感觉应该问题不大，感觉电脑都挺好的。 然后回酒店和吴码打了一发CF，热身下，虐场失败！ 晚餐又是丰盛的自助餐~ 几乎每天吃的都一样。 之后回来休息了，为明天的正赛准备。   5月20日：这一天是激动人心的final。 早上吃完早餐后，就等待着进场。 进场仪式很热闹，在门口等了好久。 进场以后，就坐等比赛正式开始了。 比赛开始以后，我配置了下VIM，登录一些比赛账号。 然后读了几道中间的题目，感觉题目都比较长，没发现什么简单题。然后队友给我说A比较简单， 我去确认了下，感觉是大水题。然后有队伍过A了，马上开始写A，很快写完，交上去AC了。 A题 10min 1Y 。  然后我去看了D题，一个很水的几何题， 只要推一发公式， 然后二分就可以了。 然后我开始做D， 把公式推好，然后开始写。写完测了下样例没问题， 然后提交了，AC了。 D题 48 min 1Y。  然后看队友在思考F题， 我去了解了下题意， 感觉就是简单的搜索，状态数很少，判重就可以了， 然后我开始写F题， 写完后，感觉没问题，交上去AC了。F题 73min 1Y。  然后队友们在讨论着B题，过了好多人了，猜测是费用流，但是不会建图， 我去看了下，看懂题意以后，发现很裸的最小费用最大流，简单的建图，讨论了下建图的一些细节后，我拿出模板开始敲，模板敲完，建图完成以后，样例测试没问题。 交上去意外返回WA， 第一反应是模板敲错，但是突然意识到有个地方需要枚举一发。 快速修改以后，交上去AC了。 C题 110min 2Y。  然后我开始重新找题做，开始去看了I题，看懂题意以后感觉不难，然后上一发厕所回来，完全想清楚了I题的做法。 我开始快速写I题， 这期间我们一直稳定在20名左右，榜上遍地开花。  写完I题，出不来样例，然后发现有个小地方写错，修改以后出样例了， 提交上去AC了。 I题 151min 1Y。 然后回过来，队友似乎没找到新的题目。 L题做出的人比较多，我问了L题意思，队友说是数学题，没读懂。 然后我开始认真读L了。 看懂L题， 我瞬间发现了水题。 很裸的哈夫曼编码的题目， 只是要分类进行合并， 我对这类题目还是非常擅长的，毕竟当年信息论我是学得很好的，而且非常好写。 然后我开始写L题。很快写完了，提交上去返回AC了。 L题185 min 1Y。  这个时候比赛已经过了3个小时了，排名大概在20多一点吧，这个时候过的比较多的是J题，队友们都在讨论这题，我就打算先不看这题，转而去看了H题， 读了好几遍都没读懂。过了段时间，队友说J题用FFT做，我去看了下题目意思，做法确实是比较裸的FFT，应该早点做这题的。 然后我开始发挥模板帝的优势，拿出模板开始写FFT， 敲完模板， 然后写完主函数，修正了敲模板时候的错误，样例就出来了。 然后提交以后就AC了。 J题 231min 1Y。 做出J题还是浪费了一段时间的， 做完J题，只剩下一个小时了，然后封榜了。根据当时的过题数，EHM是稍微过的比较多的。 然后我继续去读H题了，队友貌似都去做M题了。 用过对题意的各种YY，我总算对H题的题意有点懂了，队友感觉M题可能写不完了， 我就上去尝试了写H题，就是各种二分乱搞的题目。 写完代码， 我发现根本出不来样例。 当时感觉要么题意YY错误，要么代码写傻逼了。 然后下来重新读题意，检查代码，都没意识到什么问题。 然后各种猜测题意去改代码，都搞不出样例，代码中间还加了三分，还是出不来样例。 直接比赛快结束了，也没能调出样例。最后几分钟弃疗了。 开始尝试把各个题目都交一遍，但是最后2分钟网页卡住了，没能每个题都交一发 。  就这样，我的最后一场ICPC比赛，我唯一一场world finals 就这样结束了。 封榜前是22名，后面只有等别人不断超越，最后定格在31名。 然后是去合影，休息下之后是颁奖典礼。 颁奖典礼就是围观别人捧杯的，非常欢快的氛围，颁奖典礼工作人员都在那high起来了。 颁奖典礼结束，就是等待吃晚餐了。 晚餐又是个很奇葩的， 乐队带着去了一个室外吃晚餐。 人很多，非常疯狂， 但是在那high的大部分是志愿者和当地人吧， 然后肉是现烤的，抢不到肉吃，排队等肉的人非常多。   吃完以后，回到酒店开始写明信片。 买了100张明信片，写起来工作量非常巨大。 还找wuyiqi和适牛给明信片签了名，写明信片写到很晚。 当晚写到2点多，撑不住了，就去睡觉了。第二天早上很早就闹钟闹醒来继续写，总算要的人都写了，写了70多张吧。 然后快速收拾东西。 5月21日： 早上一起来就匆忙收拾东西，写明信片花了好多时间，时间就好赶了。 早餐都没吃，就坐大巴去当地的机场了。坐飞机去了卡萨布兰卡， 在卡萨布兰卡等了一段时间，就飞去迪拜了。   5月22日： 到达迪拜是凌晨了。 和来的时候一样，老师在酒店开了房间，然后开始购物。 也就是买了一些吃的东西，把带来的美元都花光了。 之后从迪拜飞到了上海，晚上很晚才回去，结束了本次final之旅。     虽然final最终结果不是很好，尤其是最后一个多小时，完全安排得不合理，应该提前确定一道题，然后全队一起看一题的，而且好多题题目意思我根本还不知道，尤其是比较简单的E题，最后看都没看。  如果好好利用最后的时间，做出第8题是比较容易的，这也是留下的一个遗憾了。  但是这也算是比较容易接受的结果了，毕竟我们赛前几个月根本没有组队训练过，可说毫无战斗力了。 我也是赛前两个月在那疯狂刷了很多区域赛题，把以前的final题都做了一发，勉强在final时候调整到了比较好的状态吧！ 对我而言，唯一的一场final，我至少是认真准备过的，只能接受这个结果，然后退役了！ 不可否认，赛前我们是被很多人不看好的，甚至是我校的人，都感觉我太弱了，去了final应该垫底的。final开场时候的表现，还是让他们很震惊的，一度维持在十几名。 做出几个题以后，好像还被断言后面不会再出题了，幸好最后还是搞出了7题，不至于太难看，只可惜未能一直延续下去。 总之，这一次的final，确实太远了，路途有点累，然后比赛体验还是很好的。感谢一起奋斗的队友、教练，以及一大群志同道合的小伙伴们，End.   最后纪念一发我在现场写的代码：</p>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br><span class="line">511</span><br><span class="line">512</span><br><span class="line">513</span><br><span class="line">514</span><br><span class="line">515</span><br><span class="line">516</span><br><span class="line">517</span><br><span class="line">518</span><br><span class="line">519</span><br><span class="line">520</span><br><span class="line">521</span><br><span class="line">522</span><br><span class="line">523</span><br><span class="line">524</span><br><span class="line">525</span><br><span class="line">526</span><br><span class="line">527</span><br><span class="line">528</span><br><span class="line">529</span><br><span class="line">530</span><br><span class="line">531</span><br><span class="line">532</span><br><span class="line">533</span><br><span class="line">534</span><br><span class="line">535</span><br><span class="line">536</span><br><span class="line">537</span><br><span class="line">538</span><br><span class="line">539</span><br><span class="line">540</span><br><span class="line">541</span><br><span class="line">542</span><br><span class="line">543</span><br><span class="line">544</span><br><span class="line">545</span><br><span class="line">546</span><br><span class="line">547</span><br><span class="line">548</span><br><span class="line">549</span><br><span class="line">550</span><br><span class="line">551</span><br><span class="line">552</span><br><span class="line">553</span><br><span class="line">554</span><br><span class="line">555</span><br><span class="line">556</span><br><span class="line">557</span><br><span class="line">558</span><br><span class="line">559</span><br><span class="line">560</span><br><span class="line">561</span><br><span class="line">562</span><br><span class="line">563</span><br><span class="line">564</span><br><span class="line">565</span><br><span class="line">566</span><br><span class="line">567</span><br><span class="line">568</span><br><span class="line">569</span><br><span class="line">570</span><br><span class="line">571</span><br><span class="line">572</span><br><span class="line">573</span><br><span class="line">574</span><br><span class="line">575</span><br><span class="line">576</span><br><span class="line">577</span><br><span class="line">578</span><br><span class="line">579</span><br><span class="line">580</span><br><span class="line">581</span><br><span class="line">582</span><br><span class="line">583</span><br><span class="line">584</span><br><span class="line">585</span><br><span class="line">586</span><br><span class="line">587</span><br><span class="line">588</span><br><span class="line">589</span><br><span class="line">590</span><br><span class="line">591</span><br><span class="line">592</span><br><span class="line">593</span><br><span class="line">594</span><br><span class="line">595</span><br><span class="line">596</span><br><span class="line">597</span><br><span class="line">598</span><br><span class="line">599</span><br><span class="line">600</span><br><span class="line">601</span><br><span class="line">602</span><br><span class="line">603</span><br><span class="line">604</span><br><span class="line">605</span><br><span class="line">606</span><br><span class="line">607</span><br><span class="line">608</span><br><span class="line">609</span><br><span class="line">610</span><br><span class="line">611</span><br><span class="line">612</span><br><span class="line">613</span><br><span class="line">614</span><br><span class="line">615</span><br><span class="line">616</span><br><span class="line">617</span><br><span class="line">618</span><br><span class="line">619</span><br><span class="line">620</span><br><span class="line">621</span><br><span class="line">622</span><br><span class="line">623</span><br><span class="line">624</span><br><span class="line">625</span><br><span class="line">626</span><br><span class="line">627</span><br><span class="line">628</span><br><span class="line">629</span><br><span class="line">630</span><br><span class="line">631</span><br><span class="line">632</span><br><span class="line">633</span><br><span class="line">634</span><br><span class="line">635</span><br><span class="line">636</span><br><span class="line">637</span><br><span class="line">638</span><br><span class="line">639</span><br><span class="line">640</span><br><span class="line">641</span><br><span class="line">642</span><br><span class="line">643</span><br><span class="line">644</span><br><span class="line">645</span><br><span class="line">646</span><br><span class="line">647</span><br><span class="line">648</span><br><span class="line">649</span><br><span class="line">650</span><br><span class="line">651</span><br><span class="line">652</span><br><span class="line">653</span><br><span class="line">654</span><br><span class="line">655</span><br><span class="line">656</span><br><span class="line">657</span><br><span class="line">658</span><br><span class="line">659</span><br><span class="line">660</span><br><span class="line">661</span><br><span class="line">662</span><br><span class="line">663</span><br><span class="line">664</span><br><span class="line">665</span><br><span class="line">666</span><br><span class="line">667</span><br><span class="line">668</span><br><span class="line">669</span><br><span class="line">670</span><br><span class="line">671</span><br><span class="line">672</span><br><span class="line">673</span><br><span class="line">674</span><br><span class="line">675</span><br><span class="line">676</span><br><span class="line">677</span><br><span class="line">678</span><br><span class="line">679</span><br><span class="line">680</span><br><span class="line">681</span><br><span class="line">682</span><br><span class="line">683</span><br><span class="line">684</span><br><span class="line">685</span><br><span class="line">686</span><br><span class="line">687</span><br><span class="line">688</span><br><span class="line">689</span><br><span class="line">690</span><br><span class="line">691</span><br><span class="line">692</span><br><span class="line">693</span><br><span class="line">694</span><br><span class="line">695</span><br><span class="line">696</span><br><span class="line">697</span><br><span class="line">698</span><br><span class="line">699</span><br><span class="line">700</span><br><span class="line">701</span><br><span class="line">702</span><br><span class="line">703</span><br><span class="line">704</span><br><span class="line">705</span><br><span class="line">706</span><br><span class="line">707</span><br><span class="line">708</span><br><span class="line">709</span><br><span class="line">710</span><br><span class="line">711</span><br><span class="line">712</span><br><span class="line">713</span><br><span class="line">714</span><br><span class="line">715</span><br><span class="line">716</span><br><span class="line">717</span><br><span class="line">718</span><br><span class="line">719</span><br><span class="line">720</span><br><span class="line">721</span><br><span class="line">722</span><br><span class="line">723</span><br><span class="line">724</span><br><span class="line">725</span><br><span class="line">726</span><br><span class="line">727</span><br><span class="line">728</span><br><span class="line">729</span><br><span class="line">730</span><br><span class="line">731</span><br><span class="line">732</span><br><span class="line">733</span><br><span class="line">734</span><br><span class="line">735</span><br><span class="line">736</span><br><span class="line">737</span><br><span class="line">738</span><br><span class="line">739</span><br><span class="line">740</span><br><span class="line">741</span><br><span class="line">742</span><br><span class="line">743</span><br><span class="line">744</span><br><span class="line">745</span><br><span class="line">746</span><br><span class="line">747</span><br><span class="line">748</span><br><span class="line">749</span><br><span class="line">750</span><br><span class="line">751</span><br><span class="line">752</span><br><span class="line">753</span><br><span class="line">754</span><br><span class="line">755</span><br><span class="line">756</span><br><span class="line">757</span><br><span class="line">758</span><br><span class="line">759</span><br><span class="line">760</span><br><span class="line">761</span><br><span class="line">762</span><br><span class="line">763</span><br><span class="line">764</span><br><span class="line">765</span><br><span class="line">766</span><br><span class="line">767</span><br><span class="line">768</span><br><span class="line">769</span><br><span class="line">770</span><br><span class="line">771</span><br><span class="line">772</span><br><span class="line">773</span><br><span class="line">774</span><br><span class="line">775</span><br><span class="line">776</span><br><span class="line">777</span><br><span class="line">778</span><br><span class="line">779</span><br><span class="line">780</span><br><span class="line">781</span><br><span class="line">782</span><br><span class="line">783</span><br><span class="line">784</span><br><span class="line">785</span><br><span class="line">786</span><br><span class="line">787</span><br><span class="line">788</span><br><span class="line">789</span><br><span class="line">790</span><br><span class="line">791</span><br><span class="line">792</span><br><span class="line">793</span><br><span class="line">794</span><br><span class="line">795</span><br><span class="line">796</span><br><span class="line">797</span><br><span class="line">798</span><br><span class="line">799</span><br><span class="line">800</span><br><span class="line">801</span><br><span class="line">802</span><br><span class="line">803</span><br><span class="line">804</span><br><span class="line">805</span><br><span class="line">806</span><br><span class="line">807</span><br><span class="line">808</span><br><span class="line">809</span><br><span class="line">810</span><br><span class="line">811</span><br><span class="line">812</span><br><span class="line">813</span><br><span class="line">814</span><br><span class="line">815</span><br><span class="line">816</span><br><span class="line">817</span><br><span class="line">818</span><br><span class="line">819</span><br><span class="line">820</span><br><span class="line">821</span><br><span class="line">822</span><br><span class="line">823</span><br><span class="line">824</span><br><span class="line">825</span><br><span class="line">826</span><br><span class="line">827</span><br><span class="line">828</span><br><span class="line">829</span><br><span class="line">830</span><br><span class="line">831</span><br><span class="line">832</span><br><span class="line">833</span><br><span class="line">834</span><br><span class="line">835</span><br><span class="line">836</span><br><span class="line">837</span><br><span class="line">838</span><br><span class="line">839</span><br><span class="line">840</span><br><span class="line">841</span><br><span class="line">842</span><br><span class="line">843</span><br><span class="line">844</span><br><span class="line">845</span><br><span class="line">846</span><br><span class="line">847</span><br><span class="line">848</span><br><span class="line">849</span><br><span class="line">850</span><br><span class="line">851</span><br><span class="line">852</span><br><span class="line">853</span><br><span class="line">854</span><br><span class="line">855</span><br><span class="line">856</span><br><span class="line">857</span><br><span class="line">858</span><br><span class="line">859</span><br><span class="line">860</span><br><span class="line">861</span><br><span class="line">862</span><br><span class="line">863</span><br><span class="line">864</span><br><span class="line">865</span><br><span class="line">866</span><br><span class="line">867</span><br><span class="line">868</span><br><span class="line">869</span><br><span class="line">870</span><br><span class="line">871</span><br><span class="line">872</span><br><span class="line">873</span><br><span class="line">874</span><br><span class="line">875</span><br><span class="line">876</span><br><span class="line">877</span><br><span class="line">878</span><br><span class="line">879</span><br><span class="line">880</span><br><span class="line">881</span><br><span class="line">882</span><br><span class="line">883</span><br><span class="line">884</span><br><span class="line">885</span><br><span class="line">886</span><br><span class="line">887</span><br><span class="line">888</span><br><span class="line">889</span><br><span class="line">890</span><br><span class="line">891</span><br><span class="line">892</span><br><span class="line">893</span><br><span class="line">894</span><br><span class="line">895</span><br><span class="line">896</span><br><span class="line">897</span><br><span class="line">898</span><br><span class="line">899</span><br><span class="line">900</span><br><span class="line">901</span><br><span class="line">902</span><br><span class="line">903</span><br><span class="line">904</span><br><span class="line">905</span><br><span class="line">906</span><br><span class="line">907</span><br><span class="line">908</span><br><span class="line">909</span><br><span class="line">910</span><br><span class="line">911</span><br><span class="line">912</span><br><span class="line">913</span><br><span class="line">914</span><br><span class="line">915</span><br><span class="line">916</span><br><span class="line">917</span><br><span class="line">918</span><br><span class="line">919</span><br><span class="line">920</span><br><span class="line">921</span><br><span class="line">922</span><br><span class="line">923</span><br><span class="line">924</span><br><span class="line">925</span><br><span class="line">926</span><br><span class="line">927</span><br><span class="line">928</span><br><span class="line">929</span><br><span class="line">930</span><br><span class="line">931</span><br><span class="line">932</span><br><span class="line">933</span><br><span class="line">934</span><br><span class="line">935</span><br><span class="line">936</span><br><span class="line">937</span><br><span class="line">938</span><br><span class="line">939</span><br><span class="line">940</span><br><span class="line">941</span><br><span class="line">942</span><br><span class="line">943</span><br><span class="line">944</span><br><span class="line">945</span><br><span class="line">946</span><br><span class="line">947</span><br><span class="line">948</span><br><span class="line">949</span><br><span class="line">950</span><br><span class="line">951</span><br><span class="line">952</span><br><span class="line">953</span><br><span class="line">954</span><br><span class="line">955</span><br><span class="line">956</span><br><span class="line">957</span><br><span class="line">958</span><br><span class="line">959</span><br><span class="line">960</span><br><span class="line">961</span><br><span class="line">962</span><br><span class="line">963</span><br><span class="line">964</span><br><span class="line">965</span><br><span class="line">966</span><br><span class="line">967</span><br><span class="line">968</span><br><span class="line">969</span><br><span class="line">970</span><br><span class="line">971</span><br><span class="line">972</span><br><span class="line">973</span><br><span class="line">974</span><br><span class="line">975</span><br><span class="line">976</span><br><span class="line">977</span><br><span class="line">978</span><br><span class="line">979</span><br><span class="line">980</span><br><span class="line">981</span><br><span class="line">982</span><br><span class="line">983</span><br><span class="line">984</span><br><span class="line">985</span><br><span class="line">986</span><br><span class="line">987</span><br><span class="line">988</span><br><span class="line">989</span><br><span class="line">990</span><br><span class="line">991</span><br><span class="line">992</span><br><span class="line">993</span><br><span class="line">994</span><br><span class="line">995</span><br><span class="line">996</span><br><span class="line">997</span><br><span class="line">998</span><br><span class="line">999</span><br><span class="line">1000</span><br><span class="line">1001</span><br><span class="line">1002</span><br><span class="line">1003</span><br><span class="line">1004</span><br><span class="line">1005</span><br><span class="line">1006</span><br><span class="line">1007</span><br><span class="line">1008</span><br><span class="line">1009</span><br><span class="line">1010</span><br><span class="line">1011</span><br><span class="line">1012</span><br><span class="line">1013</span><br><span class="line">1014</span><br><span class="line">1015</span><br><span class="line">1016</span><br><span class="line">1017</span><br><span class="line">1018</span><br><span class="line">1019</span><br><span class="line">1020</span><br><span class="line">1021</span><br><span class="line">1022</span><br><span class="line">1023</span><br><span class="line">1024</span><br><span class="line">1025</span><br><span class="line">1026</span><br><span class="line">1027</span><br><span class="line">1028</span><br><span class="line">1029</span><br><span class="line">1030</span><br><span class="line">1031</span><br><span class="line">1032</span><br><span class="line">1033</span><br><span class="line">1034</span><br><span class="line">1035</span><br><span class="line">1036</span><br><span class="line">1037</span><br><span class="line">1038</span><br><span class="line">1039</span><br><span class="line">1040</span><br><span class="line">1041</span><br><span class="line">1042</span><br><span class="line">1043</span><br><span class="line">1044</span><br><span class="line">1045</span><br><span class="line">1046</span><br><span class="line">1047</span><br><span class="line">1048</span><br><span class="line">1049</span><br><span class="line">1050</span><br><span class="line">1051</span><br><span class="line">1052</span><br><span class="line">1053</span><br><span class="line">1054</span><br><span class="line">1055</span><br><span class="line">1056</span><br><span class="line">1057</span><br><span class="line">1058</span><br><span class="line">1059</span><br><span class="line">1060</span><br><span class="line">1061</span><br><span class="line">1062</span><br><span class="line">1063</span><br><span class="line">1064</span><br><span class="line">1065</span><br><span class="line">1066</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">double</span> p,a,b,c,d;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">f</span><span class="params">(<span class="keyword">int</span> k)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> p*(<span class="built_in">sin</span>(a*k+b)+<span class="built_in">cos</span>(c*k+d)+<span class="number">2</span>);</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%lf%lf%lf%lf%lf%d"</span>,&amp;p,&amp;a,&amp;b,&amp;c,&amp;d,&amp;n) == <span class="number">6</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> tmp = f(<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">2</span>;i &lt;= n;i++)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">double</span> tmp2 = f(i);</span><br><span class="line"></span><br><span class="line">			ans = max(ans,tmp-tmp2);</span><br><span class="line"></span><br><span class="line">			tmp = max(tmp,tmp2);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%.10lf\n"</span>,ans);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">500</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXM = <span class="number">100010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> INF = <span class="number">1000000000000000L</span>L;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Edge</span>&#123;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> to,next,cap,flow;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> cost;</span><br><span class="line"></span><br><span class="line">&#125;edge[MAXM];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> head[MAXN],tol;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> pre[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> dis[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="keyword">bool</span> vis[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> N;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">init</span><span class="params">(<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	N = n;</span><br><span class="line"></span><br><span class="line">	tol = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(head,<span class="number">-1</span>,<span class="keyword">sizeof</span>(head));</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">inline</span> <span class="keyword">void</span> <span class="title">addedge</span><span class="params">(<span class="keyword">int</span> u,<span class="keyword">int</span> v,<span class="keyword">int</span> cap,<span class="keyword">long</span> <span class="keyword">long</span> cost)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	edge[tol].to = v;</span><br><span class="line"></span><br><span class="line">	edge[tol].cap = cap;</span><br><span class="line"></span><br><span class="line">	edge[tol].flow = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	edge[tol].cost = cost;</span><br><span class="line"></span><br><span class="line">	edge[tol].next = head[u];</span><br><span class="line"></span><br><span class="line">	head[u] = tol++;</span><br><span class="line"></span><br><span class="line">	edge[tol].to = u;</span><br><span class="line"></span><br><span class="line">	edge[tol].cap = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	edge[tol].flow = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	edge[tol].cost = -cost;</span><br><span class="line"></span><br><span class="line">	edge[tol].next = head[v];</span><br><span class="line"></span><br><span class="line">	head[v] = tol++;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">bool</span> <span class="title">spfa</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">queue</span>&lt;<span class="keyword">int</span>&gt;q;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)&#123;</span><br><span class="line"></span><br><span class="line">		dis[i] = INF;</span><br><span class="line"></span><br><span class="line">		vis[i] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">		pre[i] = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	dis[s] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	vis[s] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">	q.push(s);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> u = q.front();</span><br><span class="line"></span><br><span class="line">		q.pop();</span><br><span class="line"></span><br><span class="line">		vis[u] = <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = head[u];i != <span class="number">-1</span>;i = edge[i].next)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> v = edge[i].to;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(edge[i].cap &gt; edge[i].flow &amp;&amp; dis[v] &gt; dis[u]+edge[i].cost)&#123;</span><br><span class="line"></span><br><span class="line">				dis[v] = dis[u] + edge[i].cost;</span><br><span class="line"></span><br><span class="line">				pre[v] = i;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(!vis[v])&#123;</span><br><span class="line"></span><br><span class="line">					vis[v] = <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">					q.push(v);</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(pre[t] == <span class="number">-1</span>)<span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> <span class="keyword">return</span> <span class="literal">true</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">mcmf</span><span class="params">(<span class="keyword">int</span> s,<span class="keyword">int</span> t,<span class="keyword">long</span> <span class="keyword">long</span> &amp;cost)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> flow = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	cost = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(spfa(s,t))&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> Min = <span class="number">100000000</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = pre[t];i != <span class="number">-1</span>;i = pre[edge[i^<span class="number">1</span>].to])&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(Min &gt; edge[i].cap -edge[i].flow)</span><br><span class="line"></span><br><span class="line">				Min = edge[i].cap - edge[i].flow;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = pre[t];i != <span class="number">-1</span>;i = pre[edge[i^<span class="number">1</span>].to])&#123;</span><br><span class="line"></span><br><span class="line">			edge[i].flow += Min;</span><br><span class="line"></span><br><span class="line">			edge[i^<span class="number">1</span>].flow -= Min;</span><br><span class="line"></span><br><span class="line">			cost += edge[i].cost*Min;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		flow += Min;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> flow;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> a[<span class="number">110</span>][<span class="number">110</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">long</span> <span class="keyword">long</span> MM = <span class="number">10000000000L</span>L;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> n,k;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;k) == <span class="number">2</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j &lt;= n;j++)</span><br><span class="line"></span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;a[i][j]);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">long</span> <span class="keyword">long</span> ret = INF;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> kk = <span class="number">1</span>;kk &lt;= k;kk++)&#123;</span><br><span class="line"></span><br><span class="line">			init(<span class="number">2</span>*n+<span class="number">3</span>);</span><br><span class="line"></span><br><span class="line">			addedge(<span class="number">2</span>*n+<span class="number">1</span>,<span class="number">0</span>,kk,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line"></span><br><span class="line">				addedge(<span class="number">2</span>*i,<span class="number">2</span>*n+<span class="number">2</span>,<span class="number">1</span>,<span class="number">0</span>);</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line"></span><br><span class="line">				addedge(<span class="number">0</span>,<span class="number">2</span>*i<span class="number">-1</span>,<span class="number">1</span>,a[<span class="number">0</span>][i]);</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)</span><br><span class="line"></span><br><span class="line">				addedge(<span class="number">2</span>*i<span class="number">-1</span>,<span class="number">2</span>*i,<span class="number">1</span>,-MM);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt; n;i++)</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> j = i+<span class="number">1</span>;j &lt;= n;j++)</span><br><span class="line"></span><br><span class="line">					addedge(<span class="number">2</span>*i,<span class="number">2</span>*j<span class="number">-1</span>,<span class="number">1</span>,a[i][j]);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">long</span> <span class="keyword">long</span> ans;</span><br><span class="line"></span><br><span class="line">			mcmf(<span class="number">2</span>*n+<span class="number">1</span>,<span class="number">2</span>*n+<span class="number">2</span>,ans);</span><br><span class="line"></span><br><span class="line">			ans += MM*n;</span><br><span class="line"></span><br><span class="line">			ret = min(ans,ret);</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,(<span class="keyword">int</span>)ret);</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">int</span> MAXN = <span class="number">10010</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps= <span class="number">1e-8</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> x,y,z,r;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">void</span> <span class="title">input</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lf%lf%lf%lf"</span>,&amp;r,&amp;x,&amp;y,&amp;z);</span><br><span class="line"></span><br><span class="line">		r /= <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">		x /= <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">		y /= <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">		z /= <span class="number">1000</span>;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;node[MAXN];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,s;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calc</span><span class="params">(<span class="keyword">int</span> i,<span class="keyword">double</span> zz)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> x = node[i].x;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> y = node[i].y;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> z = node[i].z;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> r = node[i].r;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(zz &lt; z-r+eps)<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(z+r-eps &lt; zz)<span class="keyword">return</span> <span class="number">4.0</span>/<span class="number">3</span>*PI*r*r*r;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(z &gt; zz)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> h = r - (z-zz);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> tmp = PI(r*h*h<span class="number">-1.0</span>/<span class="number">3</span>*h*hh);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> tmp;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> h = r - (zz-z);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> tmp = PI(r*h*h<span class="number">-1.0</span>/<span class="number">3</span>*h*hh);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> <span class="number">4.0</span>/<span class="number">3</span>*PI*r*r*r-tmp;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">calc</span><span class="params">(<span class="keyword">double</span> zz)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> ret = <span class="number">100.0</span>*<span class="number">100</span>*zz;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line"></span><br><span class="line">		ret -= calc(i,zz);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;s) == <span class="number">2</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line"></span><br><span class="line">			node[i].input();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> tot = calc(<span class="number">100.0</span>);</span><br><span class="line"></span><br><span class="line">		tot /= s;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> pre = <span class="number">0.0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= s;i++)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">double</span> l = pre;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">double</span> r = <span class="number">100.0</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">double</span> ans = l;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">while</span>(r-l &gt;= eps)&#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">double</span> mid = (r+l)/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(calc(mid) &lt;= tot*i)&#123;</span><br><span class="line"></span><br><span class="line">					ans = mid;</span><br><span class="line"></span><br><span class="line">					l = mid+eps;</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">else</span> r = mid-eps;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="built_in">printf</span>(<span class="string">"%.10lf\n"</span>,ans-pre);</span><br><span class="line"></span><br><span class="line">			pre = ans;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> str[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> up[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> down[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Left[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> Right[<span class="number">100</span>][<span class="number">100</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> n,m;</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> dp[<span class="number">55</span>][<span class="number">55</span>][<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">void update(int i,int j,int now,int tmp)&#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	if(dp[i][j][now] == -1);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	if(dp[i][j][now] &gt; tmp)dp[i][j][now] = tmp;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">char</span> ss[<span class="number">10010</span>];</span><br><span class="line"></span><br><span class="line"><span class="keyword">int</span> len;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Node</span>&#123;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> x,y,now;</span><br><span class="line"></span><br><span class="line">	Node(<span class="keyword">int</span> _x = <span class="number">0</span>,<span class="keyword">int</span> _y = <span class="number">0</span>,<span class="keyword">int</span> _now = <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">		x = _x;</span><br><span class="line"></span><br><span class="line">		y = _y;</span><br><span class="line"></span><br><span class="line">		now = _now;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">bfs</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">queue</span>&lt;Node&gt;q;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(dp,<span class="number">-1</span>,<span class="keyword">sizeof</span>(dp));</span><br><span class="line"></span><br><span class="line">	dp[<span class="number">0</span>][<span class="number">0</span>][<span class="number">0</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">	q.push(Node(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line"></span><br><span class="line">		Node tmp = q.front();</span><br><span class="line"></span><br><span class="line">		q.pop();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> x = tmp.x;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> y = tmp.y;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> now = tmp.now;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(now == len)<span class="keyword">return</span> dp[x][y][now];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(ss[now] == str[x][y])&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nx = x;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> ny = y;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nn = now+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(dp[nx][ny][nn] == <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">				dp[nx][ny][nn] = dp[x][y][now]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				q.push(Node(nx,ny,nn));</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(up[x][y] != <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nx = up[x][y];</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> ny = y;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nn = now;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(dp[nx][ny][nn] == <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">				dp[nx][ny][nn] = dp[x][y][now]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				q.push(Node(nx,ny,nn));</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(down[x][y] != <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nx = down[x][y];</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> ny = y;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nn = now;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(dp[nx][ny][nn] == <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">				dp[nx][ny][nn] = dp[x][y][now]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				q.push(Node(nx,ny,nn));</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(Left[x][y] != <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nx = x;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> ny = Left[x][y];</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nn = now;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(dp[nx][ny][nn] == <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">				dp[nx][ny][nn] = dp[x][y][now]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				q.push(Node(nx,ny,nn));</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(Right[x][y] != <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nx = x;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> ny = Right[x][y];</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> nn = now;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(dp[nx][ny][nn] == <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">				dp[nx][ny][nn] = dp[x][y][now]+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				q.push(Node(nx,ny,nn));</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;n,&amp;m) == <span class="number">2</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line"></span><br><span class="line">															 <span class="built_in">scanf</span>(<span class="string">"%s"</span>,str[i]);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j++)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> tmp = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(i &gt; <span class="number">0</span> &amp;&amp; str[i<span class="number">-1</span>][j] != str[i][j])</span><br><span class="line"></span><br><span class="line">					tmp = i<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">				up[i][j] = tmp;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			tmp = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = n<span class="number">-1</span>;i&gt;=<span class="number">0</span>;i--)&#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(i+<span class="number">1</span> &lt; n &amp;&amp; str[i+<span class="number">1</span>][j] != str[i][j])</span><br><span class="line"></span><br><span class="line">					tmp = i+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				down[i][j] = tmp;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> tmp = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; m;j++)&#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(j &gt; <span class="number">0</span> &amp;&amp; str[i][j<span class="number">-1</span>] != str[i][j])</span><br><span class="line"></span><br><span class="line">					tmp = j<span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">				Left[i][j] = tmp;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			tmp = <span class="number">-1</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = m<span class="number">-1</span>;j &gt;= <span class="number">0</span>;j--)&#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(j+<span class="number">1</span> &lt; m &amp;&amp;str[i][j] != str[i][j+<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line">					tmp = j+<span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">				Right[i][j] = tmp;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%s"</span>,ss);</span><br><span class="line"></span><br><span class="line">		len = <span class="built_in">strlen</span>(ss);</span><br><span class="line"></span><br><span class="line">		ss[len] = <span class="string">'*'</span>;</span><br><span class="line"></span><br><span class="line">		ss[len+<span class="number">1</span>] = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		len++;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d\n"</span>,bfs());</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> eps = <span class="number">1e-8</span>;</span><br><span class="line"></span><br><span class="line"><span class="built_in">vector</span>&lt;pair&lt;<span class="keyword">double</span>,<span class="keyword">int</span>&gt; &gt;vec;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> w,u,v,t1,t2;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d%lf%lf%lf%lf%lf"</span>,&amp;n,&amp;w,&amp;u,&amp;v,&amp;t1,&amp;t2) == <span class="number">6</span>)&#123;</span><br><span class="line"></span><br><span class="line">		vec.clear();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">char</span> op[<span class="number">10</span>];</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> m;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> l,p;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= n;i++)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%s"</span>,op);</span><br><span class="line"></span><br><span class="line">			<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;m);</span><br><span class="line"></span><br><span class="line">			<span class="keyword">while</span>(m--)&#123;</span><br><span class="line"></span><br><span class="line">				<span class="built_in">scanf</span>(<span class="string">"%lf%lf"</span>,&amp;l,&amp;p);</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(op[<span class="number">0</span>] == <span class="string">'E'</span>)&#123;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tt1 = (<span class="number">0</span>-p)/u;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tt2 = (<span class="number">0</span>-(p-l))/u;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tmp1 = tt1 - i*w/v;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tmp2 = tt2 - (i<span class="number">-1</span>)*w/v;</span><br><span class="line"></span><br><span class="line">					tmp1 = max(tmp1,t1);</span><br><span class="line"></span><br><span class="line">					tmp2 = min(tmp2,t2);</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span>(tmp1 &gt; tmp2-eps)<span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">					vec.push_back(make_pair(tmp1,<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">					vec.push_back(make_pair(tmp2,<span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tt1 = p/u;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tt2 = (p+l)/u;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tmp1 = tt1 - i*w/v;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tmp2 = tt2 - (i<span class="number">-1</span>)*w/v;</span><br><span class="line"></span><br><span class="line">					tmp1 = max(tmp1,t1);</span><br><span class="line"></span><br><span class="line">					tmp2 = min(tmp2,t2);</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span>(tmp1 &gt; tmp2-eps)<span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">					vec.push_back(make_pair(tmp1,<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">					vec.push_back(make_pair(tmp2,<span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		sort(vec.begin(),vec.end());</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> sz = vec.size();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(sz == <span class="number">0</span>)ans = t2-t1;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">			ans = vec[<span class="number">0</span>].first - t1;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">int</span> sum = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; sz;i++)&#123;</span><br><span class="line"></span><br><span class="line">				sum += vec[i].second;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(sum == <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">double</span> tmp;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">if</span>(i+<span class="number">1</span> &lt; sz)tmp = vec[i+<span class="number">1</span>].first - vec[i].first;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">else</span> tmp = t2-vec[i].first;</span><br><span class="line"></span><br><span class="line">					ans = max(ans,tmp);</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%.10lf\n"</span>,ans);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> <span class="keyword">double</span> PI = <span class="built_in">acos</span>(<span class="number">-1.0</span>);</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Complex</span>&#123;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> x,y;</span><br><span class="line"></span><br><span class="line">	Complex(<span class="keyword">double</span> _x = <span class="number">0</span>,<span class="keyword">double</span> _y = <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">		x = _x;</span><br><span class="line"></span><br><span class="line">		y = _y;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Complex <span class="keyword">operator</span> -(<span class="keyword">const</span> Complex &amp;b)<span class="keyword">const</span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> Complex(x-b.x,y-b.y);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Complex <span class="keyword">operator</span> +(<span class="keyword">const</span> Complex &amp;b)<span class="keyword">const</span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> Complex(x+b.x,y+b.y);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	Complex <span class="keyword">operator</span> *(<span class="keyword">const</span> Complex &amp;b)<span class="keyword">const</span>&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> Complex(x*b.x-y*b.y,x*b.y+y*b.x);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">change</span><span class="params">(Complex y[],<span class="keyword">int</span> len)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> i,j,k;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(i = <span class="number">1</span>, j = len/<span class="number">2</span>;i &lt; len<span class="number">-1</span>;i++)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(i &lt; j)swap(y[i],y[j]);</span><br><span class="line"></span><br><span class="line">		k = len/<span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(j &gt;= k)&#123;</span><br><span class="line"></span><br><span class="line">			j -= k; </span><br><span class="line"></span><br><span class="line">			k /= <span class="number">2</span>;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">if</span>(j &lt; k)j += k;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">void</span> <span class="title">fft</span><span class="params">(Complex y[],<span class="keyword">int</span> len,<span class="keyword">int</span> on)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	change(y,len);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> h = <span class="number">2</span>; h &lt;= len;h &lt;&lt;= <span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">		Complex wn(cos(-on*2*PI/h),sin(-on*2*PI/h));</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;j &lt; len;j += h)&#123;</span><br><span class="line"></span><br><span class="line">			<span class="function">Complex <span class="title">w</span><span class="params">(<span class="number">1</span>,<span class="number">0</span>)</span></span>;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> k = j;k &lt; j+h/<span class="number">2</span>;k++)&#123;</span><br><span class="line"></span><br><span class="line">				Complex u = y[k];</span><br><span class="line"></span><br><span class="line">				Complex t = w*y[k+h/<span class="number">2</span>];</span><br><span class="line"></span><br><span class="line">				y[k] = u+t;</span><br><span class="line"></span><br><span class="line">				y[k+h/<span class="number">2</span>] = u-t;</span><br><span class="line"></span><br><span class="line">				w = w*wn;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(on == <span class="number">-1</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; len;i++)</span><br><span class="line"></span><br><span class="line">			y[i].x /= len;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> a[<span class="number">2000000</span>];</span><br><span class="line"></span><br><span class="line">Complex y[<span class="number">2000000</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">memset</span>(a,<span class="number">0</span>,<span class="keyword">sizeof</span>(a));</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">500000</span>;i++)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">1</span>;i*j &lt;= <span class="number">500000</span>;j++)</span><br><span class="line"></span><br><span class="line">			a[i*j]++;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> N = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(N &lt;= <span class="number">2</span>*<span class="number">500000</span>)N &lt;&lt;= <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line"></span><br><span class="line">		y[i] = Complex((<span class="keyword">double</span>)a[i],<span class="number">0.0</span>);</span><br><span class="line"></span><br><span class="line">	fft(y,N,<span class="number">1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; N;i++)</span><br><span class="line"></span><br><span class="line">		y[i] = y[i]*y[i];</span><br><span class="line"></span><br><span class="line">	fft(y,N,<span class="number">-1</span>);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= <span class="number">500000</span>;i++)</span><br><span class="line"></span><br><span class="line">		a[i] = (<span class="keyword">long</span> <span class="keyword">long</span>)(y[i].x+<span class="number">0.5</span>);</span><br><span class="line"></span><br><span class="line">	<span class="comment">/*</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">	for(int i = 0;i &lt;= 10;i++)</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">		printf("%lld\n",a[i]);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">		*/</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> T;</span><br><span class="line"></span><br><span class="line">	<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;T);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> l,r;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(T--)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%d%d"</span>,&amp;l,&amp;r);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">int</span> ans = l;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = l;i &lt;= r;i++)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(a[i] &gt; a[ans])</span><br><span class="line"></span><br><span class="line">				ans = i;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%d %lld\n"</span>,ans,a[ans]);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="meta">#<span class="meta-keyword">include</span> <span class="meta-string">&lt;bits/stdc++.h&gt;</span></span></span><br><span class="line"></span><br><span class="line"><span class="keyword">using</span> <span class="keyword">namespace</span> <span class="built_in">std</span>;</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">double</span> <span class="title">pow_m</span><span class="params">(<span class="keyword">double</span> p,<span class="keyword">int</span> n)</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> ret = <span class="number">1.0</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt; n;i++)</span><br><span class="line"></span><br><span class="line">		ret *= p;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> ret;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">node</span>&#123;</span></span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> p;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">long</span> <span class="keyword">long</span> cnt;</span><br><span class="line"></span><br><span class="line">	node(<span class="keyword">double</span> _p = <span class="number">0.0</span>,<span class="keyword">long</span> <span class="keyword">long</span> _cnt = <span class="number">0</span>)&#123;</span><br><span class="line"></span><br><span class="line">		p = _p;</span><br><span class="line"></span><br><span class="line">		cnt = _cnt;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">friend</span> <span class="keyword">bool</span> <span class="keyword">operator</span> &lt;(node a,node b)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">return</span> a.p &gt; b.p;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;;</span><br><span class="line"></span><br><span class="line">priority_queue&lt;node&gt;q;</span><br><span class="line"></span><br><span class="line"><span class="keyword">long</span> <span class="keyword">long</span> jiecheng[<span class="number">30</span>];</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">int</span> <span class="title">main</span><span class="params">()</span></span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> n;</span><br><span class="line"></span><br><span class="line">	jiecheng[<span class="number">0</span>] = <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">1</span>;i &lt;= <span class="number">20</span>;i++)</span><br><span class="line"></span><br><span class="line">		jiecheng[i] = jiecheng[i<span class="number">-1</span>]*i;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">double</span> p1,p2,p3,p4;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">while</span>(<span class="built_in">scanf</span>(<span class="string">"%d"</span>,&amp;n) == <span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">scanf</span>(<span class="string">"%lf%lf%lf%lf"</span>,&amp;p1,&amp;p2,&amp;p3,&amp;p4);</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(!q.empty())q.pop();</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i &lt;= n;i++)</span><br><span class="line"></span><br><span class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>;i+j &lt;= n;j++)</span><br><span class="line"></span><br><span class="line">				<span class="keyword">for</span>(<span class="keyword">int</span> x = <span class="number">0</span>;i+j+x &lt;= n;x++)&#123;</span><br><span class="line"></span><br><span class="line">					<span class="keyword">int</span> y = n - i - j - x;</span><br><span class="line"></span><br><span class="line">					node tmp;</span><br><span class="line"></span><br><span class="line">					tmp.p = pow_m(p1,i)*pow_m(p2,j)*pow_m(p3,x)*pow_m(p4,y);</span><br><span class="line"></span><br><span class="line">					tmp.cnt = jiecheng[n]/jiecheng[i]/jiecheng[j]/jiecheng[x]/jiecheng[y];</span><br><span class="line"></span><br><span class="line">					q.push(tmp);</span><br><span class="line"></span><br><span class="line">				&#125;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">double</span> ans = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">		<span class="keyword">while</span>(!q.empty())&#123;</span><br><span class="line"></span><br><span class="line">			node tmp = q.top();</span><br><span class="line"></span><br><span class="line">			q.pop();</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(tmp.cnt == <span class="number">1</span> &amp;&amp; q.empty())&#123;</span><br><span class="line"></span><br><span class="line">				<span class="comment">//ans += tmp.p;</span></span><br><span class="line"></span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">if</span>(tmp.cnt == <span class="number">1</span>)&#123;</span><br><span class="line"></span><br><span class="line">				node tmp2 = q.top();</span><br><span class="line"></span><br><span class="line">				q.pop();</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(tmp2.cnt &gt; <span class="number">1</span>)q.push(node(tmp2.p,tmp2.cnt<span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">				q.push(node(tmp.p+tmp2.p,<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">				ans += tmp.p+tmp2.p;</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">			<span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(tmp.cnt&amp;<span class="number">1</span>)q.push(node(tmp.p,<span class="number">1</span>));</span><br><span class="line"></span><br><span class="line">				ans += tmp.cnt/<span class="number">2</span>*<span class="number">2</span>*tmp.p;</span><br><span class="line"></span><br><span class="line">				<span class="keyword">if</span>(tmp.cnt/<span class="number">2</span>)q.push(node(tmp.p*<span class="number">2</span>,tmp.cnt/<span class="number">2</span>));</span><br><span class="line"></span><br><span class="line">			&#125;</span><br><span class="line"></span><br><span class="line">		&#125;</span><br><span class="line"></span><br><span class="line">		<span class="built_in">printf</span>(<span class="string">"%.10lf\n"</span>,ans);</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+        
+      </div>
+      
+      
+      
+    </div>
+    
+
+
+
+    
+    
+    
+  </div>
+
+
+          </div>
+          
+
+  
+    <div class="comments" id="comments">
+    </div>
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/blogLogo.jpg"
+                alt="kuangbin" />
+            
+              <p class="site-author-name" itemprop="name">kuangbin</p>
+              <p class="site-description motion-element" itemprop="description"></p>
+          </div>
+
+          
+            <nav class="site-state motion-element">
+              
+                <div class="site-state-item site-state-posts">
+                
+                  <a href="/archives/">
+                
+                    <span class="site-state-item-count">132</span>
+                    <span class="site-state-item-name">日志</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-categories">
+                  <a href="/categories/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">154</span>
+                    <span class="site-state-item-name">分类</span>
+                  </a>
+                </div>
+              
+
+              
+                
+                
+                <div class="site-state-item site-state-tags">
+                  <a href="/tags/index.html">
+                    
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                      
+                    
+                    <span class="site-state-item-count">55</span>
+                    <span class="site-state-item-name">标签</span>
+                  </a>
+                </div>
+              
+            </nav>
+          
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+			  <a title="收藏到书签，偶尔High一下^_^" rel="alternate" class="mw-harlem_shake_slow wobble shake" href='javascript:(function() {
+    function c() {
+        var e = document.createElement("link");
+        e.setAttribute("type", "text/css");
+        e.setAttribute("rel", "stylesheet");
+        e.setAttribute("href", f);
+        e.setAttribute("class", l);
+        document.body.appendChild(e)
+    }
+ 
+    function h() {
+        var e = document.getElementsByClassName(l);
+        for (var t = 0; t < e.length; t++) {
+            document.body.removeChild(e[t])
+        }
+    }
+ 
+    function p() {
+        var e = document.createElement("div");
+        e.setAttribute("class", a);
+        document.body.appendChild(e);
+        setTimeout(function() {
+            document.body.removeChild(e)
+        }, 100)
+    }
+ 
+    function d(e) {
+        return {
+            height : e.offsetHeight,
+            width : e.offsetWidth
+        }
+    }
+ 
+    function v(i) {
+        var s = d(i);
+        return s.height > e && s.height < n && s.width > t && s.width < r
+    }
+ 
+    function m(e) {
+        var t = e;
+        var n = 0;
+        while (!!t) {
+            n += t.offsetTop;
+            t = t.offsetParent
+        }
+        return n
+    }
+ 
+    function g() {
+        var e = document.documentElement;
+        if (!!window.innerWidth) {
+            return window.innerHeight
+        } else if (e && !isNaN(e.clientHeight)) {
+            return e.clientHeight
+        }
+        return 0
+    }
+ 
+    function y() {
+        if (window.pageYOffset) {
+            return window.pageYOffset
+        }
+        return Math.max(document.documentElement.scrollTop, document.body.scrollTop)
+    }
+ 
+    function E(e) {
+        var t = m(e);
+        return t >= w && t <= b + w
+    }
+ 
+    function S() {
+        var e = document.createElement("audio");
+        e.setAttribute("class", l);
+        e.src = i;
+        e.loop = false;
+        e.addEventListener("canplay", function() {
+            setTimeout(function() {
+                x(k)
+            }, 500);
+            setTimeout(function() {
+                N();
+                p();
+                for (var e = 0; e < O.length; e++) {
+                    T(O[e])
+                }
+            }, 15500)
+        }, true);
+        e.addEventListener("ended", function() {
+            N();
+            h()
+        }, true);
+        e.innerHTML = " <p>If you are reading this, it is because your browser does not support the audio element. We recommend that you get a new browser.</p> <p>";
+        document.body.appendChild(e);
+        e.play()
+    }
+ 
+    function x(e) {
+        e.className += " " + s + " " + o
+    }
+ 
+    function T(e) {
+        e.className += " " + s + " " + u[Math.floor(Math.random() * u.length)]
+    }
+ 
+    function N() {
+        var e = document.getElementsByClassName(s);
+        var t = new RegExp("\\b" + s + "\\b");
+        for (var n = 0; n < e.length; ) {
+            e[n].className = e[n].className.replace(t, "")
+        }
+    }
+ 
+    var e = 30;
+    var t = 30;
+    var n = 350;
+    var r = 350;
+    var i = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake.mp3";
+    var s = "mw-harlem_shake_me";
+    var o = "im_first";
+    var u = ["im_drunk", "im_baked", "im_trippin", "im_blown"];
+    var a = "mw-strobe_light";
+    var f = "//s3.amazonaws.com/moovweb-marketing/playground/harlem-shake-style.css";
+    var l = "mw_added_css";
+    var b = g();
+    var w = y();
+    var C = document.getElementsByTagName("*");
+    var k = null;
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            if (E(A)) {
+                k = A;
+                break
+            }
+        }
+    }
+    if (A === null) {
+        console.warn("Could not find a node of the right size. Please try a different page.");
+        return
+    }
+    c();
+    S();
+    var O = [];
+    for (var L = 0; L < C.length; L++) {
+        var A = C[L];
+        if (v(A)) {
+            O.push(A)
+        }
+    }
+})()'><i class="fa fa-music"></i> High</a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/kuangbin" target="_blank" title="GitHub"><i class="fa fa-fw fa-github"></i>GitHub</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.linkedin.com/in/kuangbin/" target="_blank" title="Linkedin"><i class="fa fa-fw fa-globe"></i>Linkedin</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="mailto:kuangbin2009@126.com" target="_blank" title="E-Mail"><i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="https://www.zhihu.com/people/kuang-bin-95" target="_blank" title="zhihu"><i class="fa fa-fw fa-globe"></i>zhihu</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://www.cnblogs.com/kuangbin/" target="_blank" title="cnblogs"><i class="fa fa-fw fa-globe"></i>cnblogs</a>
+                  
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://wpa.qq.com/msgrd?v=3&uin=1691626124&site=qq&menu=yes" target="_blank" title="QQ"><i class="fa fa-fw fa-globe"></i>QQ</a>
+                  
+                </span>
+              
+            </div>
+          
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-block">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                友情链接
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://www.cnblogs.com/kuangbin/" title="我的博客园" target="_blank">我的博客园</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://zhiyi.live/" title="MoonChasing" target="_blank">MoonChasing</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://taowusheng.cn/" title="YIFEI" target="_blank">YIFEI</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://fancypei.github.io/" title="Fancy" target="_blank">Fancy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://vincentxwd.github.io/" title="Kirai" target="_blank">Kirai</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://coswindy.cn/" title="coswindy" target="_blank">coswindy</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://standhr.com/" title="StandHR" target="_blank">StandHR</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://blog.fcteam.net/" title="FrostMiKu" target="_blank">FrostMiKu</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://cubercsl.cn/" title="CSL" target="_blank">CSL</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="https://www.dreamwings.cn/" title="千千" target="_blank">千千</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+            
+          
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; 2018 &mdash; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love" id="animate">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">kuangbin</span>
+
+  
+
+  
+</div>
+
+
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动 v3.7.1</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://theme-next.org">NexT.Pisces</a> v6.3.0</div>
+
+
+
+
+        
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv" title="总访客量">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+    </span>
+  
+
+  
+    <span class="site-pv" title="总访问量">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+    </span>
+  
+</div>
+
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+	
+    
+
+    
+      <div>
+        <!-- Go to www.addthis.com/dashboard to customize your tools -->
+<div class="addthis_inline_share_toolbox">
+  <script type = "text/javascript" src = "//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5b6455de9c11f26c" async = "async" ></script>
+</div>
+
+      </div>
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=6.3.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=6.3.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=6.3.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.3.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.3.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=6.3.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  
+  
+  <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+  
+  <script type="text/javascript">
+    var GUEST = ['nick','mail','link'];
+    var guest = 'nick,mail,link';
+    guest = guest.split(',').filter(function (item) {
+      return GUEST.indexOf(item)>-1;
+    });
+    new Valine({
+        el: '#comments' ,
+        verify: false,
+        notify: false,
+        appId: 'dmpgo3aJozOm83msYDt9GCV8-gzGzoHsz',
+        appKey: 'ImqAKJAJPzDYWv2il68TCjak',
+        placeholder: 'ヾﾉ≧∀≦)o 来呀！快活呀！~',
+        avatar:'mm',
+        meta:guest,
+        pageSize:'10' || 10,
+        visitor: false
+    });
+  </script>
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+  
+    
+      <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+        processEscapes: true,
+        skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+      },
+      TeX: {equationNumbers: { autoNumber: "AMS" }}
+    });
+</script>
+
+<script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+    });
+</script>
+<script type="text/javascript" src="//cdn.jsdelivr.net/npm/mathjax@2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    
+  
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  <script type="text/javascript" src="/lib/clipboard/clipboard.min.js"></script>
+<script type="text/javascript" src="/js/src/custom.js"></script>
+  
+  <!-- 页面点击小红心 -->
+  <script type="text/javascript" src="/js/src/love.js"></script>
+
+</body>
+</html>
