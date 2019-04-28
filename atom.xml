@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://kuangbin.github.io/"/>
-  <updated>2019-01-06T12:03:04.019Z</updated>
+  <updated>2019-04-28T14:03:20.343Z</updated>
   <id>http://kuangbin.github.io/</id>
   
   <author>
@@ -15,6 +15,37 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>计算几何模板中的代码</title>
+    <link href="http://kuangbin.github.io/2019/04/28/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95%E6%A8%A1%E6%9D%BF%E4%B8%AD%E7%9A%84%E4%BB%A3%E7%A0%81/"/>
+    <id>http://kuangbin.github.io/2019/04/28/计算几何模板中的代码/</id>
+    <published>2019-04-28T13:57:47.000Z</published>
+    <updated>2019-04-28T14:03:20.343Z</updated>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;应群里大佬的要求，把模板里面计算几何部分的代码给贴出来。&lt;/p&gt;
+&lt;p&gt;具体参考最新的模板。&lt;/p&gt;
+&lt;p&gt;7 计算几何&lt;/p&gt;
+&lt;p&gt;7.1 二维几何&lt;/p&gt;
+&lt;figure class=&quot;highlight c++&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutt
+      
+    
+    </summary>
+    
+      <category term="模板" scheme="http://kuangbin.github.io/categories/%E6%A8%A1%E6%9D%BF/"/>
+    
+      <category term="计算几何" scheme="http://kuangbin.github.io/categories/%E6%A8%A1%E6%9D%BF/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    
+    
+      <category term="计算几何" scheme="http://kuangbin.github.io/tags/%E8%AE%A1%E7%AE%97%E5%87%A0%E4%BD%95/"/>
+    
+      <category term="模板" scheme="http://kuangbin.github.io/tags/%E6%A8%A1%E6%9D%BF/"/>
+    
+  </entry>
   
   <entry>
     <title>我的知识星球</title>
@@ -240,9 +271,9 @@
     
       <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
     
-      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
-    
       <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
+    
+      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
     
       <category term="水题" scheme="http://kuangbin.github.io/categories/%E6%B0%B4%E9%A2%98/"/>
     
@@ -507,38 +538,6 @@
       <category term="UVALive" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/UVALive/"/>
     
       <category term="算法" scheme="http://kuangbin.github.io/categories/DP/Online-Judge/UVALive/%E7%AE%97%E6%B3%95/"/>
-    
-    
-      <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
-    
-      <category term="算法" scheme="http://kuangbin.github.io/tags/%E7%AE%97%E6%B3%95/"/>
-    
-      <category term="斜率优化" scheme="http://kuangbin.github.io/tags/%E6%96%9C%E7%8E%87%E4%BC%98%E5%8C%96/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>BZOJ 1911: [Apio2010]特别行动队 （斜率优化DP）</title>
-    <link href="http://kuangbin.github.io/2015/05/05/bzoj1911/"/>
-    <id>http://kuangbin.github.io/2015/05/05/bzoj1911/</id>
-    <published>2015-05-05T13:55:29.000Z</published>
-    <updated>2018-07-29T12:47:27.648Z</updated>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;&lt;a href=&quot;http://www.lydsy.com/JudgeOnline/problem.php?id=1911&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;BZOJ1911&lt;/a&gt;  &lt;/p&gt;
-&lt;h2 id=&quot;1911-Apio2010-特别
-      
-    
-    </summary>
-    
-      <category term="Online Judge" scheme="http://kuangbin.github.io/categories/Online-Judge/"/>
-    
-      <category term="DP" scheme="http://kuangbin.github.io/categories/DP/"/>
-    
-      <category term="算法" scheme="http://kuangbin.github.io/categories/%E7%AE%97%E6%B3%95/"/>
     
     
       <category term="ACM" scheme="http://kuangbin.github.io/tags/ACM/"/>
